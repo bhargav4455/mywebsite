@@ -1,62 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
   <defs>
-    <linearGradient id="ring-g" x1="20" y1="20" x2="180" y2="180" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#C0C8D0"/>
-      <stop offset="30%" stop-color="#E8ECF0"/>
-      <stop offset="50%" stop-color="#F8FAFB"/>
-      <stop offset="70%" stop-color="#D0D8E0"/>
-      <stop offset="100%" stop-color="#A0AAB4"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#ec4899"/>
     </linearGradient>
-    <linearGradient id="ring-inner" x1="30" y1="30" x2="170" y2="170" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#1A5276"/>
-      <stop offset="100%" stop-color="#2980B9"/>
-    </linearGradient>
-    <linearGradient id="arrow-g" x1="60" y1="120" x2="165" y2="55" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#C0C8D0"/>
-      <stop offset="40%" stop-color="#E8ECF0"/>
-      <stop offset="100%" stop-color="#F0F4F8"/>
-    </linearGradient>
-    <linearGradient id="swoosh-g" x1="40" y1="115" x2="140" y2="95" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#2196F3"/>
-      <stop offset="100%" stop-color="#1565C0"/>
-    </linearGradient>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.15"/>
-    </filter>
   </defs>
-
-  <!-- Outer metallic ring -->
-  <circle cx="100" cy="100" r="88" fill="url(#ring-g)" filter="url(#shadow)"/>
-  <!-- Inner ring border (dark blue) -->
-  <circle cx="100" cy="100" r="84" fill="none" stroke="url(#ring-inner)" stroke-width="2.5"/>
-  <!-- White center -->
-  <circle cx="100" cy="100" r="78" fill="white"/>
-  <!-- Inner blue ring accent -->
-  <circle cx="100" cy="100" r="78" fill="none" stroke="#1A5276" stroke-width="1.2" opacity="0.3"/>
-
-  <!-- Tech circuit details on ring (subtle) -->
-  <circle cx="155" cy="42" r="2.5" fill="#A0AAB4" opacity="0.7"/>
-  <circle cx="165" cy="60" r="1.8" fill="#B0B8C0" opacity="0.6"/>
-  <circle cx="42" cy="130" r="2" fill="#A0AAB4" opacity="0.6"/>
-  <rect x="160" y="85" width="12" height="1.5" rx="0.75" fill="#B0B8C0" opacity="0.5"/>
-  <rect x="28" y="95" width="10" height="1.5" rx="0.75" fill="#B0B8C0" opacity="0.5"/>
-  <!-- Small circuit lines on top -->
-  <line x1="120" y1="15" x2="128" y2="15" stroke="#B8C0C8" stroke-width="1.5" opacity="0.5"/>
-  <line x1="132" y1="17" x2="132" y2="22" stroke="#B8C0C8" stroke-width="1.5" opacity="0.5"/>
-  <line x1="76" y1="15" x2="82" y2="15" stroke="#B8C0C8" stroke-width="1.5" opacity="0.5"/>
-
-  <!-- B letter (dark navy) -->
-  <path d="M60 68h14c4.4 0 7.6 1.2 9.6 3.2 1.6 1.6 2.4 3.8 2.4 6.2v.2c0 4.2-2.2 6.6-5.2 8 3.8 1.4 6.2 3.8 6.2 8.4v.2c0 6.2-5 9.8-13.2 9.8H60V68zm18.5 11c0-2.8-2.1-4.4-5.8-4.4H66v9h6.6c3.8 0 5.9-1.6 5.9-4.4v-.2zm-4.5 12H66v9.4h8.4c4 0 6.2-1.8 6.2-4.6v-.2c0-2.8-2.2-4.6-6.6-4.6z" fill="#0D3B66"/>
-
-  <!-- K letter (dark navy) -->
-  <path d="M100 68h6.5v16l13.5-16h8l-13 15.2L129 104h-8l-10.5-16.4-4 4.4V104H100V68z" fill="#0D3B66"/>
-
-  <!-- Blue swoosh wave under letters -->
-  <path d="M48 108 C60 102, 80 97, 105 100 C120 102, 132 108, 148 104" stroke="url(#swoosh-g)" stroke-width="4" fill="none" stroke-linecap="round"/>
-
-  <!-- Silver upward arrow swooping through -->
-  <path d="M55 118 C70 115, 90 100, 110 88 C125 78, 140 68, 152 56" stroke="url(#arrow-g)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
-  <!-- Arrowhead -->
-  <polygon points="155,48 160,62 147,58" fill="#E0E4E8"/>
-  <polygon points="155,48 159,60 148,57" fill="#D0D8E0" opacity="0.8"/>
+  <!-- Circle background with brand gradient -->
+  <circle cx="60" cy="60" r="56" fill="url(#bg)"/>
+  <!-- B letter -->
+  <path d="M32 34h12c3.8 0 6.6 1 8.4 2.8 1.4 1.4 2.1 3.2 2.1 5.4v.1c0 3.6-1.9 5.7-4.5 6.9 3.3 1.2 5.4 3.3 5.4 7.3v.1c0 5.4-4.3 8.4-11.4 8.4H32V34zm16 9.6c0-2.4-1.8-3.8-5-3.8h-5.6v7.8h5.4c3.2 0 5.2-1.4 5.2-3.9v-.1zm-3.8 10.2H37.4v8.2h7.2c3.4 0 5.4-1.5 5.4-4v-.1c0-2.5-1.9-4-5.8-4.1z" fill="#fff"/>
+  <!-- K letter -->
+  <path d="M66 34h5.6v13.8L83.3 34h6.9L79 48.2 91 66h-7L75.6 52l-4 4.4V66H66V34z" fill="#fff"/>
+  <!-- Thin accent line -->
+  <line x1="32" y1="74" x2="91" y2="74" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Subtitle -->
+  <text x="61.5" y="85" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="8" font-weight="600" fill="rgba(255,255,255,0.7)" letter-spacing="3">PORTFOLIO</text>
 </svg>
