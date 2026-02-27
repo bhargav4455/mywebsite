@@ -5,317 +5,604 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- Primary Meta Tags -->
-  <title>Bhargava Katta — Senior Specialist, System Management</title>
-  <meta name="title" content="Bhargava Katta — Senior Specialist, System Management" />
-  <meta name="description" content="Portfolio of Bhargava Katta — Senior Specialist in System Management, Cloud Infrastructure, Automation & DevOps. Enterprise-grade solutions at Microsoft via LTIMindtree." />
-  <meta name="keywords" content="Bhargava Katta, System Management, Cloud Infrastructure, Automation, DevOps, Power Platform, Microsoft, LTIMindtree, Enterprise Systems, Portfolio" />
+  <title>Bhargava Katta — AI-Driven System Automation &amp; Cloud Infrastructure</title>
+  <meta name="description" content="Bhargava Katta — 12+ years of enterprise system management, AI-driven automation, cloud infrastructure, and DevOps. Microsoft · LTIMindtree." />
+  <meta name="keywords" content="Bhargava Katta, AI Automation, System Management, Cloud Infrastructure, Azure, DevOps, Power Platform, Microsoft, LTIMindtree" />
   <meta name="author" content="Bhargava Katta" />
   <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://bhargavakatta.com/" />
-  <meta property="og:title" content="Bhargava Katta — Senior Specialist, System Management" />
-  <meta property="og:description" content="Portfolio of Bhargava Katta — Senior Specialist in System Management, Cloud Infrastructure, Automation & DevOps." />
-  <meta property="og:image" content="https://bhargavakatta.com/assets/images/og-image.png" />
+  <meta property="og:title" content="Bhargava Katta — AI-Driven System Automation" />
+  <meta property="og:description" content="12+ years engineering enterprise systems, AI automation, and cloud infrastructure at Microsoft." />
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://bhargavakatta.com/" />
-  <meta property="twitter:title" content="Bhargava Katta — Senior Specialist, System Management" />
-  <meta property="twitter:description" content="Portfolio of Bhargava Katta — Senior Specialist in System Management, Cloud Infrastructure, Automation & DevOps." />
-
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://bhargavakatta.com/" />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════
-       NAVIGATION
-  ═══════════════════════════════════════════ -->
+  <!-- ══════════════ NAVIGATION ══════════════ -->
   <header id="header" class="header">
     <nav class="nav container">
       <a href="#hero" class="nav__logo">
         <span class="nav__logo-symbol">&lt;</span>BK<span class="nav__logo-symbol"> /&gt;</span>
       </a>
-
       <ul class="nav__menu" id="navMenu">
         <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#certifications" class="nav__link">Certifications</a></li>
         <li><a href="#skills" class="nav__link">Skills</a></li>
         <li><a href="#experience" class="nav__link">Experience</a></li>
-        <li><a href="#projects" class="nav__link">Projects</a></li>
-        <li><a href="#resume" class="nav__link">Resume</a></li>
-        <li><a href="https://www.linkedin.com/in/bhargava-katta-00170a43/" class="nav__link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="#volunteering" class="nav__link">Volunteering</a></li>
+        <li><a href="#beyond" class="nav__link">Life</a></li>
         <li><a href="#contact" class="nav__link nav__link--cta">Contact</a></li>
       </ul>
-
-      <!-- Mobile menu toggle -->
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu">
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </header>
 
+  <div class="nav-overlay" id="navOverlay"></div>
+
   <main>
 
-    <!-- ═══════════════════════════════════════════
-         SECTION 1 — HERO
-    ═══════════════════════════════════════════ -->
+    <!-- ══════════════ HERO ══════════════ -->
     <section id="hero" class="hero">
       <canvas id="heroCanvas" class="hero__canvas" aria-hidden="true"></canvas>
       <div class="hero__bg-grid" aria-hidden="true"></div>
       <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
       <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--3" aria-hidden="true"></div>
+
       <div class="hero__content container">
         <div class="hero__badge animate-on-scroll">
           <span class="hero__badge-dot"></span>
-          Available for opportunities
+          Open to Opportunities
         </div>
-        <p class="hero__greeting animate-on-scroll">Hello, I'm</p>
+
         <h1 class="hero__name animate-on-scroll">
           <span class="hero__name-first">Bhargava</span>
           <span class="hero__name-last">Katta</span>
         </h1>
+
         <p class="hero__tagline animate-on-scroll">
-          Senior Specialist — System Management
+          AI-Driven System Automation · Cloud Infrastructure at Scale<br />
+          <span class="hero__tagline-accent">Engineer. Leader. Explorer.</span>
         </p>
+
         <div class="hero__typing animate-on-scroll">
           <span class="hero__typing-prefix">&gt;&nbsp;</span>
           <span class="hero__typing-text" id="typingText"></span>
           <span class="hero__typing-cursor">|</span>
         </div>
-        <p class="hero__sub animate-on-scroll">
-          Driving operational excellence at <strong>Microsoft</strong> via <strong>LTIMindtree</strong>.
-        </p>
+
         <div class="hero__cta animate-on-scroll">
-          <a href="#about" class="btn btn--primary btn--glow">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            Know More About Me
+          <a href="#resume" class="btn btn--primary btn--glow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+            View Resume
           </a>
-          <a href="#contact" class="btn btn--outline">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-            Contact Me
+          <a href="#impact" class="btn btn--outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+            Explore Impact
+          </a>
+          <a href="#beyond" class="btn btn--glass">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            Beyond Work
           </a>
         </div>
+
         <div class="hero__stats animate-on-scroll">
           <div class="hero__stat">
-            <span class="hero__stat-number" data-count="6">0</span>+
+            <span class="hero__stat-number" data-count="12">0</span><span class="hero__stat-plus">+</span>
             <span class="hero__stat-label">Years Experience</span>
           </div>
           <div class="hero__stat-divider"></div>
           <div class="hero__stat">
-            <span class="hero__stat-number" data-count="50">0</span>+
-            <span class="hero__stat-label">Projects Delivered</span>
+            <span class="hero__stat-number" data-count="12">0</span>
+            <span class="hero__stat-label">Certifications</span>
           </div>
           <div class="hero__stat-divider"></div>
           <div class="hero__stat">
-            <span class="hero__stat-number" data-count="99">0</span>%
-            <span class="hero__stat-label">Uptime Achieved</span>
+            <span class="hero__stat-number" data-count="5">0</span>
+            <span class="hero__stat-label">Companies</span>
+          </div>
+          <div class="hero__stat-divider"></div>
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-count="99">0</span><span class="hero__stat-plus">.9%</span>
+            <span class="hero__stat-label">Uptime</span>
           </div>
         </div>
       </div>
-      <!-- Scroll indicator -->
+
       <div class="hero__scroll" aria-hidden="true">
         <span class="hero__scroll-text">Scroll</span>
         <div class="hero__scroll-line"></div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SECTION 2 — ABOUT ME
-    ═══════════════════════════════════════════ -->
+    <!-- ══════════════ ABOUT ══════════════ -->
     <section id="about" class="section about">
       <div class="container">
-        <h2 class="section__title animate-on-scroll">About Me</h2>
-        <p class="section__subtitle animate-on-scroll">Who I Am &amp; What I Do</p>
+        <h2 class="section__title animate-on-scroll">Professional Identity</h2>
+        <p class="section__subtitle animate-on-scroll">Who I Am &amp; What I Drive</p>
 
         <div class="about__grid">
           <div class="about__text animate-on-scroll">
             <p>
-              I am a <strong>Senior Specialist in System Management</strong> with deep expertise in
-              enterprise cloud infrastructure, automation engineering, and large-scale system operations.
-              Currently delivering mission-critical solutions at <strong>Microsoft</strong> through
-              <strong>LTIMindtree</strong>, I bring a relentless focus on operational excellence,
-              reliability, and innovation.
+              With <strong>12+ years</strong> of enterprise technology experience spanning
+              <strong>ZEN3, HCL Technologies, Mindtree, LTIMindtree, and LTM</strong>, I've evolved
+              from a data-center analyst to a <strong>Senior System Specialist</strong> leading
+              AI-driven automation initiatives at <em>Microsoft</em>.
             </p>
             <p>
-              My engineering philosophy centers on <em>automation-first thinking</em> — eliminating
-              manual toil, building self-healing systems, and enabling teams to operate at scale.
-              I believe in proactive monitoring, data-driven decision making, and continuous
-              improvement as the pillars of world-class system management.
-            </p>
-            <p>
-              With a leadership mindset forged in high-stakes enterprise environments, I partner
-              with cross-functional teams to transform complex operational challenges into
-              streamlined, resilient, and scalable solutions.
+              My engineering philosophy is rooted in <em>AI-first automation</em> — leveraging
+              Generative AI, Azure cloud services, and intelligent workflows to eliminate manual toil,
+              build self-healing infrastructure, and deliver enterprise-grade reliability at scale.
+              I hold <strong>12 industry certifications</strong> including Azure, DevOps, CCNA, ITIL, and
+              Generative AI — and I actively give back through community volunteering.
             </p>
           </div>
 
           <div class="about__highlights animate-on-scroll">
-            <div class="about__card">
+            <div class="about__card glass-card">
+              <div class="about__card-icon">🤖</div>
+              <h3>AI &amp; Automation</h3>
+              <p>Generative AI certified. Building intelligent, self-healing systems.</p>
+            </div>
+            <div class="about__card glass-card">
               <div class="about__card-icon">☁️</div>
-              <h3>Enterprise Cloud</h3>
-              <p>Architecting and managing cloud-scale infrastructure for Fortune 500 operations.</p>
+              <h3>Cloud Architecture</h3>
+              <p>Azure-certified. Enterprise cloud at Fortune 500 scale.</p>
             </div>
-            <div class="about__card">
-              <div class="about__card-icon">⚡</div>
-              <h3>Automation-Driven</h3>
-              <p>Building intelligent automation that eliminates toil and accelerates delivery.</p>
-            </div>
-            <div class="about__card">
+            <div class="about__card glass-card">
               <div class="about__card-icon">🎯</div>
-              <h3>Leadership Mindset</h3>
-              <p>Leading with clarity, accountability, and a commitment to engineering excellence.</p>
+              <h3>12+ Years Enterprise</h3>
+              <p>From analyst to specialist across 5 top-tier companies.</p>
+            </div>
+            <div class="about__card glass-card">
+              <div class="about__card-icon">🤝</div>
+              <h3>Community Leader</h3>
+              <p>Active volunteer in education, trails, and social services.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SECTION 3 — SKILLS
-    ═══════════════════════════════════════════ -->
+    <!-- ══════════════ IMPACT ══════════════ -->
+    <section id="impact" class="section impact">
+      <div class="container">
+        <h2 class="section__title animate-on-scroll">What I Deliver</h2>
+        <p class="section__subtitle animate-on-scroll">Impact Over Activity — Results That Matter</p>
+
+        <div class="impact__grid">
+          <div class="impact__card glass-card animate-on-scroll">
+            <div class="impact__icon">🚀</div>
+            <h3>AI-Powered Automation</h3>
+            <p>Designed AI-driven automation frameworks using Generative AI &amp; Azure Data Factory that replaced repetitive processes, freeing engineering hours for strategic innovation.</p>
+            <div class="impact__metric">
+              <span class="impact__metric-number" data-count="70">0</span><span class="impact__metric-suffix">%</span>
+              <span class="impact__metric-label">Reduction in Manual Tasks</span>
+            </div>
+          </div>
+
+          <div class="impact__card glass-card animate-on-scroll">
+            <div class="impact__icon">⚙️</div>
+            <h3>Scalable Monitoring Systems</h3>
+            <p>Built enterprise-grade monitoring with SCOM &amp; Azure Monitor that proactively detect, alert, and self-heal before issues impact end users.</p>
+            <div class="impact__metric">
+              <span class="impact__metric-number" data-count="99">0</span><span class="impact__metric-suffix">.9%</span>
+              <span class="impact__metric-label">System Uptime Achieved</span>
+            </div>
+          </div>
+
+          <div class="impact__card glass-card animate-on-scroll">
+            <div class="impact__icon">📊</div>
+            <h3>Data-Driven Intelligence</h3>
+            <p>Created executive Power BI dashboards and analytics pipelines that transform raw telemetry into actionable operational intelligence for leadership.</p>
+            <div class="impact__metric">
+              <span class="impact__metric-number" data-count="15">0</span><span class="impact__metric-suffix">+</span>
+              <span class="impact__metric-label">Executive Dashboards Built</span>
+            </div>
+          </div>
+
+          <div class="impact__card glass-card animate-on-scroll">
+            <div class="impact__icon">🔄</div>
+            <h3>DevOps &amp; Reliability</h3>
+            <p>Transformed fragile manual workflows into robust CI/CD pipelines with Azure DevOps — built-in error handling, automated testing, and full audit trails.</p>
+            <div class="impact__metric">
+              <span class="impact__metric-number" data-count="40">0</span><span class="impact__metric-suffix">%</span>
+              <span class="impact__metric-label">Faster Incident Resolution</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ CERTIFICATIONS ══════════════ -->
+    <section id="certifications" class="section certifications">
+      <div class="container">
+        <h2 class="section__title animate-on-scroll">Licenses &amp; Certifications</h2>
+        <p class="section__subtitle animate-on-scroll">12 Industry Certifications — Continuous Learning</p>
+
+        <div class="certs__grid">
+
+          <div class="cert-card glass-card animate-on-scroll">
+            <div class="cert-card__badge">🧠</div>
+            <div class="cert-card__body">
+              <h3>Generative AI for Everyone</h3>
+              <span class="cert-card__issuer">DeepLearning.AI</span>
+              <span class="cert-card__date">Mar 2024</span>
+            </div>
+            <div class="cert-card__tag cert-card__tag--ai">AI</div>
+          </div>
+
+          <div class="cert-card glass-card animate-on-scroll">
+            <div class="cert-card__badge">☁️</div>
+            <div class="cert-card__body">
+              <h3>Microsoft Certified: Azure Fundamentals</h3>
+              <span class="cert-card__issuer">Microsoft</span>
+              <span class="cert-card__date">Aug 2022</span>
+            </div>
+            <div class="cert-card__tag cert-card__tag--azure">Azure</div>
+          </div>
+
+          <div class="cert-card glass-card animate-on-scroll">
+            <div class="cert-card__badge">📊</div>
+            <div class="cert-card__body">
+              <h3>Microsoft Certified: Azure Data Fundamentals</h3>
+              <span class="cert-card__issuer">Microsoft</span>
+              <span class="cert-card__date">Jul 2022</span>
+            </div>
+            <div class="cert-card__tag cert-card__tag--azure">Azure</div>
+          </div>
+
+          <div class="cert-card glass-card animate-on-scroll">
+            <div class="cert-card__badge">🔄</div>
+            <div class="cert-card__body">
+              <h3>Microsoft Professional Program in DevOps</h3>
+              <span class="cert-card__issuer">Microsoft</span>
+              <span class="cert-card__date">Aug 2020</span>
+            </div>
+            <div class="cert-card__tag cert-card__tag--devops">DevOps</div>
+          </div>
+
+          <div class="cert-card glass-card animate-on-scroll">
+            <div class="cert-card__badge">🖥️</div>
+            <div class="cert-card__body">
+              <h3>Windows Server 2016 Advanced</h3>
+              <span class="cert-card__issuer">Techademy</span>
+              <span class="cert-card__date">Jul 2020</span>
+            </div>
+            <div class="cert-card__tag cert-card__tag--infra">Infra</div>
+          </div>
+
+          <div class="cert-card glass-card animate-on-scroll">
+            <div class="cert-card__badge">📋</div>
+            <div class="cert-card__body">
+              <h3>ITIL Service Operation</h3>
+              <span class="cert-card__issuer">Simplilearn</span>
+              <span class="cert-card__date">Feb 2019</span>
+            </div>
+            <div class="cert-card__tag cert-card__tag--itsm">ITSM</div>
+          </div>
+
+          <div class="cert-card glass-card animate-on-scroll">
+            <div class="cert-card__badge">🗃️</div>
+            <div class="cert-card__body">
+              <h3>Administering SQL Server 2012/2014 Databases</h3>
+              <span class="cert-card__issuer">Microsoft</span>
+              <span class="cert-card__date">Feb 2019</span>
+            </div>
+            <div class="cert-card__tag cert-card__tag--data">Data</div>
+          </div>
+
+          <div class="cert-card glass-card animate-on-scroll">
+            <div class="cert-card__badge">☁️</div>
+            <div class="cert-card__body">
+              <h3>Exam 533: Implementing Azure Infrastructure Solutions</h3>
+              <span class="cert-card__issuer">Microsoft</span>
+              <span class="cert-card__date">Feb 2018</span>
+            </div>
+            <div class="cert-card__tag cert-card__tag--azure">Azure</div>
+          </div>
+
+          <div class="cert-card glass-card animate-on-scroll">
+            <div class="cert-card__badge">📈</div>
+            <div class="cert-card__body">
+              <h3>Analyzing &amp; Visualizing Data with Power BI</h3>
+              <span class="cert-card__issuer">edX</span>
+              <span class="cert-card__date">Aug 2018</span>
+            </div>
+            <div class="cert-card__tag cert-card__tag--data">Data</div>
+          </div>
+
+          <div class="cert-card glass-card animate-on-scroll">
+            <div class="cert-card__badge">🖥️</div>
+            <div class="cert-card__body">
+              <h3>Microsoft Certified Systems Administrator (MCSA)</h3>
+              <span class="cert-card__issuer">Microsoft</span>
+              <span class="cert-card__date">Feb 2016</span>
+            </div>
+            <div class="cert-card__tag cert-card__tag--infra">Infra</div>
+          </div>
+
+          <div class="cert-card glass-card animate-on-scroll">
+            <div class="cert-card__badge">🌐</div>
+            <div class="cert-card__body">
+              <h3>Cisco Certified Network Associate (CCNA)</h3>
+              <span class="cert-card__issuer">Cisco Networking Academy</span>
+              <span class="cert-card__date">Apr 2015</span>
+            </div>
+            <div class="cert-card__tag cert-card__tag--network">Network</div>
+          </div>
+
+          <div class="cert-card glass-card animate-on-scroll">
+            <div class="cert-card__badge">🔐</div>
+            <div class="cert-card__body">
+              <h3>Ethical Hacking</h3>
+              <span class="cert-card__issuer">Techfest, IIT Bombay</span>
+              <span class="cert-card__date">Oct 2011</span>
+            </div>
+            <div class="cert-card__tag cert-card__tag--security">Security</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ SKILLS ══════════════ -->
     <section id="skills" class="section skills">
       <div class="container">
         <h2 class="section__title animate-on-scroll">Skills &amp; Expertise</h2>
         <p class="section__subtitle animate-on-scroll">Core Technical Competencies</p>
 
         <div class="skills__grid">
-
-          <!-- Skill 1 -->
-          <div class="skill-card animate-on-scroll">
+          <div class="skill-card glass-card animate-on-scroll">
             <div class="skill-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2a4.5 4.5 0 0 0 0 9 4.5 4.5 0 0 0 0-9M12 13a4.5 4.5 0 0 0 0 9 4.5 4.5 0 0 0 0-9"/><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-9-9 9 9 0 0 1 9-9 9 9 0 0 1 9 9z"/></svg>
             </div>
-            <h3 class="skill-card__title">Cloud Infrastructure</h3>
+            <h3 class="skill-card__title">AI &amp; Generative AI</h3>
             <ul class="skill-card__list">
-              <li>Azure Cloud Services</li>
-              <li>Virtual Machines &amp; Networking</li>
-              <li>Identity &amp; Access Management</li>
-              <li>Cloud Security &amp; Compliance</li>
-              <li>Hybrid Cloud Architecture</li>
+              <li>Generative AI &amp; LLMs</li>
+              <li>AI-Driven Automation</li>
+              <li>Azure AI Services</li>
+              <li>Intelligent Workflows</li>
+              <li>Machine Learning Ops</li>
             </ul>
+            <div class="skill-card__bar"><div class="skill-card__bar-fill" data-width="88"></div></div>
           </div>
 
-          <!-- Skill 2 -->
-          <div class="skill-card animate-on-scroll">
+          <div class="skill-card glass-card animate-on-scroll">
             <div class="skill-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"/><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+            </div>
+            <h3 class="skill-card__title">Cloud &amp; Infrastructure</h3>
+            <ul class="skill-card__list">
+              <li>Azure Cloud Platform</li>
+              <li>Azure Data Factory</li>
+              <li>Virtual Machines &amp; Networking</li>
+              <li>Identity &amp; Access Management</li>
+              <li>Hybrid Cloud Architecture</li>
+            </ul>
+            <div class="skill-card__bar"><div class="skill-card__bar-fill" data-width="95"></div></div>
+          </div>
+
+          <div class="skill-card glass-card animate-on-scroll">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"/><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
             </div>
             <h3 class="skill-card__title">Automation &amp; DevOps</h3>
             <ul class="skill-card__list">
               <li>PowerShell &amp; Scripting</li>
-              <li>CI/CD Pipelines</li>
+              <li>Azure DevOps &amp; CI/CD</li>
               <li>Infrastructure as Code</li>
               <li>Configuration Management</li>
               <li>Process Orchestration</li>
             </ul>
+            <div class="skill-card__bar"><div class="skill-card__bar-fill" data-width="93"></div></div>
           </div>
 
-          <!-- Skill 3 -->
-          <div class="skill-card animate-on-scroll">
+          <div class="skill-card glass-card animate-on-scroll">
             <div class="skill-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"/></svg>
             </div>
-            <h3 class="skill-card__title">Power Platform</h3>
-            <ul class="skill-card__list">
-              <li>Power Automate Flows</li>
-              <li>Power Apps Development</li>
-              <li>Power BI Dashboards</li>
-              <li>Dataverse &amp; Connectors</li>
-              <li>Low-Code Solutions</li>
-            </ul>
-          </div>
-
-          <!-- Skill 4 -->
-          <div class="skill-card animate-on-scroll">
-            <div class="skill-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"/></svg>
-            </div>
-            <h3 class="skill-card__title">Monitoring &amp; System Management</h3>
+            <h3 class="skill-card__title">Monitoring &amp; ITSM</h3>
             <ul class="skill-card__list">
               <li>SCOM &amp; Azure Monitor</li>
               <li>Incident Management</li>
-              <li>Performance Optimization</li>
+              <li>ITIL Best Practices</li>
               <li>Capacity Planning</li>
               <li>SLA/SLO Management</li>
             </ul>
+            <div class="skill-card__bar"><div class="skill-card__bar-fill" data-width="97"></div></div>
           </div>
 
-          <!-- Skill 5 -->
-          <div class="skill-card animate-on-scroll">
+          <div class="skill-card glass-card animate-on-scroll">
             <div class="skill-card__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25a2.25 2.25 0 0 1-2.25-2.25v-2.25Z"/></svg>
             </div>
-            <h3 class="skill-card__title">Reporting &amp; Analytics</h3>
+            <h3 class="skill-card__title">Power Platform &amp; Data</h3>
             <ul class="skill-card__list">
-              <li>Executive Dashboards</li>
-              <li>KPI Tracking &amp; Metrics</li>
-              <li>Data Visualization</li>
-              <li>Operational Reporting</li>
-              <li>Trend Analysis</li>
+              <li>Power Automate &amp; Power Apps</li>
+              <li>Power BI Dashboards</li>
+              <li>Azure SQL &amp; Dataverse</li>
+              <li>Data Center Management</li>
+              <li>Active Directory</li>
             </ul>
+            <div class="skill-card__bar"><div class="skill-card__bar-fill" data-width="90"></div></div>
           </div>
 
+          <div class="skill-card glass-card animate-on-scroll">
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+            </div>
+            <h3 class="skill-card__title">Networking &amp; Security</h3>
+            <ul class="skill-card__list">
+              <li>CCNA Routing &amp; Switching</li>
+              <li>Network Architecture</li>
+              <li>Cloud Security &amp; Compliance</li>
+              <li>Ethical Hacking Fundamentals</li>
+              <li>Zero Trust Architecture</li>
+            </ul>
+            <div class="skill-card__bar"><div class="skill-card__bar-fill" data-width="85"></div></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SECTION 4 — EXPERIENCE
-    ═══════════════════════════════════════════ -->
+    <!-- ══════════════ EXPERIENCE ══════════════ -->
     <section id="experience" class="section experience">
       <div class="container">
         <h2 class="section__title animate-on-scroll">Experience</h2>
-        <p class="section__subtitle animate-on-scroll">Professional Journey</p>
+        <p class="section__subtitle animate-on-scroll">12+ Years · 5 Companies · Continuous Growth</p>
 
         <div class="experience__timeline">
 
+          <!-- 1. LTM – Current -->
           <div class="timeline-item animate-on-scroll">
-            <div class="timeline-item__marker"></div>
-            <div class="timeline-item__content">
+            <div class="timeline-item__marker timeline-item__marker--active"></div>
+            <div class="timeline-item__content glass-card">
               <div class="timeline-item__header">
-                <h3>Senior Specialist — System Management</h3>
-                <span class="timeline-item__company">LTIMindtree · Client: Microsoft</span>
+                <h3>Senior System Specialist</h3>
+                <span class="timeline-item__company">LTM · Full-time</span>
               </div>
-              <span class="timeline-item__period">Present</span>
+              <span class="timeline-item__period">Feb 2026 – Present</span>
+              <span class="timeline-item__location">📍 Bellevue, Washington</span>
               <ul class="timeline-item__details">
-                <li>Lead enterprise-level system management operations supporting Microsoft's global infrastructure.</li>
-                <li>Design and implement automation frameworks that reduce manual intervention by significant margins.</li>
-                <li>Drive cloud infrastructure optimization, ensuring high availability and peak performance across services.</li>
-                <li>Build executive-grade monitoring dashboards and reporting pipelines for operational visibility.</li>
-                <li>Collaborate with cross-functional teams on incident management, root cause analysis, and continuous improvement.</li>
-                <li>Champion Power Platform adoption for workflow automation and low-code solutions.</li>
-                <li>Mentor team members and contribute to knowledge-sharing initiatives across the organization.</li>
+                <li>Leading next-generation AI-driven system management operations.</li>
+                <li>Driving automation and intelligent monitoring for enterprise clients.</li>
+                <li>Collaborating on AI and cloud-first transformation initiatives.</li>
               </ul>
             </div>
           </div>
 
+          <!-- 2. LTIMindtree -->
           <div class="timeline-item animate-on-scroll">
             <div class="timeline-item__marker"></div>
-            <div class="timeline-item__content">
+            <div class="timeline-item__content glass-card">
               <div class="timeline-item__header">
-                <h3>System Management Engineer</h3>
-                <span class="timeline-item__company">LTIMindtree</span>
+                <h3>Senior System Specialist</h3>
+                <span class="timeline-item__company">LTIMindtree · Full-time · Client: Microsoft</span>
               </div>
-              <span class="timeline-item__period">Previous Role</span>
+              <span class="timeline-item__period">Nov 2022 – Feb 2026 · 3 yrs 4 mos</span>
+              <span class="timeline-item__location">📍 Bellevue, Washington</span>
               <ul class="timeline-item__details">
-                <li>Managed large-scale server environments and ensured SLA compliance for enterprise clients.</li>
-                <li>Developed PowerShell-based automation scripts for routine system administration tasks.</li>
-                <li>Implemented proactive monitoring solutions using SCOM and Azure Monitor.</li>
-                <li>Supported infrastructure migrations and cloud adoption initiatives.</li>
+                <li>Led enterprise system management supporting Microsoft's global infrastructure.</li>
+                <li>Designed AI-powered automation frameworks reducing manual intervention by 70%.</li>
+                <li>Built executive monitoring dashboards and reporting pipelines with Power BI.</li>
+                <li>Championed Power Platform adoption for low-code workflow automation.</li>
+                <li>Mentored team members and drove knowledge-sharing initiatives.</li>
+              </ul>
+              <div class="timeline-item__skills">
+                <span>Artificial Intelligence (AI)</span><span>Azure Data Factory</span><span>Azure DevOps</span><span>Power Platform</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Mindtree – Sr System Specialist -->
+          <div class="timeline-item animate-on-scroll">
+            <div class="timeline-item__marker"></div>
+            <div class="timeline-item__content glass-card">
+              <div class="timeline-item__header">
+                <h3>Senior System Specialist</h3>
+                <span class="timeline-item__company">Mindtree · Full-time</span>
+              </div>
+              <span class="timeline-item__period">Jun 2021 – Nov 2022 · 1 yr 6 mos</span>
+              <span class="timeline-item__location">📍 Hyderabad, India</span>
+              <ul class="timeline-item__details">
+                <li>Managed large-scale Azure SQL environments and DevOps pipelines.</li>
+                <li>Drove cloud adoption and process modernization initiatives.</li>
+                <li>Implemented proactive monitoring with SCOM and Azure Monitor.</li>
+              </ul>
+              <div class="timeline-item__skills">
+                <span>Azure SQL</span><span>Azure DevOps</span><span>SCOM</span><span>PowerShell</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Mindtree – Team Lead -->
+          <div class="timeline-item animate-on-scroll">
+            <div class="timeline-item__marker"></div>
+            <div class="timeline-item__content glass-card">
+              <div class="timeline-item__header">
+                <h3>Team Lead</h3>
+                <span class="timeline-item__company">Mindtree · Full-time</span>
+              </div>
+              <span class="timeline-item__period">Jan 2019 – Jun 2021 · 2 yrs 6 mos</span>
+              <span class="timeline-item__location">📍 Hyderabad, India</span>
+              <ul class="timeline-item__details">
+                <li>Led a team of engineers managing enterprise server environments.</li>
+                <li>Developed PowerShell automation scripts for system administration at scale.</li>
+                <li>Ensured SLA compliance and drove continuous improvement initiatives.</li>
+              </ul>
+              <div class="timeline-item__skills">
+                <span>Azure SQL</span><span>PowerShell</span><span>Team Leadership</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Mindtree – Senior Engineer -->
+          <div class="timeline-item animate-on-scroll">
+            <div class="timeline-item__marker"></div>
+            <div class="timeline-item__content glass-card">
+              <div class="timeline-item__header">
+                <h3>Senior Engineer</h3>
+                <span class="timeline-item__company">Mindtree · Full-time</span>
+              </div>
+              <span class="timeline-item__period">Jan 2017 – Jan 2019 · 2 yrs 1 mo</span>
+              <span class="timeline-item__location">📍 Hyderabad, India</span>
+              <ul class="timeline-item__details">
+                <li>Managed Azure SQL databases and cloud infrastructure.</li>
+                <li>Implemented monitoring and performance optimization solutions.</li>
+                <li>Supported infrastructure migrations to cloud environments.</li>
+              </ul>
+              <div class="timeline-item__skills">
+                <span>Azure SQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. HCL Technologies -->
+          <div class="timeline-item animate-on-scroll">
+            <div class="timeline-item__marker"></div>
+            <div class="timeline-item__content glass-card">
+              <div class="timeline-item__header">
+                <h3>Analyst</h3>
+                <span class="timeline-item__company">HCL Technologies · Full-time</span>
+              </div>
+              <span class="timeline-item__period">Apr 2014 – Jan 2017 · 2 yrs 10 mos</span>
+              <span class="timeline-item__location">📍 Hyderabad, India</span>
+              <ul class="timeline-item__details">
+                <li>Managed data center operations and Active Directory infrastructure.</li>
+                <li>Handled incident management and infrastructure troubleshooting.</li>
+                <li>Gained expertise in enterprise-level data center management.</li>
+              </ul>
+              <div class="timeline-item__skills">
+                <span>Data Center Management</span><span>Active Directory</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. ZEN3 -->
+          <div class="timeline-item animate-on-scroll">
+            <div class="timeline-item__marker"></div>
+            <div class="timeline-item__content glass-card">
+              <div class="timeline-item__header">
+                <h3>Analyst</h3>
+                <span class="timeline-item__company">ZEN3</span>
+              </div>
+              <span class="timeline-item__period">May 2013 – Apr 2014 · 1 yr</span>
+              <span class="timeline-item__location">📍 Hyderabad, India</span>
+              <ul class="timeline-item__details">
+                <li>Started professional career in enterprise system analysis.</li>
+                <li>Provided system support and technical troubleshooting.</li>
               </ul>
             </div>
           </div>
@@ -324,96 +611,193 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SECTION 5 — PROJECTS
-    ═══════════════════════════════════════════ -->
+    <!-- ══════════════ PROJECTS ══════════════ -->
     <section id="projects" class="section projects">
       <div class="container">
         <h2 class="section__title animate-on-scroll">Projects</h2>
         <p class="section__subtitle animate-on-scroll">Initiatives &amp; Impact</p>
 
         <div class="projects__grid">
-
-          <article class="project-card animate-on-scroll">
-            <div class="project-card__badge">Enterprise Automation</div>
-            <h3 class="project-card__title">Automated Incident Response Framework</h3>
-            <p class="project-card__desc">
-              Designed and deployed an end-to-end automation framework for incident detection, triage,
-              and remediation — significantly reducing mean time to resolution (MTTR) across critical systems.
-            </p>
+          <article class="project-card glass-card animate-on-scroll">
+            <div class="project-card__badge">AI Automation</div>
+            <h3 class="project-card__title">AI-Powered Incident Response Framework</h3>
+            <p class="project-card__desc">Designed an intelligent end-to-end automation framework leveraging AI for incident detection, triage, and automated remediation — dramatically reducing MTTR.</p>
             <div class="project-card__tags">
-              <span>PowerShell</span>
-              <span>Azure</span>
-              <span>SCOM</span>
-              <span>Logic Apps</span>
+              <span>Gen AI</span><span>PowerShell</span><span>Azure</span><span>Logic Apps</span>
             </div>
           </article>
 
-          <article class="project-card animate-on-scroll">
+          <article class="project-card glass-card animate-on-scroll">
             <div class="project-card__badge">Cloud Optimization</div>
-            <h3 class="project-card__title">Cloud Resource Optimization Engine</h3>
-            <p class="project-card__desc">
-              Built an intelligent resource monitoring and right-sizing solution that analyzes cloud
-              consumption patterns and recommends cost-saving optimizations for enterprise workloads.
-            </p>
+            <h3 class="project-card__title">Cloud Resource Intelligence Engine</h3>
+            <p class="project-card__desc">Built an AI-driven resource monitoring solution that uses Azure Data Factory and ML models to analyze consumption patterns and auto-recommend cost optimizations.</p>
             <div class="project-card__tags">
-              <span>Azure Monitor</span>
-              <span>Power BI</span>
-              <span>KQL</span>
-              <span>Automation</span>
+              <span>Azure Data Factory</span><span>Power BI</span><span>KQL</span><span>AI</span>
             </div>
           </article>
 
-          <article class="project-card animate-on-scroll">
-            <div class="project-card__badge">Reporting Dashboards</div>
+          <article class="project-card glass-card animate-on-scroll">
+            <div class="project-card__badge">Reporting</div>
             <h3 class="project-card__title">Executive Operations Dashboard</h3>
-            <p class="project-card__desc">
-              Created comprehensive Power BI dashboards providing real-time visibility into system
-              health, SLA compliance, incident trends, and capacity metrics for senior leadership.
-            </p>
+            <p class="project-card__desc">Created comprehensive Power BI dashboards providing real-time visibility into system health, SLA compliance, incident trends, and capacity metrics for leadership.</p>
             <div class="project-card__tags">
-              <span>Power BI</span>
-              <span>Power Automate</span>
-              <span>SQL</span>
-              <span>REST APIs</span>
+              <span>Power BI</span><span>Power Automate</span><span>SQL</span><span>REST APIs</span>
             </div>
           </article>
 
-          <article class="project-card animate-on-scroll">
-            <div class="project-card__badge">Process Transformation</div>
+          <article class="project-card glass-card animate-on-scroll">
+            <div class="project-card__badge">Transformation</div>
             <h3 class="project-card__title">ITSM Workflow Modernization</h3>
-            <p class="project-card__desc">
-              Led the transformation of legacy IT service management workflows into streamlined,
-              automated processes using Power Platform — improving team efficiency and audit compliance.
-            </p>
+            <p class="project-card__desc">Led transformation of legacy IT service management into streamlined, automated workflows using Power Platform — enabling faster service delivery.</p>
             <div class="project-card__tags">
-              <span>Power Apps</span>
-              <span>Power Automate</span>
-              <span>Dataverse</span>
-              <span>SharePoint</span>
+              <span>Power Apps</span><span>Power Automate</span><span>Dataverse</span><span>SharePoint</span>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ VOLUNTEERING ══════════════ -->
+    <section id="volunteering" class="section volunteering">
+      <div class="container">
+        <h2 class="section__title animate-on-scroll">Volunteering</h2>
+        <p class="section__subtitle animate-on-scroll">Giving Back to the Community</p>
+
+        <div class="volunteer__grid">
+
+          <div class="volunteer-card glass-card animate-on-scroll">
+            <div class="volunteer-card__icon">📰</div>
+            <div class="volunteer-card__body">
+              <h3>Chatter Newsletter &amp; Web Editing</h3>
+              <span class="volunteer-card__org">Cherry Crest Elementary School</span>
+              <span class="volunteer-card__period">Sep 2025 – Present</span>
+              <span class="volunteer-card__cause">Science &amp; Technology</span>
+            </div>
+          </div>
+
+          <div class="volunteer-card glass-card animate-on-scroll">
+            <div class="volunteer-card__icon">🏃</div>
+            <div class="volunteer-card__body">
+              <h3>Volunteer</h3>
+              <span class="volunteer-card__org">ORCA Running</span>
+              <span class="volunteer-card__period">Mar 2025 – Present</span>
+              <span class="volunteer-card__cause">Social Services</span>
+            </div>
+          </div>
+
+          <div class="volunteer-card glass-card animate-on-scroll">
+            <div class="volunteer-card__icon">🌲</div>
+            <div class="volunteer-card__body">
+              <h3>Volunteer</h3>
+              <span class="volunteer-card__org">Evergreen Trails</span>
+              <span class="volunteer-card__period">Nov 2025 – Present</span>
+              <span class="volunteer-card__cause">Social Services</span>
+            </div>
+          </div>
+
+          <div class="volunteer-card glass-card animate-on-scroll">
+            <div class="volunteer-card__icon">🌍</div>
+            <div class="volunteer-card__body">
+              <h3>Associate</h3>
+              <span class="volunteer-card__org">iFocus Mission</span>
+              <span class="volunteer-card__period">Jul 2015 – Mar 2023 · 7 yrs 9 mos</span>
+              <span class="volunteer-card__cause">Social Services</span>
+            </div>
+          </div>
+
+          <div class="volunteer-card glass-card animate-on-scroll">
+            <div class="volunteer-card__icon">🎨</div>
+            <div class="volunteer-card__body">
+              <h3>MPO</h3>
+              <span class="volunteer-card__org">HCL Technologies</span>
+              <span class="volunteer-card__period">May 2014 – Jul 2014</span>
+              <span class="volunteer-card__cause">Arts &amp; Culture</span>
+            </div>
+          </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SECTION 6 — RESUME
-    ═══════════════════════════════════════════ -->
+    <!-- ══════════════ BEYOND WORK ══════════════ -->
+    <section id="beyond" class="section beyond">
+      <div class="container">
+        <h2 class="section__title animate-on-scroll">Beyond the Console</h2>
+        <p class="section__subtitle animate-on-scroll">Life Outside the Cloud</p>
+
+        <div class="beyond__grid">
+          <div class="beyond__card glass-card animate-on-scroll">
+            <div class="beyond__card-visual">
+              <div class="beyond__card-emoji">🌎</div>
+            </div>
+            <h3 class="beyond__card-title">The Explorer</h3>
+            <p class="beyond__card-text">Road trips, national parks, and discovering new places fuel my curiosity. Every journey teaches structured planning, adaptability, and exploration — qualities I bring back to engineering.</p>
+            <div class="beyond__tags">
+              <span>Road Trips</span><span>National Parks</span><span>Photography</span><span>New Cities</span>
+            </div>
+          </div>
+
+          <div class="beyond__card glass-card animate-on-scroll">
+            <div class="beyond__card-visual">
+              <div class="beyond__card-emoji">🍲</div>
+            </div>
+            <h3 class="beyond__card-title">Cultures Through Cuisine</h3>
+            <p class="beyond__card-text">Food connects people and cultures. From street food markets to fine dining, I'm always exploring new flavors — building the cross-cultural awareness that drives global teams.</p>
+            <div class="beyond__tags">
+              <span>Global Cuisine</span><span>Street Food</span><span>Cooking</span><span>Food Stories</span>
+            </div>
+          </div>
+
+          <div class="beyond__card glass-card animate-on-scroll">
+            <div class="beyond__card-visual">
+              <div class="beyond__card-emoji">🏋️</div>
+            </div>
+            <h3 class="beyond__card-title">Discipline &amp; Consistency</h3>
+            <p class="beyond__card-text">Fitness isn't just health — it's discipline, consistency, and pushing limits. The same mindset that drives daily workouts drives engineering excellence: show up, execute, improve.</p>
+            <div class="beyond__tags">
+              <span>Gym</span><span>Trails</span><span>ORCA Running</span><span>Growth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ PHILOSOPHY ══════════════ -->
+    <section id="philosophy" class="section philosophy">
+      <div class="container">
+        <div class="philosophy__wrapper animate-on-scroll">
+          <div class="philosophy__quote-mark" aria-hidden="true">"</div>
+          <blockquote class="philosophy__quote">
+            Scalable systems are built the same way strong lives are —
+            with <span class="philosophy__highlight">AI-driven intelligence</span>,
+            <span class="philosophy__highlight">relentless automation</span>, and
+            <span class="philosophy__highlight">continuous improvement</span>.
+          </blockquote>
+          <div class="philosophy__author">
+            <div class="philosophy__author-avatar">BK</div>
+            <div>
+              <p class="philosophy__author-name">Bhargava Katta</p>
+              <p class="philosophy__author-title">Systems Thinking Philosophy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ RESUME ══════════════ -->
     <section id="resume" class="section resume">
       <div class="container">
         <h2 class="section__title animate-on-scroll">Resume</h2>
-        <p class="section__subtitle animate-on-scroll">My Professional Summary</p>
+        <p class="section__subtitle animate-on-scroll">Professional Summary</p>
 
         <div class="resume__wrapper animate-on-scroll">
-          <div class="resume__preview">
+          <div class="resume__preview glass-card">
             <div class="resume__preview-header">
               <div class="resume__preview-avatar">BK</div>
               <div>
                 <h3>Bhargava Katta</h3>
-                <p>Senior Specialist — System Management</p>
-                <p class="resume__preview-meta">LTIMindtree · Microsoft · United States</p>
+                <p>Senior System Specialist</p>
+                <p class="resume__preview-meta">LTM · Microsoft · Bellevue, WA</p>
               </div>
             </div>
             <hr class="resume__divider" />
@@ -421,32 +805,34 @@
               <div class="resume__preview-section">
                 <h4>Core Competencies</h4>
                 <div class="resume__tags">
+                  <span>Artificial Intelligence</span>
                   <span>Cloud Infrastructure</span>
-                  <span>Automation &amp; DevOps</span>
+                  <span>Azure DevOps</span>
                   <span>Power Platform</span>
                   <span>System Monitoring</span>
-                  <span>Reporting &amp; Analytics</span>
-                  <span>Incident Management</span>
-                  <span>SCOM &amp; Azure Monitor</span>
-                  <span>PowerShell Scripting</span>
+                  <span>ITIL &amp; ITSM</span>
+                  <span>PowerShell</span>
+                  <span>Azure SQL</span>
+                  <span>Data Center Mgmt</span>
+                  <span>CCNA Networking</span>
                 </div>
               </div>
               <div class="resume__preview-section">
-                <h4>Highlights</h4>
+                <h4>Career Highlights</h4>
                 <ul>
-                  <li>Enterprise-scale system management at Microsoft</li>
-                  <li>Automation-first engineering philosophy</li>
-                  <li>Cross-functional leadership &amp; mentorship</li>
-                  <li>Data-driven operational decision making</li>
-                  <li>Power Platform adoption &amp; low-code solutions</li>
+                  <li>12+ years across ZEN3, HCL, Mindtree, LTIMindtree, LTM</li>
+                  <li>12 industry certifications (AI, Azure, DevOps, CCNA, ITIL)</li>
+                  <li>AI-driven automation reducing manual tasks by 70%</li>
+                  <li>Active community volunteer (5 organizations)</li>
+                  <li>Cross-functional team leadership &amp; mentorship</li>
                 </ul>
               </div>
             </div>
           </div>
 
           <div class="resume__download">
-            <a href="mailto:bhargav.katta9@gmail.com?subject=Resume%20Request%20-%20Bhargava%20Katta" class="btn btn--primary btn--large">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <a href="mailto:bhargav.katta9@gmail.com?subject=Resume%20Request%20-%20Bhargava%20Katta" class="btn btn--primary btn--large btn--glow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
               Request Resume via Email
             </a>
             <p class="resume__note">Send me an email and I'll share my detailed resume with you.</p>
@@ -455,49 +841,44 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════
-         SECTION 7 — CONTACT
-    ═══════════════════════════════════════════ -->
+    <!-- ══════════════ CONTACT ══════════════ -->
     <section id="contact" class="section contact">
       <div class="container">
         <h2 class="section__title animate-on-scroll">Get in Touch</h2>
-        <p class="section__subtitle animate-on-scroll">Let's Connect</p>
+        <p class="section__subtitle animate-on-scroll">Let's Connect &amp; Build Something</p>
 
         <div class="contact__grid">
-
           <div class="contact__info animate-on-scroll">
-            <div class="contact__info-card">
+            <div class="contact__info-card glass-card">
               <div class="contact__info-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
               </div>
               <div>
                 <h4>Email</h4>
                 <a href="mailto:bhargav.katta9@gmail.com">bhargav.katta9@gmail.com</a>
               </div>
             </div>
-
-            <div class="contact__info-card">
+            <div class="contact__info-card glass-card">
               <div class="contact__info-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
               </div>
               <div>
                 <h4>LinkedIn</h4>
                 <a href="https://www.linkedin.com/in/bhargava-katta-00170a43/" target="_blank" rel="noopener noreferrer">linkedin.com/in/bhargava-katta</a>
               </div>
             </div>
-
-            <div class="contact__info-card">
+            <div class="contact__info-card glass-card">
               <div class="contact__info-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div>
                 <h4>Location</h4>
-                <p>United States</p>
+                <p>Bellevue, Washington, USA</p>
               </div>
             </div>
           </div>
 
-          <form class="contact__form animate-on-scroll" id="contactForm">
+          <form class="contact__form glass-card animate-on-scroll" id="contactForm">
             <div class="form-group">
               <label for="name">Full Name</label>
               <input type="text" id="name" name="name" placeholder="Your name" required />
@@ -514,35 +895,34 @@
               <label for="message">Message</label>
               <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
             </div>
-            <button type="submit" class="btn btn--primary btn--full">
+            <button type="submit" class="btn btn--primary btn--full btn--glow">
               Send Message
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
             </button>
             <div class="contact__form-status" id="formStatus"></div>
           </form>
-
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ═══════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════ -->
+  <!-- ══════════════ FOOTER ══════════════ -->
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__left">
         <a href="#hero" class="footer__logo">
           <span class="nav__logo-symbol">&lt;</span>BK<span class="nav__logo-symbol"> /&gt;</span>
         </a>
-        <p>&copy; 2025 Bhargava Katta. All rights reserved.</p>
+        <p>&copy; 2026 Bhargava Katta. All rights reserved.</p>
       </div>
       <div class="footer__links">
         <a href="#about">About</a>
+        <a href="#certifications">Certifications</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
+        <a href="#volunteering">Volunteering</a>
+        <a href="#beyond">Life</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="footer__social">
@@ -559,12 +939,10 @@
     </div>
   </footer>
 
-  <!-- Back to Top -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
-  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
