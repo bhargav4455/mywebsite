@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="cs1" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0078D4"/>
+      <stop offset="35%" stop-color="#6264A7"/>
+      <stop offset="65%" stop-color="#C239B3"/>
+      <stop offset="100%" stop-color="#E3008C"/>
+    </linearGradient>
+    <linearGradient id="cs2" x1="16" y1="20" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#50E6FF"/>
+      <stop offset="50%" stop-color="#0078D4"/>
+      <stop offset="100%" stop-color="#6264A7"/>
+    </linearGradient>
+  </defs>
+  <!-- Copilot ribbon shape -->
+  <path d="M32 8C20 8 14 16 14 24c0 6 3 11 8 14l2 1.5v8.5a4 4 0 004 4h8a4 4 0 004-4v-8.5l2-1.5c5-3 8-8 8-14 0-8-6-16-18-16z" fill="url(#cs1)" opacity="0.9"/>
+  <path d="M26 28c0-4 2.7-7 6-7s6 3 6 7-2.7 7-6 7-6-3-6-7z" fill="white" opacity="0.95"/>
+  <circle cx="30" cy="27" r="1.5" fill="url(#cs1)"/>
+  <circle cx="34" cy="27" r="1.5" fill="url(#cs1)"/>
+  <path d="M29 30.5q3 2.5 6 0" stroke="url(#cs1)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  <!-- Sparkle accents -->
+  <path d="M48 12l1.5 3 3 1.5-3 1.5L48 21l-1.5-3-3-1.5 3-1.5z" fill="#50E6FF" opacity="0.8"/>
+  <path d="M12 36l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="#C239B3" opacity="0.7"/>
+  <path d="M50 34l.8 1.6 1.6.8-1.6.8-.8 1.6-.8-1.6-1.6-.8 1.6-.8z" fill="#0078D4" opacity="0.6"/>
+</svg>

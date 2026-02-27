@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="ca1" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="ca2" x1="20" y1="12" x2="44" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+  </defs>
+  <!-- Robot head -->
+  <rect x="16" y="18" width="32" height="28" rx="8" fill="url(#ca1)" opacity="0.9"/>
+  <!-- Antenna -->
+  <line x1="32" y1="10" x2="32" y2="18" stroke="url(#ca2)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="32" cy="8" r="3.5" fill="url(#ca2)"/>
+  <!-- Eyes -->
+  <rect x="22" y="26" width="7" height="7" rx="2" fill="white" opacity="0.95"/>
+  <rect x="35" y="26" width="7" height="7" rx="2" fill="white" opacity="0.95"/>
+  <circle cx="25.5" cy="29.5" r="2" fill="#6366f1"/>
+  <circle cx="38.5" cy="29.5" r="2" fill="#ec4899"/>
+  <!-- Eye shine -->
+  <circle cx="26.5" cy="28.5" r="0.7" fill="white" opacity="0.9"/>
+  <circle cx="39.5" cy="28.5" r="0.7" fill="white" opacity="0.9"/>
+  <!-- Mouth/speaker -->
+  <rect x="24" y="38" width="16" height="3" rx="1.5" fill="white" opacity="0.6"/>
+  <rect x="26" y="38" width="3" height="3" rx="0.5" fill="white" opacity="0.3"/>
+  <rect x="30.5" y="38" width="3" height="3" rx="0.5" fill="white" opacity="0.3"/>
+  <rect x="35" y="38" width="3" height="3" rx="0.5" fill="white" opacity="0.3"/>
+  <!-- Side connectors -->
+  <rect x="10" y="28" width="6" height="8" rx="3" fill="url(#ca1)" opacity="0.5"/>
+  <rect x="48" y="28" width="6" height="8" rx="3" fill="url(#ca1)" opacity="0.5"/>
+  <!-- Code brackets -->
+  <path d="M18 54l-4-4 4-4" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  <path d="M46 54l4-4-4-4" stroke="#c084fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  <!-- Sparkle -->
+  <path d="M52 16l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="#ec4899" opacity="0.6"/>
+</svg>

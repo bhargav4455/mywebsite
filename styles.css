@@ -1345,6 +1345,15 @@ input, textarea { font-family: inherit; font-size: inherit; }
   fill: #fff;
 }
 
+/* Product logo images in agent cards */
+.agent-card__logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
 .agent-card__body {
   display: flex;
   flex-direction: column;
