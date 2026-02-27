@@ -617,41 +617,85 @@
     </section>
 
     <!-- ══════════════ CLIENTS ══════════════ -->
-    <section id="clients" class="section clients">
+    <section id="clients" class="section clients-premium">
       <div class="container">
-        <h2 class="section__title animate-on-scroll">Enterprise Clients</h2>
-        <p class="section__subtitle animate-on-scroll">Trusted by Leading Organizations</p>
-
-        <div class="clients__grid animate-on-scroll">
-          <div class="client-card glass-card">
-            <img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft" class="client-card__logo" onerror="this.src='https://logo.clearbit.com/microsoft.com';this.onerror=null" />
-            <span class="client-card__name">Microsoft</span>
-            <span class="client-card__detail">AI Agents · SCOM · Azure Monitor · Power BI</span>
+        <h2 class="section__title animate-on-scroll">Trusted By Industry Leaders</h2>
+        <p class="section__subtitle animate-on-scroll">Enterprise Clients Across Finance, Energy, Government &amp; Technology</p>
+      </div>
+      <div class="marquee animate-on-scroll">
+        <div class="marquee__track">
+          <div class="marquee__item">
+            <img src="https://logo.clearbit.com/microsoft.com" alt="Microsoft" class="marquee__logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="marquee__initial" data-letter="M">M</span>
+            <span class="marquee__name">Microsoft</span>
+            <span class="marquee__detail">AI Agents · Azure Monitor · Power BI</span>
           </div>
-          <div class="client-card glass-card">
-            <img src="https://www.google.com/s2/favicons?domain=angelone.in&sz=128" alt="Angel Broking" class="client-card__logo" onerror="this.src='https://logo.clearbit.com/angelone.in';this.onerror=null" />
-            <span class="client-card__name">Angel Broking</span>
-            <span class="client-card__detail">Server Management · Monitoring · Infra</span>
+          <div class="marquee__item">
+            <img src="https://logo.clearbit.com/angelone.in" alt="Angel Broking" class="marquee__logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="marquee__initial" data-letter="A">A</span>
+            <span class="marquee__name">Angel Broking</span>
+            <span class="marquee__detail">Server Management · Monitoring</span>
           </div>
-          <div class="client-card glass-card">
-            <img src="https://www.google.com/s2/favicons?domain=hindustanpetroleum.com&sz=128" alt="HPCL" class="client-card__logo" onerror="this.src='https://logo.clearbit.com/hindustanpetroleum.com';this.onerror=null" />
-            <span class="client-card__name">HPCL</span>
-            <span class="client-card__detail">Data Center · Infrastructure · ITSM</span>
+          <div class="marquee__item">
+            <img src="https://logo.clearbit.com/hindustanpetroleum.com" alt="HPCL" class="marquee__logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="marquee__initial" data-letter="H">H</span>
+            <span class="marquee__name">HPCL</span>
+            <span class="marquee__detail">Data Center · Infrastructure · ITSM</span>
           </div>
-          <div class="client-card glass-card">
-            <img src="https://www.google.com/s2/favicons?domain=indianrailways.gov.in&sz=128" alt="Indian Railway" class="client-card__logo" onerror="this.src='https://logo.clearbit.com/indianrailways.gov.in';this.onerror=null" />
-            <span class="client-card__name">Indian Railway</span>
-            <span class="client-card__detail">System Administration · Incident Mgmt</span>
+          <div class="marquee__item">
+            <img src="https://logo.clearbit.com/indianrailways.gov.in" alt="Indian Railway" class="marquee__logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="marquee__initial" data-letter="IR">IR</span>
+            <span class="marquee__name">Indian Railway</span>
+            <span class="marquee__detail">System Admin · Incident Mgmt</span>
           </div>
-          <div class="client-card glass-card">
-            <img src="https://www.google.com/s2/favicons?domain=hdfcbank.com&sz=128" alt="HDFC" class="client-card__logo" onerror="this.src='https://logo.clearbit.com/hdfcbank.com';this.onerror=null" />
-            <span class="client-card__name">HDFC</span>
-            <span class="client-card__detail">Active Directory · Server Ops · Support</span>
+          <div class="marquee__item">
+            <img src="https://logo.clearbit.com/hdfcbank.com" alt="HDFC" class="marquee__logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="marquee__initial" data-letter="H">H</span>
+            <span class="marquee__name">HDFC</span>
+            <span class="marquee__detail">Active Directory · Server Ops</span>
           </div>
-          <div class="client-card glass-card">
-            <img src="https://www.google.com/s2/favicons?domain=gati.com&sz=128" alt="Gati" class="client-card__logo" onerror="this.src='https://logo.clearbit.com/gati.com';this.onerror=null" />
-            <span class="client-card__name">Gati</span>
-            <span class="client-card__detail">Networking · Infrastructure Support</span>
+          <div class="marquee__item">
+            <img src="https://logo.clearbit.com/gati.com" alt="Gati" class="marquee__logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="marquee__initial" data-letter="G">G</span>
+            <span class="marquee__name">Gati</span>
+            <span class="marquee__detail">Networking · Infra Support</span>
+          </div>
+          <!-- Duplicate set for seamless infinite scroll -->
+          <div class="marquee__item" aria-hidden="true">
+            <img src="https://logo.clearbit.com/microsoft.com" alt="" class="marquee__logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="marquee__initial" data-letter="M">M</span>
+            <span class="marquee__name">Microsoft</span>
+            <span class="marquee__detail">AI Agents · Azure Monitor · Power BI</span>
+          </div>
+          <div class="marquee__item" aria-hidden="true">
+            <img src="https://logo.clearbit.com/angelone.in" alt="" class="marquee__logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="marquee__initial" data-letter="A">A</span>
+            <span class="marquee__name">Angel Broking</span>
+            <span class="marquee__detail">Server Management · Monitoring</span>
+          </div>
+          <div class="marquee__item" aria-hidden="true">
+            <img src="https://logo.clearbit.com/hindustanpetroleum.com" alt="" class="marquee__logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="marquee__initial" data-letter="H">H</span>
+            <span class="marquee__name">HPCL</span>
+            <span class="marquee__detail">Data Center · Infrastructure · ITSM</span>
+          </div>
+          <div class="marquee__item" aria-hidden="true">
+            <img src="https://logo.clearbit.com/indianrailways.gov.in" alt="" class="marquee__logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="marquee__initial" data-letter="IR">IR</span>
+            <span class="marquee__name">Indian Railway</span>
+            <span class="marquee__detail">System Admin · Incident Mgmt</span>
+          </div>
+          <div class="marquee__item" aria-hidden="true">
+            <img src="https://logo.clearbit.com/hdfcbank.com" alt="" class="marquee__logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="marquee__initial" data-letter="H">H</span>
+            <span class="marquee__name">HDFC</span>
+            <span class="marquee__detail">Active Directory · Server Ops</span>
+          </div>
+          <div class="marquee__item" aria-hidden="true">
+            <img src="https://logo.clearbit.com/gati.com" alt="" class="marquee__logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="marquee__initial" data-letter="G">G</span>
+            <span class="marquee__name">Gati</span>
+            <span class="marquee__detail">Networking · Infra Support</span>
           </div>
         </div>
       </div>
@@ -664,54 +708,66 @@
         <p class="section__subtitle animate-on-scroll">Intelligent Agents That Automate Enterprise Work</p>
 
         <div class="agents__grid">
-          <div class="agent-card glass-card animate-on-scroll">
-            <div class="agent-card__icon-wrap agent-card__icon--copilot">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="agent-card__svg"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
-            </div>
-            <div class="agent-card__body">
-              <h3 class="agent-card__name">Copilot Studio Agent</h3>
-              <p class="agent-card__desc">Building conversational AI copilots and smart assistants using Microsoft Copilot Studio — low-code agent builder for enterprise-grade chatbots, knowledge agents, and workflow assistants.</p>
-              <div class="agent-card__tags">
-                <span>Copilot Studio</span><span>Conversational AI</span><span>Low-Code</span><span>Microsoft 365</span>
+          <div class="agent-card animate-on-scroll">
+            <div class="agent-card__top agent-card__top--copilot"></div>
+            <div class="agent-card__inner">
+              <div class="agent-card__icon-wrap agent-card__icon--copilot">
+                <svg viewBox="0 0 24 24" class="agent-card__svg agent-card__svg--stroke"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
+              </div>
+              <div class="agent-card__body">
+                <h3 class="agent-card__name">Copilot Studio Agent</h3>
+                <p class="agent-card__desc">Conversational AI copilots and smart assistants using Microsoft Copilot Studio — enterprise-grade chatbots, knowledge agents, and workflow assistants.</p>
+                <div class="agent-card__tags">
+                  <span>Copilot Studio</span><span>Conversational AI</span><span>Low-Code</span><span>Microsoft 365</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="agent-card glass-card animate-on-scroll">
-            <div class="agent-card__icon-wrap agent-card__icon--github">
-              <svg viewBox="0 0 24 24" fill="currentColor" class="agent-card__svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            </div>
-            <div class="agent-card__body">
-              <h3 class="agent-card__name">GitHub Copilot Agent</h3>
-              <p class="agent-card__desc">Leveraging GitHub Copilot's AI-powered coding agents for intelligent code generation, automated code reviews, pull request automation, and end-to-end development workflow acceleration.</p>
-              <div class="agent-card__tags">
-                <span>GitHub Copilot</span><span>Code Generation</span><span>PR Automation</span><span>AI Coding</span>
+          <div class="agent-card animate-on-scroll">
+            <div class="agent-card__top agent-card__top--github"></div>
+            <div class="agent-card__inner">
+              <div class="agent-card__icon-wrap agent-card__icon--github">
+                <svg viewBox="0 0 24 24" class="agent-card__svg agent-card__svg--fill"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </div>
+              <div class="agent-card__body">
+                <h3 class="agent-card__name">GitHub Copilot Agent</h3>
+                <p class="agent-card__desc">AI-powered coding agents for intelligent code generation, automated code reviews, pull request automation, and development workflow acceleration.</p>
+                <div class="agent-card__tags">
+                  <span>GitHub Copilot</span><span>Code Generation</span><span>PR Automation</span><span>AI Coding</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="agent-card glass-card animate-on-scroll">
-            <div class="agent-card__icon-wrap agent-card__icon--sre">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="agent-card__svg"><path d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437"/></svg>
-            </div>
-            <div class="agent-card__body">
-              <h3 class="agent-card__name">SRE Agent</h3>
-              <p class="agent-card__desc">Designing Site Reliability Engineering agents that proactively monitor, detect anomalies, auto-remediate incidents, and maintain 99.9%+ uptime across enterprise infrastructure using SCOM &amp; Azure Monitor.</p>
-              <div class="agent-card__tags">
-                <span>Site Reliability</span><span>Auto-Remediation</span><span>Azure Monitor</span><span>SCOM</span>
+          <div class="agent-card animate-on-scroll">
+            <div class="agent-card__top agent-card__top--sre"></div>
+            <div class="agent-card__inner">
+              <div class="agent-card__icon-wrap agent-card__icon--sre">
+                <svg viewBox="0 0 24 24" class="agent-card__svg agent-card__svg--stroke"><path d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437"/></svg>
+              </div>
+              <div class="agent-card__body">
+                <h3 class="agent-card__name">SRE Agent</h3>
+                <p class="agent-card__desc">Site Reliability agents that proactively monitor, detect anomalies, auto-remediate incidents, and maintain 99.9%+ uptime across enterprise infrastructure.</p>
+                <div class="agent-card__tags">
+                  <span>Site Reliability</span><span>Auto-Remediation</span><span>Azure Monitor</span><span>SCOM</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="agent-card glass-card animate-on-scroll">
-            <div class="agent-card__icon-wrap agent-card__icon--custom">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="agent-card__svg"><path d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/></svg>
-            </div>
-            <div class="agent-card__body">
-              <h3 class="agent-card__name">Custom Agent</h3>
-              <p class="agent-card__desc">End-to-end design, development, and deployment of custom AI agents tailored to specific enterprise needs — from Azure AI Agent Service to fully bespoke automation solutions integrated into production systems.</p>
-              <div class="agent-card__tags">
-                <span>Azure AI Agent</span><span>Custom Build</span><span>Enterprise Deploy</span><span>Integration</span>
+          <div class="agent-card animate-on-scroll">
+            <div class="agent-card__top agent-card__top--custom"></div>
+            <div class="agent-card__inner">
+              <div class="agent-card__icon-wrap agent-card__icon--custom">
+                <svg viewBox="0 0 24 24" class="agent-card__svg agent-card__svg--stroke"><path d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z"/></svg>
+              </div>
+              <div class="agent-card__body">
+                <h3 class="agent-card__name">Custom Agent</h3>
+                <p class="agent-card__desc">End-to-end design and deployment of custom AI agents tailored to enterprise needs — from Azure AI Agent Service to fully bespoke automation solutions.</p>
+                <div class="agent-card__tags">
+                  <span>Azure AI Agent</span><span>Custom Build</span><span>Enterprise Deploy</span><span>Integration</span>
+                </div>
               </div>
             </div>
           </div>
