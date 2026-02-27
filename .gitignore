@@ -1,0 +1,17 @@
+# Backup files
+*.bak
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Personal documents - never commit
+*.docx
+*.doc
+*.pdf
+*.xlsx
