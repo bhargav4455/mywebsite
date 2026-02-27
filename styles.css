@@ -1338,7 +1338,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .marquee__track--tools {
-  animation: marquee-scroll-reverse 40s linear infinite;
+  animation: marquee-scroll-reverse 80s linear infinite;
 }
 .marquee__track--tools:hover {
   animation-play-state: paused;
