@@ -1786,6 +1786,59 @@ input, textarea { font-family: inherit; font-size: inherit; }
   border-radius: var(--radius-xl);
 }
 
+/* Race list inside beyond card */
+.race-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+  width: 100%;
+}
+.race-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-lg);
+  background: rgba(99, 102, 241, 0.04);
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  transition: all 0.3s ease;
+}
+.race-item:hover {
+  background: rgba(99, 102, 241, 0.08);
+  transform: translateX(4px);
+}
+.race-item__icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.race-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  text-align: left;
+}
+.race-item__name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--clr-dark);
+}
+.race-item__detail {
+  font-size: 0.6875rem;
+  color: var(--clr-muted);
+  font-family: var(--ff-mono);
+}
+.race-item--upcoming {
+  background: rgba(236, 72, 153, 0.05);
+  border-color: rgba(236, 72, 153, 0.12);
+}
+.race-item--upcoming .race-item__name {
+  color: var(--clr-accent);
+}
+.race-item--upcoming .race-item__detail {
+  color: rgba(236, 72, 153, 0.6);
+}
+
 /* ═══════════════════════════════════════════════════════════
    PHILOSOPHY
    ═══════════════════════════════════════════════════════════ */
