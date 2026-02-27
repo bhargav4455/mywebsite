@@ -307,15 +307,15 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .nav__logo:hover { transform: scale(1.05); }
 
 .nav__logo-img {
-  height: 36px;
-  width: 36px;
-  border-radius: 8px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
   object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(99,102,241,0.3));
+  filter: drop-shadow(0 2px 8px rgba(13,59,102,0.25));
   transition: filter var(--duration);
 }
 .nav__logo:hover .nav__logo-img {
-  filter: drop-shadow(0 4px 12px rgba(99,102,241,0.45));
+  filter: drop-shadow(0 4px 12px rgba(13,59,102,0.4));
 }
 
 .nav__logo-symbol { color: var(--clr-primary); }
