@@ -1201,6 +1201,134 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 /* ═══════════════════════════════════════════════════════════
+   AI AGENTS SECTION
+   ═══════════════════════════════════════════════════════════ */
+.agents { background: var(--clr-bg-alt); }
+
+.agents__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-xl);
+  max-width: 1100px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.agent-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--duration) var(--ease-out);
+}
+.agent-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--clr-primary);
+}
+
+.agent-card__icon-wrap {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.agent-card__icon-wrap--copilot { background: linear-gradient(135deg, #6366f1 0%, #a78bfa 100%); }
+.agent-card__icon-wrap--github  { background: linear-gradient(135deg, #1e293b 0%, #475569 100%); }
+.agent-card__icon-wrap--sre     { background: linear-gradient(135deg, #14b8a6 0%, #2dd4bf 100%); }
+.agent-card__icon-wrap--custom  { background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%); }
+
+.agent-card__svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+
+.agent-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  min-width: 0;
+}
+
+.agent-card__name {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--clr-dark);
+}
+
+.agent-card__desc {
+  font-size: 0.8125rem;
+  color: var(--clr-text-muted);
+  line-height: 1.5;
+}
+
+.agent-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 0.25rem;
+}
+.agent-card__tags span {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.2rem 0.625rem;
+  border-radius: 999px;
+  background: rgba(99,102,241,0.08);
+  color: var(--clr-primary);
+  letter-spacing: 0.02em;
+}
+
+/* Tools & Platforms ribbon */
+.agents__tools-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--clr-dark);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.tools__ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tool-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--clr-dark);
+  transition: all var(--duration) var(--ease-out);
+}
+.tool-pill:hover {
+  border-color: var(--clr-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.tool-pill__icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+/* ═══════════════════════════════════════════════════════════
    PROJECTS
    ═══════════════════════════════════════════════════════════ */
 .projects { background: var(--clr-bg-alt); }

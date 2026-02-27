@@ -85,10 +85,10 @@
     if (!el) return;
 
     const phrases = [
-      'AI Agent Strategist & Architect',
-      'Azure AI Agent Service · Copilot Studio · GitHub Copilot',
+      'AI & Automation Engineer',
+      'Copilot Studio Agent · GitHub Copilot Agent',
+      'SRE Agent · Custom Agent · Azure AI',
       'Cloud Infrastructure at Scale',
-      'Custom Agent Design & Deployment',
       'Microsoft · HPCL · HDFC · Indian Railway',
       'Power Platform & Automation',
       'Making Enterprise Work Easier with AI',
