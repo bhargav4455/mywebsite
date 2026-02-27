@@ -300,17 +300,23 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .nav__logo {
-  font-family: var(--ff-mono);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--clr-white);
-  letter-spacing: -0.02em;
-  transition: color var(--duration);
+  display: flex;
+  align-items: center;
+  transition: transform var(--duration), opacity var(--duration);
 }
-.nav__logo:hover { color: var(--clr-white); }
+.nav__logo:hover { transform: scale(1.05); }
 
-.header--scrolled .nav__logo { color: var(--clr-dark); }
-.header--scrolled .nav__logo:hover { color: var(--clr-dark); }
+.nav__logo-img {
+  height: 36px;
+  width: 36px;
+  border-radius: 8px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(99,102,241,0.3));
+  transition: filter var(--duration);
+}
+.nav__logo:hover .nav__logo-img {
+  filter: drop-shadow(0 4px 12px rgba(99,102,241,0.45));
+}
 
 .nav__logo-symbol { color: var(--clr-primary); }
 

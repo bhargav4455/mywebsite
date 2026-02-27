@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="bk1" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="bk2" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="12" fill="url(#bk1)"/>
+  <rect x="1.5" y="1.5" width="45" height="45" rx="10.5" stroke="url(#bk2)" stroke-width="1" fill="none" opacity="0.4"/>
+  <!-- B -->
+  <path d="M10 12h6.5c2.2 0 3.8.6 4.8 1.6.8.8 1.2 1.9 1.2 3.1v.1c0 2.2-1.2 3.4-2.8 4.1 2.2.7 3.6 2 3.6 4.5v.1c0 3.2-2.6 5-6.8 5H10V12zm10 5.5c0-1.4-1.1-2.2-3-2.2h-3.8v4.5h3.5c2.1 0 3.3-.8 3.3-2.2v-.1zm-2.5 6.3h-4.3v4.7h4.5c2.1 0 3.3-.9 3.3-2.3v-.1c0-1.4-1.1-2.3-3.5-2.3z" fill="white"/>
+  <!-- K -->
+  <path d="M27 12h3.5v8.2l7.3-8.2h4.2l-7 7.6L42.5 31h-4.2l-5.7-8.2-2.1 2.3V31H27V12z" fill="white" opacity="0.95"/>
+</svg>
