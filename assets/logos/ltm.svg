@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" fill="none">
+  <!-- LTM Logo — coral/salmon geometric letterforms -->
+  <g fill="#E8685A">
+    <!-- L -->
+    <rect x="20" y="20" width="32" height="120" rx="2"/>
+    <rect x="20" y="108" width="80" height="32" rx="2"/>
+    <!-- T -->
+    <rect x="120" y="20" width="80" height="32" rx="2"/>
+    <rect x="136" y="20" width="32" height="120" rx="2"/>
+    <!-- M -->
+    <rect x="220" y="20" width="32" height="120" rx="2"/>
+    <polygon points="252,20 280,80 308,20 340,20 340,32 316,32 280,100 244,32 220,32 220,20"/>
+    <rect x="340" y="20" width="32" height="120" rx="2"/>
+  </g>
+</svg>

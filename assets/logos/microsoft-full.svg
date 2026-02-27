@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 110" fill="none">
+  <!-- Microsoft Logo — 4-color window + text -->
+  <!-- Four squares -->
+  <rect x="60" y="10" width="34" height="34" fill="#F25022" rx="1"/>
+  <rect x="98" y="10" width="34" height="34" fill="#7FBA00" rx="1"/>
+  <rect x="60" y="48" width="34" height="34" fill="#00A4EF" rx="1"/>
+  <rect x="98" y="48" width="34" height="34" fill="#FFB900" rx="1"/>
+  <!-- Microsoft text -->
+  <text x="96" y="103" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#737373">Microsoft</text>
+</svg>
