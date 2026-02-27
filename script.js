@@ -85,13 +85,13 @@
     if (!el) return;
 
     const phrases = [
-      'AI Agent Creation & Deployment',
-      'Azure AI · Copilot Studio · GitHub Agent',
+      'AI Agent Strategist & Architect',
+      'Azure AI Agent Service · Copilot Studio · GitHub Copilot',
       'Cloud Infrastructure at Scale',
-      'Custom Agent Automation',
-      'Exploring 4 Countries & Counting',
-      'Power Platform Solutions',
-      'Making Work Easier with AI',
+      'Custom Agent Design & Deployment',
+      'Microsoft · HPCL · HDFC · Indian Railway',
+      'Power Platform & Automation',
+      'Making Enterprise Work Easier with AI',
     ];
     let phraseIdx = 0, charIdx = 0, deleting = false;
 

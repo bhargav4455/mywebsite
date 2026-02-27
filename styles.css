@@ -1137,6 +1137,69 @@ input, textarea { font-family: inherit; font-size: inherit; }
   color: var(--clr-primary);
 }
 
+.client-card__detail {
+  font-size: 0.75rem;
+  color: var(--clr-text-muted);
+  line-height: 1.4;
+  text-align: center;
+}
+
+.clients__section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--clr-dark);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+/* Tools Grid */
+.tools__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.tool-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-xl);
+  transition: all var(--duration) var(--ease-out);
+}
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.tool-card__logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.tool-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.tool-card__name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--clr-dark);
+}
+
+.tool-card__desc {
+  font-size: 0.8125rem;
+  color: var(--clr-text-muted);
+  line-height: 1.4;
+}
+
 /* ═══════════════════════════════════════════════════════════
    PROJECTS
    ═══════════════════════════════════════════════════════════ */
