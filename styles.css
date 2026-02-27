@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════════
-   BHARGAVAKATTA.COM — Premium White & Crimson Theme
-   Clean · Elegant · AI-Driven Aesthetic
+   BHARGAVAKATTA.COM — Modern Multi-Accent Theme
+   Indigo · Fuchsia · Teal — Clean & Vibrant
    ═══════════════════════════════════════════════════════════ */
 
 /* ─── Custom Properties ──────────────────────────────────── */
 :root {
-  /* Core Palette — Clean White + Rich Crimson */
+  /* Core Palette — Indigo + Fuchsia + Teal */
   --clr-bg:           #ffffff;
   --clr-bg-alt:       #f8f9fa;
   --clr-surface:      #ffffff;
@@ -13,12 +13,12 @@
   --clr-border:       #e9ecef;
   --clr-border-light: #dee2e6;
 
-  --clr-primary:      #dc2626;
-  --clr-primary-dark: #b91c1c;
-  --clr-primary-glow: rgba(220, 38, 38, 0.10);
-  --clr-primary-soft: rgba(220, 38, 38, 0.06);
-  --clr-accent:       #ef4444;
-  --clr-accent2:      #f97316;
+  --clr-primary:      #6366f1;
+  --clr-primary-dark: #4f46e5;
+  --clr-primary-glow: rgba(99, 102, 241, 0.10);
+  --clr-primary-soft: rgba(99, 102, 241, 0.06);
+  --clr-accent:       #ec4899;
+  --clr-accent2:      #14b8a6;
 
   --clr-text:         #1f2937;
   --clr-text-muted:   #6b7280;
@@ -26,11 +26,11 @@
   --clr-white:        #ffffff;
   --clr-dark:         #111827;
   --clr-success:      #16a34a;
-  --clr-error:        #dc2626;
+  --clr-error:        #ef4444;
 
   /* Hero dark section */
-  --hero-bg:          #111827;
-  --hero-surface:     #1f2937;
+  --hero-bg:          #0f172a;
+  --hero-surface:     #1e293b;
 
   --ff-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ff-mono:  'JetBrains Mono', 'Fira Code', monospace;
@@ -63,7 +63,7 @@
   --shadow-md:  0 4px 6px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.06);
   --shadow-lg:  0 10px 25px rgba(0,0,0,0.06), 0 4px 10px rgba(0,0,0,0.04);
   --shadow-xl:  0 20px 40px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.04);
-  --shadow-red: 0 4px 20px rgba(220, 38, 38, 0.15);
+  --shadow-primary: 0 4px 20px rgba(99, 102, 241, 0.15);
 }
 
 /* ─── Reset ──────────────────────────────────────────────── */
@@ -109,7 +109,7 @@ button {
 input, textarea { font-family: inherit; font-size: inherit; }
 
 ::selection {
-  background: rgba(220, 38, 38, 0.15);
+  background: rgba(99, 102, 241, 0.15);
   color: var(--clr-dark);
 }
 
@@ -194,13 +194,13 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .btn--primary {
   background: var(--clr-primary);
   color: var(--clr-white);
-  box-shadow: var(--shadow-red);
+  box-shadow: var(--shadow-primary);
 }
 .btn--primary:hover {
   background: var(--clr-primary-dark);
   color: var(--clr-white);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(220, 38, 38, 0.25);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.25);
 }
 
 .btn--outline {
@@ -248,7 +248,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
   position: absolute;
   inset: -1px;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(220,38,38,0.4), rgba(249,115,22,0.2));
+  background: linear-gradient(135deg, rgba(99,102,241,0.4), rgba(236,72,153,0.2));
   z-index: -1;
   filter: blur(12px);
   opacity: 0;
@@ -391,9 +391,9 @@ input, textarea { font-family: inherit; font-size: inherit; }
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: radial-gradient(ellipse at 20% 0%, rgba(220, 38, 38, 0.12) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 100%, rgba(239, 68, 68, 0.08) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 50%, rgba(249, 115, 22, 0.04) 0%, transparent 70%),
+  background: radial-gradient(ellipse at 20% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 100%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 50%, rgba(20, 184, 166, 0.04) 0%, transparent 70%),
               linear-gradient(180deg, var(--hero-bg) 0%, #0a0f1c 100%);
   color: var(--clr-white);
 }
@@ -411,8 +411,8 @@ input, textarea { font-family: inherit; font-size: inherit; }
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(220, 38, 38, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(220, 38, 38, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
@@ -429,19 +429,18 @@ input, textarea { font-family: inherit; font-size: inherit; }
 
 .hero__glow--1 {
   width: 500px; height: 500px;
-  background: rgba(220, 38, 38, 0.1);
-  top: -10%; left: -5%;
+  background: rgba(99, 102, 241, 0.1);
   animation: floatOrb1 15s ease-in-out infinite;
 }
 .hero__glow--2 {
   width: 400px; height: 400px;
-  background: rgba(249, 115, 22, 0.06);
+  background: rgba(236, 72, 153, 0.06);
   bottom: -10%; right: -5%;
   animation: floatOrb2 18s ease-in-out infinite;
 }
 .hero__glow--3 {
   width: 300px; height: 300px;
-  background: rgba(239, 68, 68, 0.05);
+  background: rgba(20, 184, 166, 0.05);
   top: 40%; right: 20%;
   animation: floatOrb3 20s ease-in-out infinite;
 }
@@ -534,8 +533,8 @@ input, textarea { font-family: inherit; font-size: inherit; }
   font-family: var(--ff-mono);
   font-size: 0.9375rem;
   color: var(--clr-accent);
-  background: rgba(220, 38, 38, 0.06);
-  border: 1px solid rgba(220, 38, 38, 0.15);
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.15);
   padding: 0.5rem 1.25rem;
   border-radius: var(--radius-sm);
   margin-bottom: var(--space-xl);
@@ -842,7 +841,26 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .cert-card__tag--itsm    { background: rgba(16, 185, 129, 0.1); color: #059669; }
 .cert-card__tag--data    { background: rgba(6, 182, 212, 0.1); color: #0891b2; }
 .cert-card__tag--network { background: rgba(236, 72, 153, 0.1); color: #db2777; }
-.cert-card__tag--security{ background: rgba(220, 38, 38, 0.1); color: #dc2626; }
+.cert-card__tag--security{ background: rgba(239, 68, 68, 0.1); color: #dc2626; }
+
+/* ═══════════════════════════════════════════════════════════
+   COMPANY BADGES
+   ═══════════════════════════════════════════════════════════ */
+.co-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.co-badge--ltm { background: rgba(14, 165, 233, 0.1); color: #0284c7; }
+.co-badge--lti { background: rgba(99, 102, 241, 0.1); color: #4f46e5; }
+.co-badge--mt  { background: rgba(34, 197, 94, 0.1); color: #16a34a; }
+.co-badge--hcl { background: rgba(168, 85, 247, 0.1); color: #7c3aed; }
+.co-badge--zen { background: rgba(245, 158, 11, 0.1); color: #d97706; }
 
 /* ═══════════════════════════════════════════════════════════
    SKILLS
@@ -956,13 +974,13 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .timeline-item__marker--active {
-  box-shadow: 0 0 0 2px var(--clr-primary), 0 0 15px rgba(220, 38, 38, 0.3);
+  box-shadow: 0 0 0 2px var(--clr-primary), 0 0 15px rgba(99, 102, 241, 0.3);
   animation: pulse-marker 2s ease-in-out infinite;
 }
 
 @keyframes pulse-marker {
-  0%, 100% { box-shadow: 0 0 0 2px var(--clr-primary), 0 0 0 rgba(220,38,38,0.3); }
-  50%      { box-shadow: 0 0 0 2px var(--clr-primary), 0 0 20px rgba(220,38,38,0.2); }
+  0%, 100% { box-shadow: 0 0 0 2px var(--clr-primary), 0 0 0 rgba(99,102,241,0.3); }
+  50%      { box-shadow: 0 0 0 2px var(--clr-primary), 0 0 20px rgba(99,102,241,0.2); }
 }
 
 .timeline-item__content {
@@ -1227,7 +1245,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .beyond__card-emoji {
   font-size: 3.5rem;
   line-height: 1;
-  filter: drop-shadow(0 4px 12px rgba(220, 38, 38, 0.15));
+  filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.15));
   transition: transform var(--duration) var(--ease-spring);
 }
 .beyond__card:hover .beyond__card-emoji { transform: scale(1.15) rotate(-5deg); }
@@ -1258,7 +1276,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
   font-family: var(--ff-mono);
   color: var(--clr-primary);
   background: var(--clr-primary-soft);
-  border: 1px solid rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.1);
   padding: 0.25rem 0.75rem;
   border-radius: var(--radius-xl);
 }
@@ -1274,8 +1292,8 @@ input, textarea { font-family: inherit; font-size: inherit; }
   text-align: center;
   padding: var(--space-3xl) var(--space-2xl);
   position: relative;
-  background: linear-gradient(135deg, var(--clr-primary-soft), rgba(249, 115, 22, 0.03));
-  border: 1px solid rgba(220, 38, 38, 0.08);
+  background: linear-gradient(135deg, var(--clr-primary-soft), rgba(20, 184, 166, 0.03));
+  border: 1px solid rgba(99, 102, 241, 0.08);
   border-radius: var(--radius-xl);
 }
 
@@ -1643,6 +1661,63 @@ input, textarea { font-family: inherit; font-size: inherit; }
 
 .beyond__grid .beyond__card:nth-child(2) { transition-delay: 0.15s; }
 .beyond__grid .beyond__card:nth-child(3) { transition-delay: 0.3s; }
+.beyond__grid .beyond__card:nth-child(4) { transition-delay: 0.45s; }
+
+/* ═══════════════════════════════════════════════════════════
+   QR CODES
+   ═══════════════════════════════════════════════════════════ */
+.qr-codes {
+  margin-top: var(--space-3xl);
+  text-align: center;
+}
+
+.qr-codes__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--clr-dark);
+  margin-bottom: var(--space-xl);
+}
+
+.qr-codes__grid {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.qr-code-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--duration) var(--ease-out);
+}
+.qr-code-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  color: var(--clr-primary);
+}
+
+.qr-code-card__img {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius-sm);
+}
+
+.qr-code-card__label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.qr-codes__note {
+  margin-top: var(--space-lg);
+  font-size: 0.8125rem;
+  color: var(--clr-text-dim);
+}
 
 /* ═══════════════════════════════════════════════════════════
    RESPONSIVE — TABLET

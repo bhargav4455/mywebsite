@@ -8,16 +8,16 @@
 
   /* ─── Particle Canvas ──────────────────────────────────── */
   function initParticles() {
-    const canvas = document.getElementById('hero-canvas');
+    const canvas = document.getElementById('heroCanvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
     let w, h, particles;
     const COLORS = [
-      'rgba(220, 38, 38, 0.35)',    // red
-      'rgba(239, 68, 68, 0.25)',    // lighter red
-      'rgba(249, 115, 22, 0.2)',    // orange
-      'rgba(255, 255, 255, 0.12)',  // white
+      'rgba(99, 102, 241, 0.35)',    // indigo
+      'rgba(236, 72, 153, 0.25)',    // fuchsia
+      'rgba(20, 184, 166, 0.2)',     // teal
+      'rgba(255, 255, 255, 0.12)',   // white
     ];
     const COUNT = Math.min(80, Math.floor(window.innerWidth / 16));
 
@@ -65,7 +65,7 @@
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = 'rgba(220, 38, 38, ' + (0.06 * (1 - dist / 120)) + ')';
+            ctx.strokeStyle = 'rgba(99, 102, 241, ' + (0.06 * (1 - dist / 120)) + ')';
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -81,16 +81,17 @@
 
   /* ─── Typing Animation ────────────────────────────────── */
   function initTyping() {
-    const el = document.getElementById('typing-text');
+    const el = document.getElementById('typingText');
     if (!el) return;
 
     const phrases = [
-      'AI-Powered System Automation',
+      'AI Agent Creation & Deployment',
+      'Azure AI · Copilot Studio · GitHub Agent',
       'Cloud Infrastructure at Scale',
-      'Azure & DevOps Engineering',
-      'Intelligent Monitoring & Ops',
-      'Generative AI Integration',
+      'Custom Agent Automation',
+      'Exploring 4 Countries & Counting',
       'Power Platform Solutions',
+      'Making Work Easier with AI',
     ];
     let phraseIdx = 0, charIdx = 0, deleting = false;
 
@@ -265,7 +266,7 @@
 
   /* ─── Back to Top ──────────────────────────────────────── */
   function initBackToTop() {
-    const btn = document.getElementById('back-to-top');
+    const btn = document.getElementById('backToTop');
     if (!btn) return;
 
     function check() {
@@ -281,7 +282,7 @@
 
   /* ─── Contact Form ─────────────────────────────────────── */
   function initContactForm() {
-    const form = document.getElementById('contact-form');
+    const form = document.getElementById('contactForm');
     if (!form) return;
 
     form.addEventListener('submit', e => {
