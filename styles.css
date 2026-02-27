@@ -1100,8 +1100,9 @@ textarea {
 }
 
 .contact__info-card:hover {
-  border-color: var(--clr-border-light);
+  border-color: var(--clr-primary);
   transform: translateX(4px);
+  box-shadow: 0 4px 20px var(--clr-primary-glow);
 }
 
 .contact__info-icon {
@@ -1251,6 +1252,31 @@ textarea {
 .footer__domain {
   font-family: var(--ff-mono);
   color: var(--clr-text-muted) !important;
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.footer__social a {
+  color: var(--clr-text-dim);
+  transition: color var(--duration) var(--ease-out), transform var(--duration) var(--ease-spring);
+  display: flex;
+  align-items: center;
+}
+
+.footer__social a:hover {
+  color: var(--clr-primary);
+  transform: translateY(-2px);
+}
+
+.resume__note {
+  font-size: 0.875rem;
+  color: var(--clr-text-muted);
+  margin-top: var(--space-md);
+  text-align: center;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -1553,4 +1579,145 @@ textarea {
     padding: 1rem 0;
     break-inside: avoid;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PREMIUM ENHANCEMENTS
+   ═══════════════════════════════════════════════════════════ */
+
+/* Section gradient dividers */
+.section + .section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(80%, 600px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--clr-primary), transparent);
+  opacity: 0.3;
+}
+
+/* Card shimmer on hover */
+.skill-card::after,
+.project-card::after,
+.about__card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0) 0%, 
+    rgba(59, 130, 246, 0.03) 50%, 
+    rgba(59, 130, 246, 0) 100%);
+  opacity: 0;
+  transition: opacity var(--duration-lg) var(--ease-out);
+  pointer-events: none;
+}
+
+.skill-card:hover::after,
+.project-card:hover::after,
+.about__card:hover::after {
+  opacity: 1;
+}
+
+/* Enhanced resume section */
+.resume__preview {
+  background: linear-gradient(135deg, var(--clr-surface) 0%, var(--clr-surface-alt) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.resume__preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent), #a78bfa);
+}
+
+/* Enhanced section titles with gradient underline */
+.section__title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent));
+  border-radius: 2px;
+  margin: var(--space-md) auto 0;
+}
+
+/* Smooth text selection */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: var(--clr-white);
+}
+
+/* Enhanced scroll indicator animation */
+.hero__scroll {
+  animation: fadeInUp 1.5s ease-out 2s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* About card icon glow on hover */
+.about__card:hover .about__card-icon {
+  transform: scale(1.15);
+  transition: transform var(--duration) var(--ease-spring);
+}
+
+/* Timeline item entrance enhancement */
+.timeline-item__content {
+  position: relative;
+}
+
+.timeline-item__content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--clr-primary), transparent);
+  border-radius: 2px 0 0 2px;
+  opacity: 0;
+  transition: opacity var(--duration) var(--ease-out);
+}
+
+.timeline-item__content:hover::before {
+  opacity: 1;
+}
+
+/* Contact form submit button enhancement */
+.contact__form .btn--primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact__form .btn--primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.contact__form .btn--primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Footer gradient border */
+.footer {
+  border-image: linear-gradient(90deg, transparent, var(--clr-primary), transparent) 1;
 }
