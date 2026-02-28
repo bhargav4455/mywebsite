@@ -719,13 +719,14 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .hero__tooltip-company-logo {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
   border-radius: 6px;
   flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .hero__stat-tooltip--companies .hero__tooltip-text {
