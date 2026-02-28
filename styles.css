@@ -585,19 +585,19 @@ input, textarea { font-family: inherit; font-size: inherit; }
 
 .hero__stat { text-align: center; }
 
-.hero__stat--countries {
+.hero__stat--countries,
+.hero__stat--hoverable {
   position: relative;
   cursor: pointer;
 }
 
-/* Country flags hover tooltip */
-.hero__flags-tooltip {
+/* ── Shared tooltip base ── */
+.hero__flags-tooltip,
+.hero__stat-tooltip {
   position: absolute;
   top: calc(100% + 14px);
   left: 50%;
   transform: translateX(-50%) translateY(8px);
-  display: flex;
-  gap: 14px;
   padding: 16px 22px;
   background: rgba(15, 15, 20, 0.92);
   backdrop-filter: blur(16px);
@@ -613,7 +613,20 @@ input, textarea { font-family: inherit; font-size: inherit; }
   white-space: nowrap;
 }
 
-.hero__flags-tooltip::before {
+.hero__flags-tooltip {
+  display: flex;
+  gap: 14px;
+}
+
+.hero__stat-tooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 220px;
+}
+
+.hero__flags-tooltip::before,
+.hero__stat-tooltip::before {
   content: '';
   position: absolute;
   top: -6px;
@@ -626,7 +639,8 @@ input, textarea { font-family: inherit; font-size: inherit; }
   border-left: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.hero__stat--countries:hover .hero__flags-tooltip {
+.hero__stat--countries:hover .hero__flags-tooltip,
+.hero__stat--hoverable:hover .hero__stat-tooltip {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
@@ -665,6 +679,58 @@ input, textarea { font-family: inherit; font-size: inherit; }
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+}
+
+/* ── Tooltip list items (certs & companies) ── */
+.hero__tooltip-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  animation: tooltipFadeIn 0.3s ease both;
+}
+
+.hero__stat--hoverable:hover .hero__tooltip-item:nth-child(2)  { animation-delay: 0.03s; }
+.hero__stat--hoverable:hover .hero__tooltip-item:nth-child(3)  { animation-delay: 0.06s; }
+.hero__stat--hoverable:hover .hero__tooltip-item:nth-child(4)  { animation-delay: 0.09s; }
+.hero__stat--hoverable:hover .hero__tooltip-item:nth-child(5)  { animation-delay: 0.12s; }
+.hero__stat--hoverable:hover .hero__tooltip-item:nth-child(6)  { animation-delay: 0.15s; }
+.hero__stat--hoverable:hover .hero__tooltip-item:nth-child(7)  { animation-delay: 0.18s; }
+.hero__stat--hoverable:hover .hero__tooltip-item:nth-child(8)  { animation-delay: 0.21s; }
+.hero__stat--hoverable:hover .hero__tooltip-item:nth-child(9)  { animation-delay: 0.24s; }
+.hero__stat--hoverable:hover .hero__tooltip-item:nth-child(10) { animation-delay: 0.27s; }
+.hero__stat--hoverable:hover .hero__tooltip-item:nth-child(11) { animation-delay: 0.30s; }
+.hero__stat--hoverable:hover .hero__tooltip-item:nth-child(12) { animation-delay: 0.33s; }
+
+@keyframes tooltipFadeIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.hero__tooltip-icon {
+  font-size: 0.9rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.hero__tooltip-text {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.01em;
+}
+
+/* Certs tooltip — two columns for 12 items */
+.hero__stat-tooltip--certs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 16px;
+  min-width: 400px;
+}
+
+/* Companies tooltip */
+.hero__stat-tooltip--companies {
+  min-width: 200px;
 }
 
 .hero__stat-number {
