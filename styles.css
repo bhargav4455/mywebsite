@@ -37,13 +37,13 @@
 
   --space-xs:   0.25rem;
   --space-sm:   0.5rem;
-  --space-md:   0.75rem;
-  --space-lg:   1rem;
-  --space-xl:   1.25rem;
-  --space-2xl:  1.5rem;
-  --space-3xl:  2rem;
-  --space-4xl:  2.5rem;
-  --space-5xl:  3rem;
+  --space-md:   1rem;
+  --space-lg:   1.25rem;
+  --space-xl:   1.5rem;
+  --space-2xl:  2rem;
+  --space-3xl:  2.5rem;
+  --space-4xl:  3rem;
+  --space-5xl:  4rem;
 
   --max-width:  1200px;
   --nav-height: 72px;
@@ -124,18 +124,18 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .section {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-3xl) 0;
   position: relative;
 }
 
 .section__title {
-  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 700;
   color: var(--clr-dark);
   text-align: center;
   margin-bottom: var(--space-xs);
   letter-spacing: -0.025em;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .section__title::after {
@@ -154,10 +154,10 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .section__subtitle {
-  font-size: 0.85rem;
+  font-size: 0.9375rem;
   color: var(--clr-text-muted);
   text-align: center;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
   font-weight: 400;
   letter-spacing: 0.005em;
 }
@@ -402,8 +402,9 @@ input, textarea { font-family: inherit; font-size: inherit; }
    HERO — Dark charcoal section with red accents
    ═══════════════════════════════════════════════════════════ */
 .hero {
-  min-height: auto;
-  padding-bottom: var(--space-3xl);
+  min-height: 85vh;
+  padding-top: calc(var(--nav-height) + 1.5rem);
+  padding-bottom: var(--space-2xl);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -513,11 +514,11 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .hero__name {
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.05;
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
 }
 
 .hero__name-first {
@@ -534,10 +535,10 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .hero__tagline {
-  font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+  font-size: clamp(0.875rem, 1.8vw, 1.05rem);
   color: rgba(255, 255, 255, 0.7);
-  line-height: 1.4;
-  margin-bottom: var(--space-xs);
+  line-height: 1.5;
+  margin-bottom: var(--space-sm);
   font-weight: 400;
 }
 
@@ -550,13 +551,13 @@ input, textarea { font-family: inherit; font-size: inherit; }
   display: inline-flex;
   align-items: center;
   font-family: var(--ff-mono);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--clr-accent);
   background: rgba(99, 102, 241, 0.06);
   border: 1px solid rgba(99, 102, 241, 0.15);
-  padding: 0.3rem 0.75rem;
+  padding: 0.35rem 0.85rem;
   border-radius: var(--radius-sm);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .hero__typing-prefix { color: var(--clr-primary); font-weight: 600; }
@@ -894,10 +895,10 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .about__text p {
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
   color: var(--clr-text-muted);
-  font-size: 0.875rem;
-  line-height: 1.55;
+  font-size: 0.9375rem;
+  line-height: 1.65;
 }
 
 .about__text strong { color: var(--clr-dark); }
@@ -909,12 +910,12 @@ input, textarea { font-family: inherit; font-size: inherit; }
 
 .about__highlights {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: var(--space-sm);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-md);
 }
 
 .about__card {
-  padding: var(--space-sm);
+  padding: var(--space-md);
   text-align: center;
 }
 .about__card:hover {
@@ -967,7 +968,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .impact__card {
-  padding: var(--space-md);
+  padding: var(--space-lg);
   position: relative;
   overflow: hidden;
 }
@@ -1011,17 +1012,17 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .impact__icon--devops      { background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(20,184,166,0.06)); }
 
 .impact__card h3 {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--clr-dark);
   margin-bottom: var(--space-xs);
 }
 
 .impact__card p {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--clr-text-muted);
-  line-height: 1.5;
-  margin-bottom: var(--space-sm);
+  line-height: 1.55;
+  margin-bottom: var(--space-md);
 }
 
 .impact__metric {
@@ -1030,7 +1031,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .impact__metric-number {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--clr-primary);
   line-height: 1;
@@ -1067,7 +1068,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: var(--space-sm) var(--space-sm) var(--space-sm);
+  padding: var(--space-md) var(--space-md) var(--space-md);
   position: relative;
   overflow: hidden;
   background: var(--clr-surface);
@@ -1216,7 +1217,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .skill-card {
-  padding: var(--space-md) var(--space-sm);
+  padding: var(--space-lg) var(--space-md);
   position: relative;
   overflow: hidden;
 }
@@ -3157,7 +3158,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
    RESPONSIVE — MOBILE
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  .section { padding: var(--space-lg) 0; }
+  .section { padding: var(--space-xl) 0; }
 
   .nav__menu {
     position: fixed;
@@ -3190,7 +3191,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
 
   .nav__link { font-size: 1rem; padding: var(--space-sm) 0; }
 
-  .hero__name { font-size: clamp(1.75rem, 8vw, 2.5rem); }
+  .hero__name { font-size: clamp(2rem, 10vw, 3rem); }
 
   .hero__cta { flex-direction: column; align-items: center; }
 
