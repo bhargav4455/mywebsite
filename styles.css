@@ -674,26 +674,68 @@ input, textarea { font-family: inherit; font-size: inherit; }
   letter-spacing: 0.01em;
 }
 
-/* Certs tooltip — two columns for 12 items */
+/* Certs tooltip — 6 columns × 2 rows */
 .hero__stat-tooltip--certs {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px 16px;
-  min-width: 400px;
+  grid-template-columns: repeat(6, auto);
+  gap: 8px 18px;
+  min-width: auto;
+  white-space: nowrap;
 }
 
-/* Companies tooltip */
+.hero__stat-tooltip--certs .hero__tooltip-item {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  padding: 6px 4px;
+}
+
+.hero__stat-tooltip--certs .hero__tooltip-icon {
+  font-size: 1.3rem;
+}
+
+.hero__stat-tooltip--certs .hero__tooltip-text {
+  font-size: 0.6rem;
+  white-space: nowrap;
+}
+
+/* Companies tooltip — single horizontal line */
 .hero__stat-tooltip--companies {
-  min-width: 200px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 16px;
+  min-width: auto;
 }
 
-/* Countries tooltip */
+.hero__stat-tooltip--companies .hero__tooltip-item {
+  gap: 5px;
+  padding: 2px 0;
+}
+
+.hero__stat-tooltip--companies .hero__tooltip-text {
+  font-size: 0.65rem;
+}
+
+/* Countries tooltip — single horizontal line */
 .hero__stat-tooltip--countries {
-  min-width: 160px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 16px;
+  min-width: auto;
+}
+
+.hero__stat-tooltip--countries .hero__tooltip-item {
+  gap: 5px;
+  padding: 2px 0;
 }
 
 .hero__stat-tooltip--countries .hero__tooltip-icon {
   font-size: 1.2rem;
+}
+
+.hero__stat-tooltip--countries .hero__tooltip-text {
+  font-size: 0.65rem;
 }
 
 .hero__stat-number {
