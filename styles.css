@@ -728,15 +728,35 @@ input, textarea { font-family: inherit; font-size: inherit; }
   padding: 2px 0;
 }
 
-.hero__tooltip-company-logo {
-  width: 48px;
-  height: 30px;
-  object-fit: contain;
-  border-radius: 4px;
+.hero__company-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  height: 32px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: #fff;
+  padding: 0 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   flex-shrink: 0;
-  background: #ffffff;
-  padding: 4px 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero__company-chip--ltm {
+  background: linear-gradient(135deg, #E8685A, #d4523f);
+}
+
+.hero__company-chip--hcl {
+  background: linear-gradient(135deg, #1868B2, #0e4f8c);
+}
+
+.hero__company-chip--zen3 {
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 
 .hero__stat-tooltip--companies .hero__tooltip-text {
