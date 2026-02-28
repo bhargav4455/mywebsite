@@ -1354,27 +1354,29 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .timeline-item__logo {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-sm);
-  background: var(--clr-surface-alt);
-  border: 1px solid var(--clr-border);
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1.5px solid rgba(99, 102, 241, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
-  transition: transform var(--duration) var(--ease-spring);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: transform var(--duration) var(--ease-spring), box-shadow var(--duration) var(--ease-out);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 0 0 1px rgba(255,255,255,0.8) inset;
 }
 .timeline-item__content:hover .timeline-item__logo {
-  transform: scale(1.08);
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.15), 0 0 0 1px rgba(255,255,255,0.8) inset;
 }
 .timeline-item__logo img {
-  width: 36px;
-  height: 36px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
+  border-radius: 12px;
 }
 .timeline-item__header-text h3 {
   font-size: 1.125rem;

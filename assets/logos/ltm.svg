@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40">
-  <rect width="120" height="40" fill="#E8685A" rx="4"/>
-  <text x="60" y="29" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="800" fill="#fff" letter-spacing="2">LTM</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="ltm-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B5A"/>
+      <stop offset="100%" stop-color="#D94A3A"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" fill="url(#ltm-bg)" rx="24"/>
+  <text x="60" y="72" text-anchor="middle" font-family="'Segoe UI',Arial,Helvetica,sans-serif" font-size="42" font-weight="800" fill="#fff" letter-spacing="3">LTM</text>
 </svg>

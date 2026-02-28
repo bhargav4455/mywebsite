@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40">
-  <rect width="120" height="40" fill="#1868B2" rx="4"/>
-  <text x="60" y="29" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="800" fill="#fff" letter-spacing="2">HCL</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="hcl-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2088D6"/>
+      <stop offset="100%" stop-color="#0F5FA0"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" fill="url(#hcl-bg)" rx="24"/>
+  <text x="60" y="60" text-anchor="middle" font-family="'Segoe UI',Arial,Helvetica,sans-serif" font-size="36" font-weight="800" fill="#fff" letter-spacing="2">HCL</text>
+  <text x="60" y="85" text-anchor="middle" font-family="'Segoe UI',Arial,Helvetica,sans-serif" font-size="13" font-weight="600" fill="rgba(255,255,255,0.8)" letter-spacing="2">TECH</text>
 </svg>
