@@ -1082,7 +1082,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
   box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 0 0 1px rgba(99,102,241,0.06);
 }
 
-/* Icon wrap — gradient circle with logo or letter */
+/* Icon wrap — badge image or gradient circle */
 .cert-card__icon-wrap {
   width: 56px;
   height: 56px;
@@ -1093,12 +1093,27 @@ input, textarea { font-family: inherit; font-size: inherit; }
   margin-bottom: var(--space-lg);
   transition: transform 0.4s var(--ease-spring);
   flex-shrink: 0;
+  overflow: hidden;
 }
 .cert-card:hover .cert-card__icon-wrap {
   transform: scale(1.1) rotate(-3deg);
 }
 
-/* Icon wrap color variants */
+/* Image-based badge icon */
+.cert-card__icon-wrap--img {
+  padding: 4px;
+  background: var(--clr-surface-alt);
+  border: 1px solid var(--clr-border);
+}
+.cert-card__icon-wrap--img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Icon wrap color variants (fallback for SVG icons) */
 .cert-card__icon--ai       { background: linear-gradient(135deg, #7c3aed, #a78bfa); box-shadow: 0 4px 16px rgba(124,58,237,0.2); }
 .cert-card__icon--azure    { background: linear-gradient(135deg, #2563eb, #60a5fa); box-shadow: 0 4px 16px rgba(37,99,235,0.2); }
 .cert-card__icon--devops   { background: linear-gradient(135deg, #ea580c, #fb923c); box-shadow: 0 4px 16px rgba(234,88,12,0.2); }
