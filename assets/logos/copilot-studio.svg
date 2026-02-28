@@ -1,19 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="cs1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#0078D4"/>
-      <stop offset="40%" stop-color="#6264A7"/>
-      <stop offset="70%" stop-color="#C239B3"/>
-      <stop offset="100%" stop-color="#E3008C"/>
+    <linearGradient id="cpL" x1="10" y1="10" x2="54" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#24b8f0"/>
+      <stop offset="25%" stop-color="#2bc98e"/>
+      <stop offset="45%" stop-color="#c5d84e"/>
+      <stop offset="60%" stop-color="#f0a030"/>
+      <stop offset="80%" stop-color="#e8508a"/>
+      <stop offset="100%" stop-color="#b060d8"/>
+    </linearGradient>
+    <linearGradient id="cpR" x1="30" y1="14" x2="56" y2="54" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1870c8"/>
+      <stop offset="30%" stop-color="#a050c8"/>
+      <stop offset="60%" stop-color="#e060a0"/>
+      <stop offset="100%" stop-color="#f0a868"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="#1B1B32"/>
-  <!-- Copilot Studio icon - dual swoosh -->
-  <path d="M20 42c0-10 8-22 18-22 4 0 7 2 8 6" stroke="url(#cs1)" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <path d="M44 22c0 10-8 22-18 22-4 0-7-2-8-6" stroke="url(#cs1)" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <circle cx="20" cy="42" r="3.5" fill="#E3008C"/>
-  <circle cx="44" cy="22" r="3.5" fill="#0078D4"/>
-  <!-- Sparkles -->
-  <path d="M50 38l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" fill="#50E6FF" opacity="0.8"/>
-  <path d="M14 20l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="#C239B3" opacity="0.7"/>
+  <!-- Left panel: curves from top-right down to bottom-left -->
+  <path d="M34 8 C24 8, 12 16, 12 28 C12 38, 18 48, 26 54 C30 52, 32 46, 32 40 C32 32, 36 22, 34 8Z" fill="url(#cpL)"/>
+  <!-- Right panel: curves from top-right down, overlapping -->
+  <path d="M36 10 C44 12, 52 22, 52 34 C52 44, 46 52, 38 56 C34 54, 32 48, 32 42 C32 34, 34 20, 36 10Z" fill="url(#cpR)"/>
+  <!-- White center gap effect -->
+  <path d="M32 26 C30 32, 30 38, 32 44 C34 38, 34 32, 32 26Z" fill="#fff" opacity="0.85"/>
 </svg>

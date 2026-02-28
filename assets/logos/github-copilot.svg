@@ -1,16 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#24292e"/>
-  <!-- Copilot visor/head -->
-  <path d="M16 30c0-9 7-16 16-16s16 7 16 16v4c0 4-3 7-7 7H23c-4 0-7-3-7-7v-4z" fill="#1b1f23" stroke="#6e40c9" stroke-width="2"/>
-  <!-- Visor -->
-  <rect x="20" y="26" width="24" height="10" rx="5" fill="#6e40c9"/>
-  <rect x="22" y="28" width="8" height="6" rx="3" fill="#c9d1d9"/>
-  <rect x="34" y="28" width="8" height="6" rx="3" fill="#c9d1d9"/>
-  <!-- Ears/antennae -->
-  <circle cx="15" cy="28" r="3" fill="#6e40c9" opacity="0.7"/>
-  <circle cx="49" cy="28" r="3" fill="#6e40c9" opacity="0.7"/>
-  <!-- Mouth area -->
-  <path d="M27 44v3c0 2 2 3 5 3s5-1 5-3v-3" stroke="#6e40c9" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <!-- Sparkle -->
-  <path d="M52 14l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" fill="#3b82f6" opacity="0.8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 40" fill="none">
+  <!-- GitHub Octocat mark -->
+  <circle cx="20" cy="20" r="16" fill="#24292e"/>
+  <path d="M20 6C12.27 6 6 12.27 6 20c0 6.18 4.01 11.42 9.57 13.27.7.13.96-.3.96-.67 0-.33-.01-1.42-.02-2.58-3.89.85-4.71-1.65-4.71-1.65-.64-1.61-1.55-2.04-1.55-2.04-1.27-.87.1-.85.1-.85 1.4.1 2.14 1.44 2.14 1.44 1.25 2.13 3.27 1.52 4.07 1.16.12-.9.49-1.52.88-1.87-3.1-.35-6.36-1.55-6.36-6.9 0-1.52.55-2.77 1.44-3.74-.14-.35-.62-1.77.14-3.69 0 0 1.17-.37 3.84 1.43 1.11-.31 2.31-.46 3.5-.47 1.19.01 2.39.16 3.5.47 2.66-1.8 3.83-1.43 3.83-1.43.77 1.92.29 3.34.14 3.69.9.97 1.44 2.22 1.44 3.74 0 5.36-3.27 6.54-6.38 6.89.5.43.95 1.29.95 2.6 0 1.88-.02 3.39-.02 3.85 0 .37.25.81.97.67C29.99 31.42 34 26.18 34 20c0-7.73-6.27-14-14-14z" fill="#fff"/>
+  
+  <!-- Copilot rainbow icon (smaller) -->
+  <defs>
+    <linearGradient id="gcL" x1="44" y1="6" x2="70" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#24b8f0"/>
+      <stop offset="30%" stop-color="#2bc98e"/>
+      <stop offset="55%" stop-color="#c5d84e"/>
+      <stop offset="75%" stop-color="#f0a030"/>
+      <stop offset="100%" stop-color="#e8508a"/>
+    </linearGradient>
+    <linearGradient id="gcR" x1="52" y1="6" x2="74" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1870c8"/>
+      <stop offset="40%" stop-color="#a050c8"/>
+      <stop offset="70%" stop-color="#e060a0"/>
+      <stop offset="100%" stop-color="#f0a868"/>
+    </linearGradient>
+  </defs>
+  <path d="M57 5 C51 5, 44 10, 44 18 C44 24, 47 31, 52 35 C54 33, 55 29, 55 26 C55 21, 56 14, 57 5Z" fill="url(#gcL)"/>
+  <path d="M59 6 C64 7, 72 14, 72 22 C72 28, 68 34, 63 36 C61 34, 60 30, 60 27 C60 22, 60 13, 59 6Z" fill="url(#gcR)"/>
+  <path d="M57.5 16 C56.5 20, 56.5 24, 57.5 28 C58.5 24, 58.5 20, 57.5 16Z" fill="#fff" opacity="0.85"/>
 </svg>

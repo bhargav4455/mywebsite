@@ -1592,9 +1592,9 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .agent-card:hover .agent-card__icon-wrap {
   transform: scale(1.08) rotate(-3deg);
 }
-.agent-card__icon--copilot { background: linear-gradient(135deg, #6366f1, #a78bfa); box-shadow: 0 4px 16px rgba(99,102,241,0.25); }
-.agent-card__icon--github  { background: linear-gradient(135deg, #1e293b, #475569); box-shadow: 0 4px 16px rgba(30,41,59,0.3); }
-.agent-card__icon--sre     { background: linear-gradient(135deg, #14b8a6, #2dd4bf); box-shadow: 0 4px 16px rgba(20,184,166,0.25); }
+.agent-card__icon--copilot { background: #faf8f5; box-shadow: 0 4px 16px rgba(99,102,241,0.25); }
+.agent-card__icon--github  { background: #ffffff; box-shadow: 0 4px 16px rgba(30,41,59,0.2); }
+.agent-card__icon--sre     { background: #faf8f5; box-shadow: 0 4px 16px rgba(20,184,166,0.25); }
 .agent-card__icon--custom  { background: linear-gradient(135deg, #ec4899, #f472b6); box-shadow: 0 4px 16px rgba(236,72,153,0.25); }
 
 /* SVG icon rendering */
