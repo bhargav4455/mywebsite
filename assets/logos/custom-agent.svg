@@ -1,39 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="ca1" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#6366f1"/>
-      <stop offset="50%" stop-color="#8b5cf6"/>
-      <stop offset="100%" stop-color="#ec4899"/>
+    <linearGradient id="ca1" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
     </linearGradient>
-    <linearGradient id="ca2" x1="20" y1="12" x2="44" y2="52" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#818cf8"/>
-      <stop offset="100%" stop-color="#c084fc"/>
+    <linearGradient id="ca2" x1="16" y1="22" x2="48" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
     </linearGradient>
   </defs>
-  <!-- Robot head -->
-  <rect x="16" y="18" width="32" height="28" rx="8" fill="url(#ca1)" opacity="0.9"/>
-  <!-- Antenna -->
-  <line x1="32" y1="10" x2="32" y2="18" stroke="url(#ca2)" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="32" cy="8" r="3.5" fill="url(#ca2)"/>
-  <!-- Eyes -->
-  <rect x="22" y="26" width="7" height="7" rx="2" fill="white" opacity="0.95"/>
-  <rect x="35" y="26" width="7" height="7" rx="2" fill="white" opacity="0.95"/>
-  <circle cx="25.5" cy="29.5" r="2" fill="#6366f1"/>
-  <circle cx="38.5" cy="29.5" r="2" fill="#ec4899"/>
-  <!-- Eye shine -->
-  <circle cx="26.5" cy="28.5" r="0.7" fill="white" opacity="0.9"/>
-  <circle cx="39.5" cy="28.5" r="0.7" fill="white" opacity="0.9"/>
-  <!-- Mouth/speaker -->
-  <rect x="24" y="38" width="16" height="3" rx="1.5" fill="white" opacity="0.6"/>
-  <rect x="26" y="38" width="3" height="3" rx="0.5" fill="white" opacity="0.3"/>
-  <rect x="30.5" y="38" width="3" height="3" rx="0.5" fill="white" opacity="0.3"/>
-  <rect x="35" y="38" width="3" height="3" rx="0.5" fill="white" opacity="0.3"/>
-  <!-- Side connectors -->
-  <rect x="10" y="28" width="6" height="8" rx="3" fill="url(#ca1)" opacity="0.5"/>
-  <rect x="48" y="28" width="6" height="8" rx="3" fill="url(#ca1)" opacity="0.5"/>
+  <rect width="64" height="64" rx="14" fill="#0f1729"/>
+  <!-- Brain outline -->
+  <path d="M32 14c-8 0-15 5-15 13 0 4 2 7 5 9l-1 10c0 2 2 4 4 4h14c2 0 4-2 4-4l-1-10c3-2 5-5 5-9 0-8-7-13-15-13z" stroke="url(#ca2)" stroke-width="2" fill="url(#ca2)" fill-opacity="0.15"/>
+  <!-- Neural network nodes -->
+  <circle cx="26" cy="26" r="3" fill="#14b8a6" opacity="0.9"/>
+  <circle cx="38" cy="26" r="3" fill="#6366f1" opacity="0.9"/>
+  <circle cx="32" cy="34" r="3" fill="#ec4899" opacity="0.9"/>
+  <circle cx="24" cy="38" r="2.5" fill="#50E6FF" opacity="0.8"/>
+  <circle cx="40" cy="38" r="2.5" fill="#50E6FF" opacity="0.8"/>
+  <!-- Neural connections -->
+  <line x1="26" y1="26" x2="32" y2="34" stroke="#50E6FF" stroke-width="1.2" opacity="0.6"/>
+  <line x1="38" y1="26" x2="32" y2="34" stroke="#50E6FF" stroke-width="1.2" opacity="0.6"/>
+  <line x1="26" y1="26" x2="38" y2="26" stroke="#50E6FF" stroke-width="1.2" opacity="0.6"/>
+  <line x1="32" y1="34" x2="24" y2="38" stroke="#50E6FF" stroke-width="1.2" opacity="0.6"/>
+  <line x1="32" y1="34" x2="40" y2="38" stroke="#50E6FF" stroke-width="1.2" opacity="0.6"/>
   <!-- Code brackets -->
-  <path d="M18 54l-4-4 4-4" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
-  <path d="M46 54l4-4-4-4" stroke="#c084fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  <path d="M15 30l-4 3 4 3" stroke="#14b8a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+  <path d="M49 30l4 3-4 3" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
   <!-- Sparkle -->
-  <path d="M52 16l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="#ec4899" opacity="0.6"/>
+  <circle cx="50" cy="12" r="1.5" fill="#ec4899" opacity="0.8"/>
+  <path d="M50 9v6M47 12h6" stroke="#ec4899" stroke-width="1" opacity="0.6"/>
 </svg>
