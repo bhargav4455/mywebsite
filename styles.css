@@ -1339,8 +1339,8 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .timeline-item__logo {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: var(--radius-sm);
   background: var(--clr-surface-alt);
   border: 1px solid var(--clr-border);
@@ -1356,9 +1356,10 @@ input, textarea { font-family: inherit; font-size: inherit; }
   transform: scale(1.08);
 }
 .timeline-item__logo img {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
 }
 .timeline-item__header-text h3 {
   font-size: 1.125rem;
@@ -1874,7 +1875,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .volunteer-card__icon {
   font-size: 2rem;
   flex-shrink: 0;
-  width: 48px; height: 48px;
+  width: 56px; height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1893,6 +1894,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
   height: 100%;
   object-fit: contain;
   border-radius: 4px;
+  image-rendering: -webkit-optimize-contrast;
 }
 .volunteer-card__icon--svg {
   background: linear-gradient(135deg, var(--clr-primary-soft), rgba(236,72,153,0.04));
