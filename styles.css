@@ -1059,37 +1059,6 @@ input, textarea { font-family: inherit; font-size: inherit; }
   flex-shrink: 0;
 }
 
-/* Legacy logo fallback — kept for backwards compat */
-.cert-card__logo {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
-
-/* Microsoft logo keeps original 4-color appearance */
-.cert-card__logo--ms {
-  filter: none;
-  background: #fff;
-  padding: 3px;
-  border-radius: 4px;
-}
-
-/* Fallback initial letter when logo fails */
-.cert-card__initial {
-  display: none;
-  width: 32px;
-  height: 32px;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--ff-sans);
-  font-size: 1.125rem;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.02em;
-}
-
 .cert-card__title {
   font-size: 0.9375rem;
   font-weight: 700;
@@ -1390,6 +1359,16 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 .clients-premium .section__title {
   color: var(--clr-white);
+  background: linear-gradient(
+    90deg,
+    #fff 0%, #fff 40%,
+    var(--clr-primary) 50%,
+    #fff 60%, #fff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .clients-premium .section__subtitle {
   color: rgba(255, 255, 255, 0.4);
@@ -2606,6 +2585,142 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .beyond__grid .beyond__card:nth-child(3) { transition-delay: 0.3s; }
 .beyond__grid .beyond__card:nth-child(4) { transition-delay: 0.45s; }
 
+/* Extra cert cards 7-12 stagger */
+.certs__grid .cert-card:nth-child(7) { transition-delay: 0.36s; }
+.certs__grid .cert-card:nth-child(8) { transition-delay: 0.42s; }
+.certs__grid .cert-card:nth-child(9) { transition-delay: 0.48s; }
+.certs__grid .cert-card:nth-child(10) { transition-delay: 0.54s; }
+.certs__grid .cert-card:nth-child(11) { transition-delay: 0.6s; }
+.certs__grid .cert-card:nth-child(12) { transition-delay: 0.66s; }
+
+/* Timeline entries stagger */
+.timeline-item:nth-child(1) { transition-delay: 0s; }
+.timeline-item:nth-child(2) { transition-delay: 0.1s; }
+.timeline-item:nth-child(3) { transition-delay: 0.2s; }
+.timeline-item:nth-child(4) { transition-delay: 0.3s; }
+.timeline-item:nth-child(5) { transition-delay: 0.4s; }
+.timeline-item:nth-child(6) { transition-delay: 0.5s; }
+.timeline-item:nth-child(7) { transition-delay: 0.6s; }
+
+/* Volunteer cards stagger */
+.volunteer__grid .volunteer-card:nth-child(2) { transition-delay: 0.1s; }
+.volunteer__grid .volunteer-card:nth-child(3) { transition-delay: 0.2s; }
+.volunteer__grid .volunteer-card:nth-child(4) { transition-delay: 0.3s; }
+.volunteer__grid .volunteer-card:nth-child(5) { transition-delay: 0.4s; }
+
+/* Agent cards stagger */
+.agents__grid .agent-card:nth-child(2) { transition-delay: 0.12s; }
+.agents__grid .agent-card:nth-child(3) { transition-delay: 0.24s; }
+.agents__grid .agent-card:nth-child(4) { transition-delay: 0.36s; }
+
+/* Project cards stagger */
+.projects__grid .project-card:nth-child(2) { transition-delay: 0.1s; }
+.projects__grid .project-card:nth-child(3) { transition-delay: 0.2s; }
+.projects__grid .project-card:nth-child(4) { transition-delay: 0.3s; }
+
+/* ═══════════════════════════════════════════════════════════
+   POLISH ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
+
+/* Section title gradient shimmer */
+@keyframes titleShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.section__title {
+  background: linear-gradient(
+    90deg,
+    var(--clr-dark) 0%,
+    var(--clr-dark) 40%,
+    var(--clr-primary) 50%,
+    var(--clr-dark) 60%,
+    var(--clr-dark) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleShimmer 6s ease-in-out infinite;
+}
+
+/* Skill bar shimmer overlay */
+@keyframes barShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.skill-card__bar-fill {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card__bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: barShimmer 2.5s ease-in-out infinite;
+}
+
+/* Card hover glow */
+.cert-card:hover {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08),
+              0 0 0 1px rgba(99,102,241,0.06),
+              0 0 30px rgba(99,102,241,0.08);
+}
+
+.impact__card:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.06),
+              0 0 24px rgba(99,102,241,0.06);
+}
+
+.agent-card:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,0.06),
+              0 0 24px rgba(99,102,241,0.06);
+}
+
+/* Active timeline marker enhanced pulse */
+@keyframes timelinePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99,102,241,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(99,102,241,0); }
+}
+
+.timeline-item:first-child .timeline-item__dot {
+  animation: timelinePulse 2s ease-in-out infinite;
+}
+
+/* Volunteer card hover float */
+.volunteer-card {
+  transition: transform var(--duration) var(--ease-out),
+              box-shadow var(--duration) var(--ease-out);
+}
+
+.volunteer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+}
+
+/* Project card hover lift */
+.project-card {
+  transition: transform var(--duration) var(--ease-out),
+              box-shadow var(--duration) var(--ease-out);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+}
+
+/* Contact form input focus glow */
+.contact-form__input:focus,
+.contact-form__textarea:focus {
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+}
+
 /* ═══════════════════════════════════════════════════════════
    QR CODES
    ═══════════════════════════════════════════════════════════ */
@@ -2663,9 +2778,6 @@ input, textarea { font-family: inherit; font-size: inherit; }
   flex-shrink: 0;
 }
 .qr-code-card__icon--linkedin { color: #0A66C2; }
-.qr-code-card__icon--instagram { color: #E4405F; }
-.qr-code-card__icon--facebook { color: #1877F2; }
-.qr-code-card__icon--whatsapp { color: #25D366; }
 
 .qr-codes__note {
   margin-top: var(--space-lg);
