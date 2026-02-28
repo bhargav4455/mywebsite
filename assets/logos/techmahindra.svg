@@ -1,9 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" fill="none">
-  <rect width="320" height="100" rx="0" fill="#fff"/>
-  <!-- Red parallelogram icon on the left -->
-  <path d="M10 18 L50 8 L40 92 L0 82 Z" fill="#E31937"/>
-  <!-- TECH text - dark gray, uppercase -->
-  <text x="70" y="40" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="400" letter-spacing="4" fill="#4A4A4A">TECH</text>
-  <!-- mahindra text - red, lowercase bold -->
-  <text x="70" y="78" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700" fill="#E31937">mahindra</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40">
+  <rect width="120" height="40" fill="#fff" rx="4"/>
+  <rect x="2" y="2" width="14" height="36" rx="2" fill="#E31937" transform="skewX(-8)"/>
+  <text x="72" y="18" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#4A4A4A" letter-spacing="2">TECH</text>
+  <text x="72" y="35" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#E31937">mahindra</text>
 </svg>
