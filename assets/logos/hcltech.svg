@@ -1,19 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
-  <rect width="120" height="120" rx="16" fill="#fff"/>
-  <!-- HCL Blue brand color -->
-  <defs>
-    <linearGradient id="hcl" x1="10" y1="10" x2="110" y2="110" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#0060A9"/>
-      <stop offset="100%" stop-color="#003F72"/>
-    </linearGradient>
-  </defs>
-  <!-- H -->
-  <rect x="14" y="30" width="10" height="60" rx="2" fill="url(#hcl)"/>
-  <rect x="14" y="52" width="28" height="10" rx="2" fill="url(#hcl)"/>
-  <rect x="32" y="30" width="10" height="60" rx="2" fill="url(#hcl)"/>
-  <!-- C -->
-  <path d="M56 60c0-16 12-30 26-30v12c-9 0-15 8-15 18s6 18 15 18v12c-14 0-26-14-26-30z" fill="url(#hcl)"/>
-  <!-- L -->
-  <rect x="88" y="30" width="10" height="60" rx="2" fill="url(#hcl)"/>
-  <rect x="88" y="80" width="24" height="10" rx="2" fill="url(#hcl)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none">
+  <rect width="300" height="100" rx="0" fill="#fff"/>
+  <!-- HCL Logo - Blue italic/slanted style matching official branding -->
+  <!-- H - slanted italic style -->
+  <path d="M12 82 L28 10 h22 l-6 28 h28 l6-28 h22 L84 82 h-22 l7-30 h-28 l-7 30 Z" fill="#1868B2"/>
+  <!-- C - oval/ellipse shape -->
+  <ellipse cx="148" cy="48" rx="42" ry="36" fill="#1868B2"/>
+  <ellipse cx="152" cy="48" rx="28" ry="22" fill="#fff"/>
+  <rect x="155" y="30" width="40" height="36" fill="#fff"/>
+  <!-- L - slanted italic -->
+  <path d="M200 10 h22 l-14 54 h36 l-5 18 h-58 Z" fill="#1868B2"/>
 </svg>

@@ -729,15 +729,15 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .hero__tooltip-company-logo {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 10px;
   flex-shrink: 0;
-  background: #fff;
-  padding: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.15);
-  filter: brightness(1.05) contrast(1.05);
+  background: #ffffff;
+  padding: 6px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4), 0 0 0 1.5px rgba(255, 255, 255, 0.2);
+  filter: brightness(1.1) contrast(1.1) saturate(1.15);
 }
 
 .hero__stat-tooltip--companies .hero__tooltip-text {

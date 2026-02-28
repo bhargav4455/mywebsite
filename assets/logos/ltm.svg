@@ -1,15 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" fill="none">
-  <rect width="240" height="80" rx="12" fill="#fff"/>
-  <!-- LTM Logo — coral/salmon bold geometric block letters -->
-  <defs>
-    <style>
-      .ltm-letter { fill: #E8685A; }
-    </style>
-  </defs>
-  <!-- L -->
-  <path class="ltm-letter" d="M8 8 h18 v48 h28 v16 H8 Z"/>
-  <!-- T -->
-  <path class="ltm-letter" d="M62 8 h52 v16 h-17 v48 h-18 v-48 h-17 Z"/>
-  <!-- M -->
-  <path class="ltm-letter" d="M122 8 h18 l14 32 14-32 h18 v64 h-18 v-36 l-14 32 -14-32 v36 h-18 Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none">
+  <rect width="300" height="100" rx="0" fill="#fff"/>
+  <!-- LTM Logo - coral/salmon with rounded L bottom, thick block letters -->
+  <!-- L - with rounded bottom-left corner -->
+  <path d="M10 8 h22 v52 c0 0 0 0 0 0 h38 v18 H10 c0 0 0 0 0 0 Z" fill="#E8685A" />
+  <path d="M10 68 v-60 h22 v52 h38 v18 h-48 c-6.6 0-12-5.4-12-12z" fill="#E8685A"/>
+  <!-- T - thick top bar with centered stem -->
+  <path d="M82 8 h70 v18 h-24 v52 h-22 v-52 h-24 Z" fill="#E8685A"/>
+  <!-- M - angular with V-notch, thick legs -->
+  <path d="M164 8 h26 l22 44 22-44 h26 v70 h-22 V38 l-20 40 h-12 l-20-40 v40 h-22 Z" fill="#E8685A"/>
 </svg>
