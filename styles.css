@@ -674,13 +674,14 @@ input, textarea { font-family: inherit; font-size: inherit; }
   letter-spacing: 0.01em;
 }
 
-/* Certs tooltip — 6 columns × 2 rows */
+/* Certs tooltip — 4 columns × 3 rows */
 .hero__stat-tooltip--certs {
   display: grid;
-  grid-template-columns: repeat(6, auto);
-  gap: 8px 18px;
+  grid-template-columns: repeat(4, auto);
+  gap: 10px 20px;
   min-width: auto;
   white-space: nowrap;
+  padding: 18px 24px;
 }
 
 .hero__stat-tooltip--certs .hero__tooltip-item {
@@ -688,16 +689,17 @@ input, textarea { font-family: inherit; font-size: inherit; }
   align-items: center;
   text-align: center;
   gap: 4px;
-  padding: 6px 4px;
+  padding: 6px 6px;
 }
 
 .hero__stat-tooltip--certs .hero__tooltip-icon {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .hero__stat-tooltip--certs .hero__tooltip-text {
-  font-size: 0.6rem;
+  font-size: 0.62rem;
   white-space: nowrap;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 /* Companies tooltip — single horizontal line */
@@ -717,25 +719,34 @@ input, textarea { font-family: inherit; font-size: inherit; }
   font-size: 0.65rem;
 }
 
-/* Countries tooltip — single horizontal line */
+/* Countries tooltip — single horizontal line with flag images */
 .hero__stat-tooltip--countries {
   flex-direction: row;
   flex-wrap: nowrap;
-  gap: 16px;
+  gap: 18px;
   min-width: auto;
+  padding: 14px 22px;
 }
 
 .hero__stat-tooltip--countries .hero__tooltip-item {
-  gap: 5px;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
   padding: 2px 0;
 }
 
-.hero__stat-tooltip--countries .hero__tooltip-icon {
-  font-size: 1.2rem;
+.hero__tooltip-flag {
+  width: 30px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
 }
 
 .hero__stat-tooltip--countries .hero__tooltip-text {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero__stat-number {
