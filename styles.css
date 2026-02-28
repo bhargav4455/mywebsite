@@ -587,80 +587,25 @@ input, textarea { font-family: inherit; font-size: inherit; }
 
 .hero__stat--countries {
   position: relative;
-  cursor: pointer;
 }
 
-.hero__flags-tooltip {
-  position: absolute;
-  top: calc(100% + 14px);
-  left: 50%;
-  transform: translateX(-50%) translateY(6px);
+/* Inline country flags — always visible */
+.hero__flags-inline {
   display: flex;
-  gap: 12px;
-  padding: 14px 20px;
-  background: rgba(15, 15, 20, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-  z-index: 20;
-  white-space: nowrap;
-}
-.hero__flags-tooltip::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 12px;
-  height: 12px;
-  background: rgba(15, 15, 20, 0.92);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.hero__stat--countries:hover .hero__flags-tooltip {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-  pointer-events: auto;
-}
-
-.hero__flag {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   gap: 6px;
+  margin-top: 6px;
 }
-.hero__flag-emoji {
-  font-size: 2rem;
+
+.hero__flags-inline .hero__flag-emoji {
+  font-size: 1.25rem;
   line-height: 1;
-  transition: transform 0.25s ease;
-}
-.hero__stat--countries:hover .hero__flag-emoji {
-  animation: flagBounce 0.5s ease both;
-}
-.hero__stat--countries:hover .hero__flag:nth-child(2) .hero__flag-emoji { animation-delay: 0.06s; }
-.hero__stat--countries:hover .hero__flag:nth-child(3) .hero__flag-emoji { animation-delay: 0.12s; }
-.hero__stat--countries:hover .hero__flag:nth-child(4) .hero__flag-emoji { animation-delay: 0.18s; }
-
-@keyframes flagBounce {
-  0% { transform: scale(0.5) translateY(8px); }
-  60% { transform: scale(1.15) translateY(-4px); }
-  100% { transform: scale(1) translateY(0); }
+  transition: transform 0.3s var(--ease-spring);
+  cursor: default;
 }
 
-.hero__flag-name {
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+.hero__flags-inline .hero__flag-emoji:hover {
+  transform: scale(1.35);
 }
 
 .hero__stat-number {
