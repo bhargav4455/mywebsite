@@ -1041,6 +1041,14 @@ input, textarea { font-family: inherit; font-size: inherit; }
   filter: brightness(0) invert(1);
 }
 
+/* Microsoft logo keeps original 4-color appearance */
+.cert-card__logo--ms {
+  filter: none;
+  background: #fff;
+  padding: 3px;
+  border-radius: 4px;
+}
+
 /* Fallback initial letter when logo fails */
 .cert-card__initial {
   display: none;
