@@ -1119,7 +1119,32 @@
           <div class="beyond__card beyond__card--explore glass-card animate-on-scroll">
             <div class="beyond__card-visual">
               <div class="beyond__card-blob" aria-hidden="true"></div>
-              <div class="beyond__card-emoji">🌎</div>
+              <div class="beyond__card-anim beyond__globe" aria-hidden="true">
+                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="60" cy="60" r="48" stroke="#14b8a6" stroke-width="2" fill="rgba(20,184,166,0.08)"/>
+                  <!-- Equator -->
+                  <ellipse cx="60" cy="60" rx="48" ry="16" stroke="#06b6d4" stroke-width="1.5" opacity="0.6"/>
+                  <!-- Meridians that rotate -->
+                  <g class="globe-spin">
+                    <ellipse cx="60" cy="60" rx="20" ry="48" stroke="#14b8a6" stroke-width="1.2" opacity="0.5"/>
+                    <ellipse cx="60" cy="60" rx="38" ry="48" stroke="#0ea5e9" stroke-width="1" opacity="0.35"/>
+                    <!-- Land masses -->
+                    <circle cx="45" cy="42" r="8" fill="#14b8a6" opacity="0.2"/>
+                    <circle cx="70" cy="52" r="6" fill="#06b6d4" opacity="0.2"/>
+                    <circle cx="55" cy="72" r="10" fill="#0ea5e9" opacity="0.15"/>
+                    <circle cx="75" cy="38" r="5" fill="#14b8a6" opacity="0.18"/>
+                  </g>
+                  <!-- Pin -->
+                  <g class="globe-pin">
+                    <path d="M78 30l-3 8" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="78" cy="28" r="4" fill="#ef4444"/>
+                    <circle cx="78" cy="28" r="1.5" fill="#fff"/>
+                  </g>
+                  <!-- Sparkle -->
+                  <circle cx="25" cy="25" r="2" fill="#14b8a6" class="globe-sparkle" opacity="0.6"/>
+                  <circle cx="98" cy="90" r="1.5" fill="#06b6d4" class="globe-sparkle globe-sparkle--alt" opacity="0.5"/>
+                </svg>
+              </div>
             </div>
             <h3 class="beyond__card-title">The Explorer</h3>
             <p class="beyond__card-text">Road trips, national parks, and discovering new places fuel my curiosity. Every journey teaches structured planning, adaptability, and exploration — qualities I bring back to engineering.</p>
@@ -1131,7 +1156,31 @@
           <div class="beyond__card beyond__card--cuisine glass-card animate-on-scroll">
             <div class="beyond__card-visual">
               <div class="beyond__card-blob" aria-hidden="true"></div>
-              <div class="beyond__card-emoji">🍲</div>
+              <div class="beyond__card-anim beyond__cuisine" aria-hidden="true">
+                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Plate / dish -->
+                  <ellipse cx="60" cy="92" rx="46" ry="10" fill="rgba(245,158,11,0.08)" stroke="#f59e0b" stroke-width="1.5" opacity="0.6"/>
+                  <!-- Pot body -->
+                  <rect x="30" y="55" width="60" height="35" rx="8" fill="rgba(245,158,11,0.12)" stroke="#f97316" stroke-width="2"/>
+                  <!-- Pot lid -->
+                  <path d="M26 58h68" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+                  <rect x="52" y="50" width="16" height="8" rx="4" fill="#f97316" opacity="0.6"/>
+                  <!-- Handles -->
+                  <rect x="20" y="65" width="10" height="6" rx="3" fill="#f59e0b" opacity="0.4"/>
+                  <rect x="90" y="65" width="10" height="6" rx="3" fill="#f59e0b" opacity="0.4"/>
+                  <!-- Steam wisps -->
+                  <path d="M42 48 Q44 38 42 28" stroke="#f97316" stroke-width="2" stroke-linecap="round" fill="none" class="steam steam--1" opacity="0.4"/>
+                  <path d="M55 45 Q57 33 55 22" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" fill="none" class="steam steam--2" opacity="0.35"/>
+                  <path d="M68 46 Q70 35 68 25" stroke="#ef4444" stroke-width="2" stroke-linecap="round" fill="none" class="steam steam--3" opacity="0.3"/>
+                  <path d="M80 48 Q82 37 80 27" stroke="#f97316" stroke-width="1.8" stroke-linecap="round" fill="none" class="steam steam--4" opacity="0.3"/>
+                  <!-- Food bits visible -->
+                  <circle cx="45" cy="72" r="4" fill="#ef4444" opacity="0.35"/>
+                  <circle cx="58" cy="75" r="3" fill="#f59e0b" opacity="0.3"/>
+                  <circle cx="72" cy="70" r="3.5" fill="#22c55e" opacity="0.3"/>
+                  <!-- Sparkle -->
+                  <circle cx="95" cy="30" r="2" fill="#f59e0b" class="cuisine-sparkle" opacity="0.5"/>
+                </svg>
+              </div>
             </div>
             <h3 class="beyond__card-title">Cultures Through Cuisine</h3>
             <p class="beyond__card-text">Food connects people and cultures. From street food markets to fine dining, I'm always exploring new flavors — building the cross-cultural awareness that drives global teams.</p>
@@ -1143,7 +1192,35 @@
           <div class="beyond__card beyond__card--runner glass-card animate-on-scroll">
             <div class="beyond__card-visual">
               <div class="beyond__card-blob" aria-hidden="true"></div>
-              <div class="beyond__card-emoji">&#x1F3C3;</div>
+              <div class="beyond__card-anim beyond__runner" aria-hidden="true">
+                <svg viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Ground line -->
+                  <line x1="0" y1="88" x2="140" y2="88" stroke="#a855f7" stroke-width="1" opacity="0.2"/>
+                  <!-- Runner figure -->
+                  <g class="runner-figure">
+                    <!-- Head -->
+                    <circle cx="70" cy="28" r="8" fill="rgba(236,72,153,0.15)" stroke="#ec4899" stroke-width="2"/>
+                    <!-- Body -->
+                    <line x1="70" y1="36" x2="70" y2="58" stroke="#ec4899" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Arms -->
+                    <line x1="70" y1="42" x2="56" y2="50" stroke="#a855f7" stroke-width="2" stroke-linecap="round" class="runner-arm-back"/>
+                    <line x1="70" y1="42" x2="84" y2="36" stroke="#ec4899" stroke-width="2" stroke-linecap="round" class="runner-arm-front"/>
+                    <!-- Legs -->
+                    <line x1="70" y1="58" x2="58" y2="86" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="runner-leg-back"/>
+                    <line x1="70" y1="58" x2="85" y2="78" stroke="#ec4899" stroke-width="2.5" stroke-linecap="round" class="runner-leg-front"/>
+                    <!-- Shoe kicks -->
+                    <circle cx="85" cy="78" r="3" fill="#6366f1" opacity="0.4" class="runner-shoe"/>
+                  </g>
+                  <!-- Motion lines -->
+                  <line x1="40" y1="40" x2="30" y2="40" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" class="motion-line motion-line--1" opacity="0.4"/>
+                  <line x1="42" y1="50" x2="28" y2="50" stroke="#ec4899" stroke-width="1.2" stroke-linecap="round" class="motion-line motion-line--2" opacity="0.3"/>
+                  <line x1="44" y1="60" x2="32" y2="60" stroke="#6366f1" stroke-width="1" stroke-linecap="round" class="motion-line motion-line--3" opacity="0.25"/>
+                  <!-- Dust particles -->
+                  <circle cx="38" cy="84" r="2.5" fill="#a855f7" class="dust dust--1" opacity="0.2"/>
+                  <circle cx="30" cy="86" r="2" fill="#ec4899" class="dust dust--2" opacity="0.15"/>
+                  <circle cx="45" cy="87" r="1.5" fill="#6366f1" class="dust dust--3" opacity="0.18"/>
+                </svg>
+              </div>
             </div>
             <h3 class="beyond__card-title">The Runner</h3>
             <p class="beyond__card-text">From 5Ks to half marathons — pushing limits one race at a time. Running builds the same discipline and endurance that drives engineering excellence.</p>
