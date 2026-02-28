@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="16" fill="#fff"/>
+  <defs>
+    <linearGradient id="tm" x1="10" y1="10" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6B2D8B"/>
+      <stop offset="100%" stop-color="#4A1D6B"/>
+    </linearGradient>
+  </defs>
+  <!-- T -->
+  <rect x="12" y="30" width="46" height="10" rx="2" fill="url(#tm)"/>
+  <rect x="30" y="30" width="10" height="60" rx="2" fill="url(#tm)"/>
+  <!-- M -->
+  <rect x="66" y="30" width="9" height="60" rx="2" fill="url(#tm)"/>
+  <polygon points="75,30 88,65 101,30 110,30 110,90 101,90 101,50 88,80 75,50 75,90 66,90 66,30" fill="url(#tm)"/>
+  <!-- Tech Mahindra accent bar -->
+  <rect x="12" y="96" width="100" height="4" rx="2" fill="#E31937"/>
+</svg>
