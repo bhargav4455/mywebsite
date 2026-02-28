@@ -2134,11 +2134,11 @@ input, textarea { font-family: inherit; font-size: inherit; }
   background: rgba(236, 72, 153, 0.15);
 }
 
-/* ── Race list — polished ── */
+/* ── Race list — with official logos ── */
 .race-list {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 8px;
   margin: 0.5rem 0 var(--space-md);
   width: 100%;
 }
@@ -2146,12 +2146,13 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .race-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.65rem;
+  gap: 12px;
+  padding: 10px 12px;
   border-radius: var(--radius-md);
   background: rgba(236, 72, 153, 0.03);
   border: 1px solid rgba(236, 72, 153, 0.06);
-  transition: all 0.3s var(--ease-out);
+  transition: all 0.4s var(--ease-out);
+  position: relative;
 }
 
 .race-item:hover {
@@ -2160,22 +2161,47 @@ input, textarea { font-family: inherit; font-size: inherit; }
   border-color: rgba(236, 72, 153, 0.12);
 }
 
-.race-item__icon {
-  font-size: 0.9rem;
+/* ── Race logo ── */
+.race-item__logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  overflow: hidden;
   flex-shrink: 0;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s var(--ease-out);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.race-item:hover .race-item__logo {
+  transform: scale(1.08) rotate(-3deg);
+}
+.race-item__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 9px;
 }
 
 .race-item__info {
   display: flex;
   flex-direction: column;
-  gap: 0.05rem;
+  gap: 2px;
   text-align: left;
+  flex: 1;
+  min-width: 0;
 }
 
 .race-item__name {
-  font-size: 0.775rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--clr-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .race-item__detail {
@@ -2184,14 +2210,83 @@ input, textarea { font-family: inherit; font-size: inherit; }
   font-family: var(--ff-mono);
 }
 
+/* ── Distance badge ── */
+.race-item__distance {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.65rem;
+  font-family: var(--ff-mono);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: rgba(236, 72, 153, 0.08);
+  color: #be185d;
+  border: 1px solid rgba(236, 72, 153, 0.1);
+  transition: all 0.3s var(--ease-out);
+}
+.race-item:hover .race-item__distance {
+  background: rgba(236, 72, 153, 0.14);
+}
+
+/* Half marathon distance = purple */
+.race-item--half .race-item__distance {
+  background: rgba(139, 92, 246, 0.08);
+  color: #7c3aed;
+  border-color: rgba(139, 92, 246, 0.1);
+}
+.race-item--half:hover .race-item__distance {
+  background: rgba(139, 92, 246, 0.14);
+}
+
+/* 10K distance = teal */
+.race-item--10k .race-item__distance {
+  background: rgba(20, 184, 166, 0.08);
+  color: #0d9488;
+  border-color: rgba(20, 184, 166, 0.1);
+}
+.race-item--10k:hover .race-item__distance {
+  background: rgba(20, 184, 166, 0.14);
+}
+
+/* 5K distance = pink */
+.race-item--5k .race-item__distance {
+  background: rgba(236, 72, 153, 0.08);
+  color: #be185d;
+  border-color: rgba(236, 72, 153, 0.1);
+}
+.race-item--5k:hover .race-item__distance {
+  background: rgba(236, 72, 153, 0.14);
+}
+
+/* ── Completed check ── */
+.race-item__check {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(34,197,94,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.race-item__check svg {
+  width: 7px;
+  height: 7px;
+  color: #22c55e;
+}
+
+/* ── Upcoming ── */
 .race-item--upcoming {
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.06), rgba(168, 85, 247, 0.04));
-  border-color: rgba(236, 72, 153, 0.15);
+  background: linear-gradient(135deg, rgba(139,92,246,0.04), rgba(236,72,153,0.02));
+  border-color: rgba(139, 92, 246, 0.15);
   border-style: dashed;
 }
 
 .race-item--upcoming:hover {
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(168, 85, 247, 0.07));
+  background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(236,72,153,0.04));
+  border-color: rgba(139, 92, 246, 0.25);
 }
 
 .race-item--upcoming .race-item__name {
@@ -2201,6 +2296,143 @@ input, textarea { font-family: inherit; font-size: inherit; }
 
 .race-item--upcoming .race-item__detail {
   color: rgba(236, 72, 153, 0.65);
+}
+
+/* ── Upcoming pulse label ── */
+.race-item--upcoming::after {
+  content: 'UPCOMING';
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 0.45rem;
+  font-family: var(--ff-mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #a78bfa;
+  animation: upPulse 2.5s ease-in-out infinite;
+}
+@keyframes upPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* ═══════════════════════════════════════
+   R-POD BADGE
+═══════════════════════════════════════ */
+.rpod-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(236,72,153,0.04));
+  border: 1px solid rgba(99,102,241,0.12);
+  margin-bottom: var(--space-md);
+  text-align: left;
+  transition: all 0.4s var(--ease-out);
+}
+.rpod-badge:hover {
+  transform: translateX(4px);
+  border-color: rgba(99,102,241,0.2);
+  background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(236,72,153,0.06));
+}
+.rpod-badge__img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid rgba(99,102,241,0.15);
+  box-shadow: 0 4px 12px rgba(99,102,241,0.1);
+  transition: transform 0.4s var(--ease-out);
+}
+.rpod-badge:hover .rpod-badge__img {
+  transform: scale(1.1) rotate(-5deg);
+}
+.rpod-badge__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rpod-badge__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rpod-badge__title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--clr-primary);
+}
+.rpod-badge__desc {
+  font-size: 0.65rem;
+  color: var(--clr-text-muted);
+  font-family: var(--ff-mono);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════
+   ATA BADGE
+═══════════════════════════════════════ */
+.ata-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(20,184,166,0.06), rgba(6,182,212,0.04));
+  border: 1px solid rgba(20,184,166,0.12);
+  margin-bottom: var(--space-md);
+  text-align: left;
+  transition: all 0.4s var(--ease-out);
+}
+.ata-badge:hover {
+  transform: translateX(4px);
+  border-color: rgba(20,184,166,0.2);
+  background: linear-gradient(135deg, rgba(20,184,166,0.1), rgba(6,182,212,0.06));
+}
+.ata-badge__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #14b8a6, #06b6d4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(20,184,166,0.15);
+  transition: transform 0.4s var(--ease-out);
+}
+.ata-badge:hover .ata-badge__icon {
+  transform: scale(1.08) rotate(-3deg);
+}
+.ata-badge__icon svg {
+  width: 22px;
+  height: 22px;
+  color: #fff;
+}
+.ata-badge__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ata-badge__title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0d9488;
+}
+.ata-badge__desc {
+  font-size: 0.65rem;
+  color: var(--clr-text-muted);
+  font-family: var(--ff-mono);
+  line-height: 1.5;
+}
+
+/* ── Responsive race items ── */
+@media (max-width: 480px) {
+  .race-item__logo { width: 38px; height: 38px; }
+  .race-item { gap: 10px; padding: 8px 10px; }
+  .rpod-badge__img { width: 44px; height: 44px; }
 }
 
 /* ═══════════════════════════════════════════════════════════
