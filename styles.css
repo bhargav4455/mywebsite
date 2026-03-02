@@ -3046,65 +3046,16 @@ input, textarea { font-family: inherit; font-size: inherit; }
 
 .states-map__wrapper { text-align: center; }
 
-/* ── India SVG Map ── */
-.india-map-wrap {
-  max-width: 420px;
-  margin: 0 auto 2rem;
+/* ── India tile grid (map-shaped layout) ── */
+.india-grid {
+  grid-template-columns: repeat(12, 1fr) !important;
+  grid-template-rows: repeat(14, 1fr) !important;
+  max-width: 500px !important;
 }
 
-.india-svg-map {
-  width: 100%;
-  height: auto;
-}
-
-.india-state {
-  fill: rgba(148,163,184,0.12);
-  stroke: rgba(148,163,184,0.4);
-  stroke-width: 1.2;
-  transition: fill 0.3s ease, stroke 0.3s ease, filter 0.3s ease;
-  cursor: default;
-}
-
-.india-state:hover {
-  fill: rgba(148,163,184,0.25);
-  stroke: rgba(148,163,184,0.6);
-  filter: brightness(1.15);
-}
-
-.india-state--visited {
-  fill: rgba(249,115,22,0.6);
-  stroke: rgba(234,88,12,0.7);
-}
-
-.india-state--visited:hover {
-  fill: rgba(249,115,22,0.8);
-  stroke: rgba(234,88,12,0.9);
-  filter: drop-shadow(0 2px 6px rgba(249,115,22,0.4));
-}
-
-.india-state-label {
-  font-size: 7px;
-  font-family: var(--ff-mono, 'JetBrains Mono', monospace);
-  font-weight: 700;
-  fill: var(--clr-text-muted, #64748b);
-  text-anchor: middle;
-  dominant-baseline: central;
-  pointer-events: none;
-  user-select: none;
-}
-
-.india-state-label--visited {
-  fill: #fff;
-}
-
-[data-theme="dark"] .india-state {
-  fill: rgba(148,163,184,0.08);
-  stroke: rgba(148,163,184,0.25);
-}
-
-[data-theme="dark"] .india-state--visited {
-  fill: rgba(249,115,22,0.5);
-  stroke: rgba(234,88,12,0.6);
+.india-grid .state-tile--visited {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.35);
 }
 
 .india-count {
