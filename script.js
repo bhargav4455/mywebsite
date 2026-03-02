@@ -446,7 +446,7 @@
     const indiaGrid = document.getElementById('indiaStatesGrid');
     if (!indiaGrid) return;
 
-    const notVisited = new Set(['JK','GJ','WB','JH','BR','OD','UP','CH']);
+    const notVisited = new Set(['JK','GJ','WB','JH','BR','OD','UP','CH','LA','SK','AS','NL','MN','MZ','TR','ML','LD','AN','DD']);
 
     // [abbreviation, fullName, row, col, span?] - positioned on 12-col x 14-row grid to form India shape
     // Rows 0-1: J&K / Ladakh crown (centred top)
