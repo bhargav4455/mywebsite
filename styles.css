@@ -2476,6 +2476,83 @@ input, textarea { font-family: inherit; font-size: inherit; }
   margin-bottom: var(--space-lg);
 }
 
+/* ── Stats row ── */
+.beyond__stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.beyond__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.beyond__stat-num {
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-family: var(--ff-heading);
+  background: linear-gradient(135deg, #14b8a6, #0d9488);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.beyond__stat-label {
+  font-size: 0.7rem;
+  font-family: var(--ff-mono);
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Highlights list ── */
+.beyond__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: var(--space-lg);
+  padding: 0 var(--space-sm);
+}
+
+.beyond__highlight-item {
+  font-size: 0.82rem;
+  color: var(--clr-text-body);
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-md);
+  background: rgba(99, 102, 241, 0.04);
+  border-left: 3px solid rgba(99, 102, 241, 0.2);
+  transition: all 0.3s ease;
+}
+
+.beyond__highlight-item:hover {
+  background: rgba(99, 102, 241, 0.08);
+  border-left-color: rgba(99, 102, 241, 0.5);
+  transform: translateX(4px);
+}
+
+.beyond__card--explore .beyond__highlight-item {
+  border-left-color: rgba(20, 184, 166, 0.3);
+  background: rgba(20, 184, 166, 0.04);
+}
+.beyond__card--explore .beyond__highlight-item:hover {
+  background: rgba(20, 184, 166, 0.1);
+  border-left-color: rgba(20, 184, 166, 0.6);
+}
+
+.beyond__card--cuisine .beyond__highlight-item {
+  border-left-color: rgba(245, 158, 11, 0.3);
+  background: rgba(245, 158, 11, 0.04);
+}
+.beyond__card--cuisine .beyond__highlight-item:hover {
+  background: rgba(245, 158, 11, 0.1);
+  border-left-color: rgba(245, 158, 11, 0.6);
+}
+
 /* ── Tags — per-card color ── */
 .beyond__tags {
   display: flex;
