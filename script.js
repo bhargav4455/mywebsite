@@ -358,8 +358,36 @@
     sections.forEach(s => observer.observe(s));
   }
 
+  /* ─── Dark Mode Toggle ──────────────────────────────────── */
+  function initThemeToggle() {
+    const toggle = document.getElementById('themeToggle');
+    if (!toggle) return;
+
+    // Apply saved theme on load
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else if (saved === 'light') {
+      document.documentElement.removeAttribute('data-theme');
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    toggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
+
   /* ─── Boot ─────────────────────────────────────────────── */
   function boot() {
+    initThemeToggle();
     initParticles();
     initTyping();
     initScrollReveal();

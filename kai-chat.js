@@ -288,6 +288,7 @@
   const form     = document.getElementById('chatForm');
   const input    = document.getElementById('chatInput');
   const msgArea  = document.getElementById('chatMessages');
+  const chipsEl  = document.getElementById('chatChips');
 
   if (!bubble || !chatWin || !form) return;
 
@@ -365,4 +366,21 @@
       form.dispatchEvent(new Event('submit'));
     }
   });
+
+  /* ─── Quick-Reply Chips ────────────────────────────────── */
+  if (chipsEl) {
+    chipsEl.addEventListener('click', (e) => {
+      const chip = e.target.closest('.chatbot__chip');
+      if (!chip) return;
+      const query = chip.getAttribute('data-query');
+      if (!query) return;
+
+      // Hide chips after first use
+      chipsEl.classList.add('chatbot__chips--hidden');
+
+      appendMessage(query, 'user');
+      const reply = findResponse(query);
+      showTypingThenReply(reply);
+    });
+  }
 })();
