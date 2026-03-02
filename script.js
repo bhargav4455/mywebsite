@@ -358,6 +358,34 @@
     sections.forEach(s => observer.observe(s));
   }
 
+  /* ─── Experience Accordion ───────────────────────────────── */
+  function initExpAccordion() {
+    const cards = document.querySelectorAll('.exp-card');
+    if (!cards.length) return;
+
+    cards.forEach(card => {
+      const header = card.querySelector('.exp-card__header');
+      if (!header) return;
+
+      header.addEventListener('click', () => {
+        const isOpen = card.classList.contains('exp-card--open');
+
+        // Close all cards
+        cards.forEach(c => {
+          c.classList.remove('exp-card--open');
+          const btn = c.querySelector('.exp-card__header');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked card (if it was closed)
+        if (!isOpen) {
+          card.classList.add('exp-card--open');
+          header.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
   /* ─── Dark Mode Toggle ──────────────────────────────────── */
   function initThemeToggle() {
     const toggle = document.getElementById('themeToggle');
@@ -388,6 +416,7 @@
   /* ─── Boot ─────────────────────────────────────────────── */
   function boot() {
     initThemeToggle();
+    initExpAccordion();
     initParticles();
     initTyping();
     initScrollReveal();
