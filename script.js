@@ -611,11 +611,68 @@
     });
   }
 
+  /* ─── Daily Steps Tracker ──────────────────────────────── */
+  function initStepsTracker() {
+    fetch('data/steps.json')
+      .then(r => r.json())
+      .then(data => {
+        const today = new Date().toISOString().slice(0, 10);
+        const entry = data.find(d => d.date === today) || data[data.length - 1];
+        const steps = entry.steps;
+        const goal = 10000;
+        const pct = Math.min(Math.round((steps / goal) * 100), 100);
+
+        // average
+        const total = data.reduce((s, d) => s + d.steps, 0);
+        const avg = Math.round(total / data.length);
+
+        // streak (consecutive days with 9000+)
+        let streak = 0;
+        for (let i = data.length - 1; i >= 0; i--) {
+          if (data[i].steps >= 9000) streak++;
+          else break;
+        }
+
+        // date display
+        const dateObj = new Date(entry.date + 'T00:00:00');
+        const dateStr = dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+
+        // motivational message
+        let msg;
+        if (pct >= 100) msg = '🎉 Goal crushed! You\'re on fire today!';
+        else if (pct >= 90) msg = '🔥 Almost there — just a few more steps!';
+        else if (pct >= 70) msg = '💪 Great progress — keep moving!';
+        else if (pct >= 50) msg = '👟 Halfway there — you got this!';
+        else msg = '🚶 Every step counts — let\'s go!';
+
+        // populate
+        const el = id => document.getElementById(id);
+        el('steps-date').textContent = dateStr;
+        el('steps-count').textContent = steps.toLocaleString();
+        el('steps-pct').textContent = pct + '%';
+        el('steps-avg').textContent = avg.toLocaleString();
+        el('steps-streak').textContent = streak + 'd';
+        el('steps-msg').textContent = msg;
+
+        // animate bar
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            el('steps-bar-fill').style.width = pct + '%';
+          }, 300);
+        });
+      })
+      .catch(() => {
+        const msg = document.getElementById('steps-msg');
+        if (msg) msg.textContent = 'Steps data unavailable';
+      });
+  }
+
   /* ─── Boot ─────────────────────────────────────────────── */
   function boot() {
     initThemeToggle();
     initExpAccordion();
     initStatesMap();
+    initStepsTracker();
     initParticles();
     initTyping();
     initScrollReveal();
