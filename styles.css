@@ -4068,6 +4068,27 @@ input, textarea { font-family: inherit; font-size: inherit; }
   color: var(--clr-text);
   border-bottom-left-radius: 4px;
 }
+
+/* Formatted bot message content */
+.chatbot__msg--bot .chatbot__msg-content p {
+  margin: 0 0 0.45em;
+}
+.chatbot__msg--bot .chatbot__msg-content p:last-child {
+  margin-bottom: 0;
+}
+.chatbot__msg--bot .chatbot__msg-content strong {
+  color: var(--clr-primary);
+  font-size: 0.82rem;
+  display: block;
+  margin-top: 0.4em;
+  margin-bottom: 0.15em;
+}
+.kai-bullet, .kai-num {
+  display: inline-block;
+  min-width: 1.2em;
+  font-weight: 600;
+  color: var(--clr-primary);
+}
 .chatbot__msg--user .chatbot__msg-content {
   background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
   color: #fff;

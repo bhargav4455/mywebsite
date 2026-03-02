@@ -306,11 +306,33 @@
     isOpen = false;
     chatWin.classList.remove('chatbot__window--open');
     bubble.classList.remove('chatbot__bubble--active');
+    // Reset chat to initial state
+    msgArea.innerHTML = welcomeHTML;
   }
 
   bubble.addEventListener('click', () => isOpen ? closeChat() : openChat());
   closeBtn.addEventListener('click', closeChat);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen) closeChat(); });
+
+  /* ─── HTML welcome + chips template (for reset) ──────── */
+  const welcomeHTML = msgArea ? msgArea.innerHTML : '';
+
+  /* ─── Format plain text → styled HTML ──────────────────── */
+  function formatBotText(text) {
+    // Escape HTML
+    let html = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    // Bold lines ending with ':' that start a category (before bullets)
+    html = html.replace(/^(.+?):$/gm, '<strong>$1:</strong>');
+    // Numbered items  "1. …"
+    html = html.replace(/^(\d+)\. (.+)$/gm, '<span class="kai-num">$1.</span> $2');
+    // Bullet items  "• …"
+    html = html.replace(/^• (.+)$/gm, '<span class="kai-bullet">•</span> $1');
+    // Emoji-led items like ✅, 🔜, 🏅, 📧, 🔗, 💻, 📍, 🌍, 🎯
+    html = html.replace(/^([\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}]+)\s(.+)$/gmu, '<span class="kai-bullet">$1</span> $2');
+    // Double newlines → paragraph break, single newlines → line break
+    html = html.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>');
+    return '<p>' + html + '</p>';
+  }
 
   /* ─── Message Rendering ────────────────────────────────── */
   function appendMessage(content, sender = 'bot') {
@@ -319,11 +341,38 @@
 
     const msgContent = document.createElement('div');
     msgContent.className = 'chatbot__msg-content';
-    msgContent.textContent = content;
+
+    if (sender === 'bot') {
+      msgContent.innerHTML = formatBotText(content);
+    } else {
+      msgContent.textContent = content;
+    }
 
     div.appendChild(msgContent);
     msgArea.appendChild(div);
     requestAnimationFrame(() => { msgArea.scrollTop = msgArea.scrollHeight; });
+  }
+
+  /* ─── Build fresh chips node ───────────────────────────── */
+  function createChips() {
+    const wrap = document.createElement('div');
+    wrap.className = 'chatbot__chips';
+    const chips = [
+      { q: 'Who is Bhargava?', label: '👤 About' },
+      { q: 'What is his experience?', label: '💼 Experience' },
+      { q: 'What are his skills?', label: '🛠️ Skills' },
+      { q: 'What certifications does he have?', label: '🏅 Certs' },
+      { q: 'What races has he run?', label: '🏃 Running' },
+      { q: 'How can I contact him?', label: '📧 Contact' },
+    ];
+    chips.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'chatbot__chip';
+      btn.setAttribute('data-query', c.q);
+      btn.textContent = c.label;
+      wrap.appendChild(btn);
+    });
+    return wrap;
   }
 
   function showTypingThenReply(text) {
@@ -344,14 +393,16 @@
     setTimeout(() => {
       typing.remove();
       appendMessage(text, 'bot');
-      // Re-show chips after each answer
-      if (chipsEl) {
-        setTimeout(() => {
-          chipsEl.classList.remove('chatbot__chips--hidden');
-          requestAnimationFrame(() => { msgArea.scrollTop = msgArea.scrollHeight; });
-        }, 350);
-      }
+      // Append fresh chips after every bot answer
+      const newChips = createChips();
+      msgArea.appendChild(newChips);
+      requestAnimationFrame(() => { msgArea.scrollTop = msgArea.scrollHeight; });
     }, delay);
+  }
+
+  /* ─── Remove all existing chip rows ────────────────────── */
+  function removeAllChips() {
+    msgArea.querySelectorAll('.chatbot__chips').forEach(el => el.remove());
   }
 
   /* ─── Form Submit ──────────────────────────────────────── */
@@ -360,8 +411,7 @@
     const text = input.value.trim();
     if (!text) return;
 
-    // Temporarily hide chips while processing
-    if (chipsEl) chipsEl.classList.add('chatbot__chips--hidden');
+    removeAllChips();
     appendMessage(text, 'user');
     input.value = '';
 
@@ -377,19 +427,16 @@
   });
 
   /* ─── Quick-Reply Chips ────────────────────────────────── */
-  if (chipsEl) {
-    chipsEl.addEventListener('click', (e) => {
-      const chip = e.target.closest('.chatbot__chip');
-      if (!chip) return;
-      const query = chip.getAttribute('data-query');
-      if (!query) return;
+  /* ─── Chip clicks (delegated on msgArea so new chips work) */
+  msgArea.addEventListener('click', (e) => {
+    const chip = e.target.closest('.chatbot__chip');
+    if (!chip) return;
+    const query = chip.getAttribute('data-query');
+    if (!query) return;
 
-      // Temporarily hide chips while processing
-      chipsEl.classList.add('chatbot__chips--hidden');
-
-      appendMessage(query, 'user');
-      const reply = findResponse(query);
-      showTypingThenReply(reply);
-    });
-  }
+    removeAllChips();
+    appendMessage(query, 'user');
+    const reply = findResponse(query);
+    showTypingThenReply(reply);
+  });
 })();
