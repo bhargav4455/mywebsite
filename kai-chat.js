@@ -396,7 +396,14 @@
       // Append fresh chips after every bot answer
       const newChips = createChips();
       msgArea.appendChild(newChips);
-      requestAnimationFrame(() => { msgArea.scrollTop = msgArea.scrollHeight; });
+      // Scroll to show the START of the bot's answer (not the very bottom)
+      const botMsgs = msgArea.querySelectorAll('.chatbot__msg--bot');
+      const lastBotMsg = botMsgs[botMsgs.length - 1];
+      if (lastBotMsg) {
+        requestAnimationFrame(() => {
+          lastBotMsg.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
     }, delay);
   }
 
