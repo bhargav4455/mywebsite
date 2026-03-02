@@ -237,10 +237,10 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .section__title::after {
   content: '';
   display: block;
-  width: 48px;
-  height: 3px;
+  width: 36px;
+  height: 2px;
   background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent));
-  border-radius: 3px;
+  border-radius: 2px;
   transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   position: absolute;
   left: 50%;
@@ -254,7 +254,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .section:hover .section__title::after {
-  width: 72px;
+  width: 56px;
 }
 
 .section__subtitle {
@@ -3696,9 +3696,19 @@ input, textarea { font-family: inherit; font-size: inherit; }
   100% { background-position: 200% center; }
 }
 
-/* Section title — clean Apple typography */
+/* Section title gradient shimmer */
 .section__title {
-  color: var(--clr-dark);
+  background: linear-gradient(
+    90deg,
+    var(--clr-dark) 0%, var(--clr-dark) 35%,
+    var(--clr-primary) 50%,
+    var(--clr-dark) 65%, var(--clr-dark) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleShimmer 6s ease-in-out infinite;
 }
 
 /* Skill bar shimmer overlay */
