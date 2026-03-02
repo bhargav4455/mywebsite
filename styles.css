@@ -2996,7 +2996,77 @@ input, textarea { font-family: inherit; font-size: inherit; }
    ═══════════════════════════════════════════════════════════ */
 .states-map { background: var(--clr-bg, #fff); }
 
+/* ── Travel Tabs ── */
+.travel-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.travel-tab {
+  padding: 0.6rem 1.5rem;
+  border: 2px solid rgba(148, 163, 184, 0.2);
+  border-radius: var(--radius-xl, 1rem);
+  background: transparent;
+  color: var(--clr-text-muted, #94a3b8);
+  font-family: var(--ff-heading, 'Inter', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.travel-tab:hover {
+  border-color: rgba(20, 184, 166, 0.4);
+  color: var(--clr-text-heading, #1e293b);
+}
+
+.travel-tab--active {
+  background: linear-gradient(135deg, var(--accent-1, #14b8a6), var(--accent-2, #06b6d4));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3);
+}
+
+/* ── Travel Panels ── */
+.travel-panel {
+  display: none;
+}
+
+.travel-panel--active {
+  display: block;
+  animation: fadeInPanel 0.4s ease;
+}
+
+@keyframes fadeInPanel {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .states-map__wrapper { text-align: center; }
+
+/* ── India-specific grid ── */
+.india-grid {
+  grid-template-columns: repeat(10, 1fr) !important;
+  grid-template-rows: repeat(9, 1fr) !important;
+}
+
+.india-grid .state-tile--visited {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  box-shadow: 0 2px 8px rgba(249, 115, 22, 0.35);
+}
+
+.india-count {
+  background: linear-gradient(135deg, #f97316, #ea580c) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.india-visited span:first-child {
+  background: linear-gradient(135deg, #f97316, #ea580c) !important;
+}
 
 .states-map__counter { margin-bottom: 2rem; }
 

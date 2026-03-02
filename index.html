@@ -1466,22 +1466,47 @@
       </div>
     </section>
 
-    <!-- ══════════════ 50-STATE QUEST ══════════════ -->
+    <!-- ══════════════ TRAVEL QUEST ══════════════ -->
     <section id="states-map" class="section states-map">
       <div class="container">
-        <h2 class="section__title animate-on-scroll">50-State Quest</h2>
-        <p class="section__subtitle animate-on-scroll">Tracking progress toward visiting every US state</p>
-        <div class="states-map__wrapper animate-on-scroll">
-          <div class="states-map__counter">
-            <span class="states-map__count">3</span><span class="states-map__total"> / 50</span>
-            <p>States Visited</p>
-          </div>
-          <div class="states-map__grid" id="statesGrid"></div>
-          <div class="states-map__legend">
-            <span class="states-map__legend-item states-map__legend-item--visited"><span></span> Visited</span>
-            <span class="states-map__legend-item states-map__legend-item--not"><span></span> Not Yet</span>
+        <h2 class="section__title animate-on-scroll">Travel Quest</h2>
+        <p class="section__subtitle animate-on-scroll">Tracking progress across the US and India</p>
+
+        <div class="travel-tabs animate-on-scroll">
+          <button class="travel-tab travel-tab--active" data-tab="us">🇺🇸 50-State Quest</button>
+          <button class="travel-tab" data-tab="india">🇮🇳 India Explorer</button>
+        </div>
+
+        <!-- US Panel -->
+        <div class="travel-panel travel-panel--active" id="us-panel">
+          <div class="states-map__wrapper">
+            <div class="states-map__counter">
+              <span class="states-map__count">3</span><span class="states-map__total"> / 50</span>
+              <p>States Visited</p>
+            </div>
+            <div class="states-map__grid" id="statesGrid"></div>
+            <div class="states-map__legend">
+              <span class="states-map__legend-item states-map__legend-item--visited"><span></span> Visited</span>
+              <span class="states-map__legend-item states-map__legend-item--not"><span></span> Not Yet</span>
+            </div>
           </div>
         </div>
+
+        <!-- India Panel -->
+        <div class="travel-panel" id="india-panel">
+          <div class="states-map__wrapper">
+            <div class="states-map__counter">
+              <span class="states-map__count india-count">28</span><span class="states-map__total"> / 36</span>
+              <p>States &amp; UTs Visited</p>
+            </div>
+            <div class="states-map__grid india-grid" id="indiaStatesGrid"></div>
+            <div class="states-map__legend">
+              <span class="states-map__legend-item states-map__legend-item--visited india-visited"><span></span> Visited</span>
+              <span class="states-map__legend-item states-map__legend-item--not"><span></span> Not Yet</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
