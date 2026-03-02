@@ -453,17 +453,24 @@
       'AN','DD','DL','LA','LD','PY'
     ]);
 
-    // [abbreviation, fullName, row, col] — geographic grid layout
+    // [abbreviation, fullName, row, col] — geographic map layout approximating India's shape
     const indiaStates = [
-      ['JK','Jammu & Kashmir',0,4], ['LA','Ladakh',0,5],
-      ['PB','Punjab',1,2], ['HP','Himachal Pradesh',1,3], ['UK','Uttarakhand',1,4],
-      ['HR','Haryana',2,2], ['CH','Chandigarh',2,3], ['DL','Delhi',2,4],
-      ['RJ','Rajasthan',3,1], ['UP','Uttar Pradesh',3,4],
-      ['GJ','Gujarat',4,0], ['MP','Madhya Pradesh',4,2], ['CG','Chhattisgarh',4,4], ['JH','Jharkhand',4,5], ['BR','Bihar',4,6],
-      ['DD','D&D',5,0], ['MH','Maharashtra',5,1], ['OD','Odisha',5,4], ['WB','West Bengal',5,6], ['SK','Sikkim',5,7], ['AS','Assam',5,8],
-      ['GA','Goa',6,0], ['KA','Karnataka',6,1], ['TS','Telangana',6,2], ['AP','Andhra Pradesh',6,3], ['ML','Meghalaya',6,7], ['AR','Arunachal Pradesh',6,8], ['NL','Nagaland',6,9],
-      ['LD','Lakshadweep',7,0], ['KL','Kerala',7,1], ['TN','Tamil Nadu',7,2], ['PY','Puducherry',7,3], ['TR','Tripura',7,7], ['MN','Manipur',7,8], ['MZ','Mizoram',7,9],
-      ['AN','Andaman & Nicobar',8,3],
+      // ── North: Kashmir at top ──
+      ['JK','Jammu & Kashmir',0,4],                        ['LA','Ladakh',0,5],
+      // ── Punjab belt ──
+                         ['PB','Punjab',1,3],    ['HP','Himachal Pradesh',1,4],  ['UK','Uttarakhand',1,5],
+      // ── North plains ──
+            ['RJ','Rajasthan',2,2], ['HR','Haryana',2,3],  ['DL','Delhi',2,4],   ['UP','Uttar Pradesh',2,5],
+      // ── Central India ──
+      ['GJ','Gujarat',3,1], ['CH','Chandigarh',3,2], ['MP','Madhya Pradesh',3,3],      ['CG','Chhattisgarh',3,5], ['JH','Jharkhand',3,6], ['BR','Bihar',3,7],
+      // ── West coast & east belt ──
+      ['DD','D&D',4,1],  ['MH','Maharashtra',4,2],                  ['OD','Odisha',4,4],  ['WB','West Bengal',4,5],                   ['SK','Sikkim',4,7],
+      // ── Deccan plateau & northeast ──
+                   ['GA','Goa',5,2],  ['KA','Karnataka',5,3],  ['TS','Telangana',5,4],  ['AP','Andhra Pradesh',5,5],         ['ML','Meghalaya',5,6], ['AS','Assam',5,7], ['AR','Arunachal Pr.',5,8],
+      // ── Deep south & northeast ──
+      ['LD','Lakshadweep',6,1],        ['KL','Kerala',6,3],   ['TN','Tamil Nadu',6,4],  ['PY','Puducherry',6,5],      ['TR','Tripura',6,6],  ['MN','Manipur',6,7], ['NL','Nagaland',6,8],
+      // ── Islands & tail ──
+                                                              ['AN','Andaman & Nicobar',7,4],                                              ['MZ','Mizoram',7,8],
     ];
 
     indiaStates.forEach(([abbr, fullName, row, col]) => {
