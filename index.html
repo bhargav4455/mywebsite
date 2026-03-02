@@ -1470,15 +1470,31 @@
     <section id="states-map" class="section states-map">
       <div class="container">
         <h2 class="section__title animate-on-scroll"><svg class="section__icon" viewBox="0 0 24 24" fill="none" stroke="url(#si-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/><path d="M12 2c3 3.6 5 7.4 5 10s-2 6.4-5 10c-3-3.6-5-7.4-5-10s2-6.4 5-10z"/></svg>Travel Quest</h2>
-        <p class="section__subtitle animate-on-scroll">Tracking progress across the US and India</p>
+        <p class="section__subtitle animate-on-scroll">Tracking progress across the World, US and India</p>
 
         <div class="travel-tabs animate-on-scroll">
-          <button class="travel-tab travel-tab--active" data-tab="us">🇺🇸 50-State Quest</button>
+          <button class="travel-tab travel-tab--active" data-tab="world">🌍 World Explorer</button>
+          <button class="travel-tab" data-tab="us">🇺🇸 50-State Quest</button>
           <button class="travel-tab" data-tab="india">🇮🇳 India Explorer</button>
         </div>
 
+        <!-- World Panel -->
+        <div class="travel-panel travel-panel--active" id="world-panel">
+          <div class="states-map__wrapper">
+            <div class="states-map__counter">
+              <span class="states-map__count world-count">4</span><span class="states-map__total"> / 195</span>
+              <p>Countries Visited</p>
+            </div>
+            <div class="states-map__grid world-grid" id="worldGrid"></div>
+            <div class="states-map__legend">
+              <span class="states-map__legend-item states-map__legend-item--visited world-visited"><span></span> Visited</span>
+              <span class="states-map__legend-item states-map__legend-item--not"><span></span> Not Yet</span>
+            </div>
+          </div>
+        </div>
+
         <!-- US Panel -->
-        <div class="travel-panel travel-panel--active" id="us-panel">
+        <div class="travel-panel" id="us-panel">
           <div class="states-map__wrapper">
             <div class="states-map__counter">
               <span class="states-map__count">3</span><span class="states-map__total"> / 50</span>

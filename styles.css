@@ -3072,6 +3072,35 @@ input, textarea { font-family: inherit; font-size: inherit; }
 
 .states-map__wrapper { text-align: center; }
 
+/* ── World tile grid ── */
+.world-grid {
+  grid-template-columns: repeat(25, 1fr) !important;
+  grid-template-rows: repeat(13, 1fr) !important;
+  max-width: 700px !important;
+  gap: 2px !important;
+}
+
+.world-grid .state-tile {
+  font-size: 0.42rem;
+  border-radius: 3px;
+}
+
+.world-grid .state-tile--visited {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.35);
+}
+
+.world-count {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.world-visited span:first-child {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important;
+}
+
 /* ── India tile grid (map-shaped layout) ── */
 .india-grid {
   grid-template-columns: repeat(12, 1fr) !important;

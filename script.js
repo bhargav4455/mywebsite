@@ -413,8 +413,82 @@
     });
   }
 
-  /* ─── US States Map ────────────────────────────────────── */
+  /* ─── Travel Maps ───────────────────────────────────────── */
   function initStatesMap() {
+    /* ══ World Countries ══ */
+    const worldGrid = document.getElementById('worldGrid');
+    if (worldGrid) {
+      const visitedCountries = new Set(['IN','US','CA','AE']);
+
+      // [code, name, row, col] — simplified geographic tile grid (25 cols x 13 rows)
+      const countries = [
+        // ── Row 0: Arctic / Northern ──
+        ['IS','Iceland',0,8], ['NO','Norway',0,11], ['SE','Sweden',0,12], ['FI','Finland',0,13], ['RU','Russia',0,16],
+        // ── Row 1: Canada + Northern Europe ──
+        ['CA','Canada',1,2], ['GL','Greenland',1,7],
+        ['UK','United Kingdom',1,9], ['IE','Ireland',1,8], ['DK','Denmark',1,11],
+        ['EE','Estonia',1,13], ['LV','Latvia',1,14],
+        // ── Row 2: USA + Western Europe ──
+        ['US','United States',2,2],
+        ['PT','Portugal',2,8], ['ES','Spain',2,9], ['FR','France',2,10], ['BE','Belgium',2,11],
+        ['NL','Netherlands',2,12], ['DE','Germany',2,13], ['PL','Poland',2,14], ['LT','Lithuania',2,15],
+        ['BY','Belarus',2,16], ['UA','Ukraine',2,17], ['KZ','Kazakhstan',2,19], ['MN','Mongolia',2,21],
+        // ── Row 3: Mexico + S.Europe + Central Asia ──
+        ['MX','Mexico',3,1],
+        ['CH','Switzerland',3,10], ['IT','Italy',3,11], ['AT','Austria',3,12],
+        ['CZ','Czechia',3,13], ['SK','Slovakia',3,14], ['HU','Hungary',3,15],
+        ['RO','Romania',3,16], ['GE','Georgia',3,17], ['UZ','Uzbekistan',3,19],
+        ['KG','Kyrgyzstan',3,20], ['CN','China',3,21], ['JP','Japan',3,23], ['KR','South Korea',3,22],
+        // ── Row 4: Central America + Middle East + South Asia ──
+        ['CU','Cuba',4,2], ['GT','Guatemala',4,1],
+        ['MA','Morocco',4,8], ['DZ','Algeria',4,9], ['TN','Tunisia',4,10], ['LY','Libya',4,11],
+        ['GR','Greece',4,12], ['TR','Turkey',4,14], ['SY','Syria',4,15],
+        ['IQ','Iraq',4,16], ['IR','Iran',4,17], ['AF','Afghanistan',4,18],
+        ['PK','Pakistan',4,19], ['NP','Nepal',4,20], ['BT','Bhutan',4,21],
+        // ── Row 5: Caribbean / N.Africa / India / SE Asia ──
+        ['CO','Colombia',5,2], ['VE','Venezuela',5,3],
+        ['EG','Egypt',5,12], ['SA','Saudi Arabia',5,14], ['AE','UAE',5,16],
+        ['OM','Oman',5,17], ['IN','India',5,19], ['BD','Bangladesh',5,20],
+        ['MM','Myanmar',5,21], ['TH','Thailand',5,22], ['VN','Vietnam',5,23], ['LA','Laos',5,24],
+        // ── Row 6: S.America + Africa ──
+        ['EC','Ecuador',6,1], ['BR','Brazil',6,3], ['PE','Peru',6,2],
+        ['ML','Mali',6,9], ['NE','Niger',6,10], ['TD','Chad',6,11],
+        ['SD','Sudan',6,12], ['ET','Ethiopia',6,13], ['SO','Somalia',6,14],
+        ['YE','Yemen',6,15],
+        ['LK','Sri Lanka',6,19],
+        ['KH','Cambodia',6,22], ['MY','Malaysia',6,23], ['PH','Philippines',6,24],
+        // ── Row 7: S.America + Central Africa ──
+        ['BO','Bolivia',7,3], ['PY','Paraguay',7,4],
+        ['SN','Senegal',7,8], ['GN','Guinea',7,9], ['NG','Nigeria',7,10], ['CM','Cameroon',7,11],
+        ['CF','Central African Rep.',7,12], ['SS','South Sudan',7,13],
+        ['KE','Kenya',7,14], ['UG','Uganda',7,15],
+        ['ID','Indonesia',7,22], ['SG','Singapore',7,23],
+        // ── Row 8: S.America + Southern Africa ──
+        ['CL','Chile',8,2], ['AR','Argentina',8,3], ['UY','Uruguay',8,4],
+        ['GH','Ghana',8,9], ['CI','Ivory Coast',8,8],
+        ['CD','DR Congo',8,11], ['TZ','Tanzania',8,13], ['RW','Rwanda',8,14],
+        ['MG','Madagascar',8,15],
+        ['AU','Australia',8,21], ['PG','Papua New Guinea',8,23],
+        // ── Row 9: Tip of S.America + S.Africa ──
+        ['AO','Angola',9,10], ['ZM','Zambia',9,11], ['MW','Malawi',9,12],
+        ['MZ','Mozambique',9,13], ['ZW','Zimbabwe',9,14],
+        // ── Row 10: Southern tips ──
+        ['NA','Namibia',10,10], ['BW','Botswana',10,11], ['ZA','South Africa',10,12],
+        ['NZ','New Zealand',10,23],
+      ];
+
+      countries.forEach(([code, name, row, col]) => {
+        const tile = document.createElement('div');
+        const isVisited = visitedCountries.has(code);
+        tile.className = 'state-tile' + (isVisited ? ' state-tile--visited' : '');
+        tile.textContent = code;
+        tile.style.gridRow = row + 1;
+        tile.style.gridColumn = col + 1;
+        tile.title = isVisited ? name + ' — Visited ✓' : name;
+        worldGrid.appendChild(tile);
+      });
+    }
+
     /* ── US States ── */
     const grid = document.getElementById('statesGrid');
     if (!grid) return;
