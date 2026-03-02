@@ -453,24 +453,28 @@
       'AN','DD','DL','LA','LD','PY'
     ]);
 
-    // [abbreviation, fullName, row, col] — geographic map layout approximating India's shape
+    // [abbreviation, fullName, row, col] — positioned to approximate India's actual map shape
     const indiaStates = [
-      // ── North: Kashmir at top ──
-      ['JK','Jammu & Kashmir',0,4],                        ['LA','Ladakh',0,5],
-      // ── Punjab belt ──
-                         ['PB','Punjab',1,3],    ['HP','Himachal Pradesh',1,4],  ['UK','Uttarakhand',1,5],
-      // ── North plains ──
-            ['RJ','Rajasthan',2,2], ['HR','Haryana',2,3],  ['DL','Delhi',2,4],   ['UP','Uttar Pradesh',2,5],
-      // ── Central India ──
-      ['GJ','Gujarat',3,1], ['CH','Chandigarh',3,2], ['MP','Madhya Pradesh',3,3],      ['CG','Chhattisgarh',3,5], ['JH','Jharkhand',3,6], ['BR','Bihar',3,7],
-      // ── West coast & east belt ──
-      ['DD','D&D',4,1],  ['MH','Maharashtra',4,2],                  ['OD','Odisha',4,4],  ['WB','West Bengal',4,5],                   ['SK','Sikkim',4,7],
-      // ── Deccan plateau & northeast ──
-                   ['GA','Goa',5,2],  ['KA','Karnataka',5,3],  ['TS','Telangana',5,4],  ['AP','Andhra Pradesh',5,5],         ['ML','Meghalaya',5,6], ['AS','Assam',5,7], ['AR','Arunachal Pr.',5,8],
-      // ── Deep south & northeast ──
-      ['LD','Lakshadweep',6,1],        ['KL','Kerala',6,3],   ['TN','Tamil Nadu',6,4],  ['PY','Puducherry',6,5],      ['TR','Tripura',6,6],  ['MN','Manipur',6,7], ['NL','Nagaland',6,8],
-      // ── Islands & tail ──
-                                                              ['AN','Andaman & Nicobar',7,4],                                              ['MZ','Mizoram',7,8],
+      // ── Crown: Kashmir & Ladakh ──
+      ['JK','Jammu & Kashmir',0,4],  ['LA','Ladakh',0,5],
+      // ── Upper North: Punjab belt ──
+      ['CH','Chandigarh',1,2],  ['PB','Punjab',1,3],  ['HP','Himachal Pradesh',1,4],  ['UK','Uttarakhand',1,5],
+      // ── Northwest plains ──
+      ['RJ','Rajasthan',2,1],  ['HR','Haryana',2,3],  ['DL','Delhi',2,4],
+      // ── West bulge + central ──
+      ['GJ','Gujarat',3,0],  ['MP','Madhya Pradesh',3,3],  ['UP','Uttar Pradesh',3,5],
+      // ── Central belt ──
+      ['DD','D&D',4,0],  ['MH','Maharashtra',4,1],  ['CG','Chhattisgarh',4,4],  ['BR','Bihar',4,5],  ['WB','West Bengal',4,7],
+      // ── Deccan + east coast ──
+      ['GA','Goa',5,1],  ['TS','Telangana',5,2],  ['OD','Odisha',5,4],  ['JH','Jharkhand',5,5],  ['SK','Sikkim',5,8],
+      // ── South peninsula + northeast ──
+      ['KA','Karnataka',6,1],  ['AP','Andhra Pradesh',6,2],  ['AS','Assam',6,7],  ['AR','Arunachal Pradesh',6,8],
+      // ── Deep south + northeast ──
+      ['LD','Lakshadweep',7,0],  ['KL','Kerala',7,1],  ['TN','Tamil Nadu',7,2],  ['PY','Puducherry',7,3],  ['ML','Meghalaya',7,6],  ['NL','Nagaland',7,8],
+      // ── Tail northeast ──
+      ['TR','Tripura',8,6],  ['MN','Manipur',8,7],  ['MZ','Mizoram',8,8],
+      // ── Islands ──
+      ['AN','Andaman & Nicobar',9,2],
     ];
 
     indiaStates.forEach(([abbr, fullName, row, col]) => {

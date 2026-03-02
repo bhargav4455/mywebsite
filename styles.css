@@ -3049,7 +3049,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
 /* ── India-specific grid (geographic map shape) ── */
 .india-grid {
   grid-template-columns: repeat(9, 1fr) !important;
-  grid-template-rows: repeat(8, 1fr) !important;
+  grid-template-rows: repeat(10, 1fr) !important;
   max-width: 480px !important;
 }
 
