@@ -442,50 +442,103 @@
       grid.appendChild(tile);
     });
 
-    /* ── India States & UTs ── */
-    const indiaGrid = document.getElementById('indiaStatesGrid');
-    if (!indiaGrid) return;
+    /* ── India SVG Map ── */
+    const indiaContainer = document.getElementById('indiaMapContainer');
+    if (!indiaContainer) return;
 
-    // Not visited: JK, GJ, WB, JH, BR, OD, UP, CH
-    const indiaVisited = new Set([
-      'AP','AR','AS','CG','GA','HR','HP','KA','KL','MP','MH',
-      'MN','ML','MZ','NL','PB','RJ','SK','TN','TS','TR','UK',
-      'AN','DD','DL','LA','LD','PY'
-    ]);
+    const notVisited = new Set(['JK','GJ','WB','JH','BR','OD','UP','CH']);
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 520 600');
+    svg.setAttribute('class', 'india-svg-map');
 
-    // [abbreviation, fullName, row, col] — positioned to approximate India's actual map shape
     const indiaStates = [
-      // ── Crown: Kashmir & Ladakh ──
-      ['JK','Jammu & Kashmir',0,4],  ['LA','Ladakh',0,5],
-      // ── Upper North: Punjab belt ──
-      ['CH','Chandigarh',1,2],  ['PB','Punjab',1,3],  ['HP','Himachal Pradesh',1,4],  ['UK','Uttarakhand',1,5],
-      // ── Northwest plains ──
-      ['RJ','Rajasthan',2,1],  ['HR','Haryana',2,3],  ['DL','Delhi',2,4],
-      // ── West bulge + central ──
-      ['GJ','Gujarat',3,0],  ['MP','Madhya Pradesh',3,3],  ['UP','Uttar Pradesh',3,5],
-      // ── Central belt ──
-      ['DD','D&D',4,0],  ['MH','Maharashtra',4,1],  ['CG','Chhattisgarh',4,4],  ['BR','Bihar',4,5],  ['WB','West Bengal',4,7],
-      // ── Deccan + east coast ──
-      ['GA','Goa',5,1],  ['TS','Telangana',5,2],  ['OD','Odisha',5,4],  ['JH','Jharkhand',5,5],  ['SK','Sikkim',5,8],
-      // ── South peninsula + northeast ──
-      ['KA','Karnataka',6,1],  ['AP','Andhra Pradesh',6,2],  ['AS','Assam',6,7],  ['AR','Arunachal Pradesh',6,8],
-      // ── Deep south + northeast ──
-      ['LD','Lakshadweep',7,0],  ['KL','Kerala',7,1],  ['TN','Tamil Nadu',7,2],  ['PY','Puducherry',7,3],  ['ML','Meghalaya',7,6],  ['NL','Nagaland',7,8],
-      // ── Tail northeast ──
-      ['TR','Tripura',8,6],  ['MN','Manipur',8,7],  ['MZ','Mizoram',8,8],
-      // ── Islands ──
-      ['AN','Andaman & Nicobar',9,2],
+      // ═══ NORTH ═══
+      {id:'JK',name:'Jammu & Kashmir',d:'M195,18 L218,10 248,14 268,28 280,52 270,72 250,80 230,78 212,70 195,48Z',lx:235,ly:46},
+      {id:'LA',name:'Ladakh',d:'M268,8 L308,12 338,26 342,48 325,60 302,55 280,52 268,28Z',lx:306,ly:36},
+      {id:'HP',name:'Himachal Pradesh',d:'M238,80 L262,74 278,86 272,108 256,114 240,108Z',lx:258,ly:96},
+      {id:'PB',name:'Punjab',d:'M200,88 L238,80 240,108 226,122 210,126 198,112Z',lx:220,ly:104},
+      {id:'UK',name:'Uttarakhand',d:'M278,86 L306,78 324,90 316,114 296,122 272,108Z',lx:298,ly:102},
+      // ═══ UPPER PLAINS ═══
+      {id:'HR',name:'Haryana',d:'M210,126 L226,122 240,134 244,156 230,166 214,162 204,148Z',lx:225,ly:146},
+      {id:'RJ',name:'Rajasthan',d:'M96,168 L156,146 204,152 214,168 212,200 200,236 178,264 150,278 120,282 88,272 72,244 80,208Z',lx:148,ly:220},
+      {id:'UP',name:'Uttar Pradesh',d:'M248,134 L314,126 350,140 370,160 364,186 340,202 302,206 272,196 256,182 248,160Z',lx:308,ly:166},
+      // ═══ WEST ═══
+      {id:'GJ',name:'Gujarat',d:'M54,274 L88,272 118,282 132,310 122,342 100,358 80,362 60,352 50,330 48,302Z',lx:90,ly:318},
+      // ═══ CENTRAL ═══
+      {id:'MP',name:'Madhya Pradesh',d:'M174,234 L240,222 296,226 322,240 316,274 292,288 252,292 214,288 182,272Z',lx:248,ly:258},
+      {id:'CG',name:'Chhattisgarh',d:'M292,272 L328,264 344,280 344,314 324,334 298,328 284,308Z',lx:316,ly:300},
+      // ═══ EAST ═══
+      {id:'BR',name:'Bihar',d:'M340,166 L370,160 392,170 388,198 368,204 340,202Z',lx:366,ly:184},
+      {id:'JH',name:'Jharkhand',d:'M340,202 L368,204 388,220 382,244 362,256 338,250 332,228Z',lx:360,ly:230},
+      {id:'WB',name:'West Bengal',d:'M378,180 L398,174 410,188 414,218 406,256 396,286 376,302 370,278 364,256 370,230 375,210 378,192Z',lx:392,ly:238},
+      {id:'SK',name:'Sikkim',d:'M372,152 L388,150 390,168 380,174 372,164Z',lx:381,ly:162},
+      // ═══ WEST COAST ═══
+      {id:'MH',name:'Maharashtra',d:'M100,306 L142,294 182,288 224,294 254,308 254,346 234,370 196,380 154,376 120,370 104,354 98,336Z',lx:178,ly:338},
+      {id:'GA',name:'Goa',d:'M118,374 L136,374 136,394 126,400 116,394Z',lx:127,ly:386},
+      // ═══ EAST COAST ═══
+      {id:'OD',name:'Odisha',d:'M328,306 L364,296 384,302 388,326 378,352 356,362 328,346Z',lx:358,ly:330},
+      // ═══ SOUTH CENTRAL ═══
+      {id:'TS',name:'Telangana',d:'M202,316 L254,308 280,322 280,356 262,372 232,378 206,362 200,342Z',lx:242,ly:345},
+      {id:'AP',name:'Andhra Pradesh',d:'M232,378 L262,372 290,362 314,380 318,420 298,448 268,464 238,454 222,430 216,404Z',lx:268,ly:418},
+      // ═══ DEEP SOUTH ═══
+      {id:'KA',name:'Karnataka',d:'M112,402 L154,392 200,402 210,430 204,462 190,482 164,490 134,480 120,454 110,430Z',lx:160,ly:445},
+      {id:'KL',name:'Kerala',d:'M144,494 L164,490 174,510 170,542 160,562 144,558 140,540 136,516Z',lx:155,ly:528},
+      {id:'TN',name:'Tamil Nadu',d:'M192,480 L232,464 272,470 298,454 310,482 300,512 280,538 252,550 228,544 210,524 194,504Z',lx:252,ly:505},
+      // ═══ NORTHEAST ═══
+      {id:'AR',name:'Arunachal Pradesh',d:'M436,124 L476,120 496,136 492,162 466,168 439,158Z',lx:466,ly:144},
+      {id:'AS',name:'Assam',d:'M416,162 L446,158 466,168 472,188 456,208 432,218 412,208 406,188Z',lx:440,ly:188},
+      {id:'ML',name:'Meghalaya',d:'M412,214 L432,218 448,212 448,230 432,236 412,230Z',lx:430,ly:224},
+      {id:'NL',name:'Nagaland',d:'M466,160 L492,162 496,178 486,194 472,188Z',lx:482,ly:177},
+      {id:'MN',name:'Manipur',d:'M472,194 L486,194 492,212 482,226 470,220 466,204Z',lx:479,ly:210},
+      {id:'MZ',name:'Mizoram',d:'M462,226 L476,226 482,252 472,268 460,264 456,242Z',lx:470,ly:248},
+      {id:'TR',name:'Tripura',d:'M444,236 L458,234 460,258 450,266 440,258Z',lx:450,ly:250},
+      // ═══ SMALL UTs ═══
+      {id:'CH',name:'Chandigarh',type:'circle',cx:228,cy:120,r:5,lx:228,ly:120},
+      {id:'DL',name:'Delhi',type:'circle',cx:244,cy:154,r:6,lx:244,ly:154},
+      {id:'DD',name:'Daman & Diu',type:'circle',cx:78,cy:308,r:6,lx:78,ly:308},
+      {id:'PY',name:'Puducherry',type:'circle',cx:282,cy:484,r:5,lx:282,ly:484},
+      {id:'LD',name:'Lakshadweep',type:'circle',cx:88,cy:502,r:5,lx:88,ly:502},
+      {id:'AN',name:'Andaman & Nicobar',type:'dots',dots:[{cx:440,cy:420,r:4},{cx:443,cy:442,r:3},{cx:440,cy:462,r:3}],lx:440,ly:442},
     ];
 
-    indiaStates.forEach(([abbr, fullName, row, col]) => {
-      const tile = document.createElement('div');
-      tile.className = 'state-tile' + (indiaVisited.has(abbr) ? ' state-tile--visited' : '');
-      tile.textContent = abbr;
-      tile.style.gridRow = row + 1;
-      tile.style.gridColumn = col + 1;
-      tile.title = indiaVisited.has(abbr) ? fullName + ' — Visited ✓' : fullName;
-      indiaGrid.appendChild(tile);
+    indiaStates.forEach(s => {
+      const visited = !notVisited.has(s.id);
+      const cls = visited ? 'india-state india-state--visited' : 'india-state';
+      const lblCls = visited ? 'india-state-label india-state-label--visited' : 'india-state-label';
+      const tip = visited ? s.name + ' — Visited ✓' : s.name;
+
+      if (s.type === 'circle') {
+        const c = document.createElementNS(ns, 'circle');
+        c.setAttribute('cx', s.cx); c.setAttribute('cy', s.cy); c.setAttribute('r', s.r);
+        c.setAttribute('class', cls);
+        const t = document.createElementNS(ns, 'title'); t.textContent = tip; c.appendChild(t);
+        svg.appendChild(c);
+      } else if (s.type === 'dots') {
+        const g = document.createElementNS(ns, 'g'); g.setAttribute('class', cls);
+        s.dots.forEach(d => {
+          const c = document.createElementNS(ns, 'circle');
+          c.setAttribute('cx', d.cx); c.setAttribute('cy', d.cy); c.setAttribute('r', d.r);
+          g.appendChild(c);
+        });
+        const t = document.createElementNS(ns, 'title'); t.textContent = tip; g.appendChild(t);
+        svg.appendChild(g);
+      } else {
+        const p = document.createElementNS(ns, 'path');
+        p.setAttribute('d', s.d); p.setAttribute('class', cls);
+        const t = document.createElementNS(ns, 'title'); t.textContent = tip; p.appendChild(t);
+        svg.appendChild(p);
+      }
+
+      // Add label
+      const lbl = document.createElementNS(ns, 'text');
+      lbl.setAttribute('x', s.lx); lbl.setAttribute('y', s.ly);
+      lbl.setAttribute('class', lblCls);
+      lbl.textContent = s.id;
+      svg.appendChild(lbl);
     });
+
+    indiaContainer.appendChild(svg);
 
     /* ── Tab switching ── */
     document.querySelectorAll('.travel-tab').forEach(tab => {
