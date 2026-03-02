@@ -1533,10 +1533,60 @@
     </div>
   </footer>
 
+  <!-- ══════════════ AI CHATBOT ══════════════ -->
+  <div id="chatbot" class="chatbot">
+    <!-- Floating Bubble -->
+    <button class="chatbot__bubble" id="chatBubble" aria-label="Chat with KAI">
+      <svg class="chatbot__bubble-icon chatbot__bubble-icon--chat" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        <path d="M8 10h.01M12 10h.01M16 10h.01" stroke-width="3"/>
+      </svg>
+      <svg class="chatbot__bubble-icon chatbot__bubble-icon--close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+      <span class="chatbot__bubble-ping"></span>
+    </button>
+
+    <!-- Chat Window -->
+    <div class="chatbot__window" id="chatWindow">
+      <div class="chatbot__header">
+        <div class="chatbot__header-info">
+          <div class="chatbot__avatar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>
+          </div>
+          <div>
+            <h3 class="chatbot__header-title">KAI</h3>
+            <span class="chatbot__header-status">Online • Ask about Bhargava</span>
+          </div>
+        </div>
+        <button class="chatbot__close" id="chatClose" aria-label="Close chat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="chatbot__messages" id="chatMessages">
+        <div class="chatbot__msg chatbot__msg--bot">
+          <div class="chatbot__msg-content">
+            👋 Hi! I'm KAI — Bhargava's personal assistant. Ask me about his experience, skills, certifications, running, or travel!
+          </div>
+        </div>
+      </div>
+
+      <form class="chatbot__input-area" id="chatForm">
+        <input type="text" class="chatbot__input" id="chatInput" placeholder="Type your message…" autocomplete="off" maxlength="500" />
+        <button type="submit" class="chatbot__send" id="chatSend" aria-label="Send message">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
   <script src="script.js"></script>
+  <script src="kai-chat.js"></script>
 </body>
 </html>
