@@ -2553,6 +2553,73 @@ input, textarea { font-family: inherit; font-size: inherit; }
   border-left-color: rgba(245, 158, 11, 0.6);
 }
 
+/* ── Badge cards (Explorer & Cuisine mini-badges) ── */
+.beyond__badge-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.beyond__badge-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+}
+
+.beyond__badge-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.beyond__badge-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--ff-heading);
+  color: var(--clr-text-heading);
+}
+
+.beyond__badge-desc {
+  font-size: 0.72rem;
+  color: var(--clr-text-muted);
+  line-height: 1.4;
+}
+
+.beyond__badge-card--explore {
+  background: rgba(20, 184, 166, 0.05);
+  border: 1px solid rgba(20, 184, 166, 0.12);
+}
+.beyond__badge-card--explore:hover {
+  background: rgba(20, 184, 166, 0.1);
+  transform: translateX(4px);
+}
+
+.beyond__badge-card--cuisine {
+  background: rgba(245, 158, 11, 0.05);
+  border: 1px solid rgba(245, 158, 11, 0.12);
+}
+.beyond__badge-card--cuisine:hover {
+  background: rgba(245, 158, 11, 0.1);
+  transform: translateX(4px);
+}
+
+/* ── Cuisine stat color override ── */
+.beyond__stat-num--cuisine {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* ── Tags — per-card color ── */
 .beyond__tags {
   display: flex;
