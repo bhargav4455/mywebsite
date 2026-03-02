@@ -413,70 +413,6 @@
     });
   }
 
-  /* ─── Race Gallery Lightbox ─────────────────────────────── */
-  function initGallery() {
-    const items = document.querySelectorAll('.gallery__item');
-    const lightbox = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
-    const lbCaption = document.getElementById('lightboxCaption');
-    const lbClose = document.getElementById('lightboxClose');
-    const lbPrev = document.getElementById('lightboxPrev');
-    const lbNext = document.getElementById('lightboxNext');
-
-    if (!items.length || !lightbox) return;
-
-    const images = Array.from(items).map(item => ({
-      src: item.querySelector('img').src,
-      alt: item.querySelector('img').alt
-    }));
-
-    let current = 0;
-
-    function openLightbox(index) {
-      current = index;
-      updateLightbox();
-      lightbox.classList.add('lightbox--open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('lightbox--open');
-      document.body.style.overflow = '';
-    }
-
-    function updateLightbox() {
-      lbImg.src = images[current].src;
-      lbImg.alt = images[current].alt;
-      lbCaption.textContent = images[current].alt;
-    }
-
-    function nextImage() {
-      current = (current + 1) % images.length;
-      updateLightbox();
-    }
-
-    function prevImage() {
-      current = (current - 1 + images.length) % images.length;
-      updateLightbox();
-    }
-
-    items.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
-    lbClose.addEventListener('click', closeLightbox);
-    lbPrev.addEventListener('click', prevImage);
-    lbNext.addEventListener('click', nextImage);
-
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('lightbox--open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'ArrowRight') nextImage();
-    });
-  }
-
   /* ─── US States Map ────────────────────────────────────── */
   function initStatesMap() {
     const grid = document.getElementById('statesGrid');
@@ -510,7 +446,6 @@
   function boot() {
     initThemeToggle();
     initExpAccordion();
-    initGallery();
     initStatesMap();
     initParticles();
     initTyping();
