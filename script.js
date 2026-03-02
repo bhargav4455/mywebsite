@@ -6,6 +6,12 @@
 ;(function () {
   'use strict';
 
+  /* ─── Force scroll to top on page load/refresh ─────────── */
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   /* ─── Particle Canvas ──────────────────────────────────── */
   function initParticles() {
     const canvas = document.getElementById('heroCanvas');
