@@ -218,7 +218,6 @@ input, textarea { font-family: inherit; font-size: inherit; }
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  flex-wrap: wrap;
 }
 
 /* Section title icons */
@@ -227,24 +226,32 @@ input, textarea { font-family: inherit; font-size: inherit; }
   height: 1.4em;
   flex-shrink: 0;
   filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.25));
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  transition: opacity 0.4s ease, filter 0.4s ease;
 }
 
 .section:hover .section__icon {
-  transform: scale(1.15) rotate(-5deg);
-  filter: drop-shadow(0 3px 8px rgba(236, 72, 153, 0.35));
+  opacity: 0.75;
+  filter: drop-shadow(0 2px 6px rgba(236, 72, 153, 0.3));
 }
 
 .section__title::after {
   content: '';
   display: block;
   width: 36px;
-  height: 3px;
+  height: 2px;
   background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent));
   border-radius: 2px;
   margin: var(--space-md) auto 0;
   transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  flex-basis: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -0.75rem;
+}
+
+.section__title {
+  position: relative;
+  padding-bottom: 1rem;
 }
 
 .section:hover .section__title::after {
@@ -3690,24 +3697,9 @@ input, textarea { font-family: inherit; font-size: inherit; }
   100% { background-position: 200% center; }
 }
 
+/* Section title — clean Apple typography */
 .section__title {
-  background: linear-gradient(
-    90deg,
-    var(--clr-dark) 0%,
-    var(--clr-dark) 40%,
-    var(--clr-primary) 50%,
-    var(--clr-dark) 60%,
-    var(--clr-dark) 100%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: titleShimmer 6s ease-in-out infinite;
-}
-
-.section__title .section__icon {
-  -webkit-text-fill-color: initial;
+  color: var(--clr-dark);
 }
 
 /* Skill bar shimmer overlay */
