@@ -3076,17 +3076,43 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .recs__list li {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 0.75rem;
   padding: 0.75rem 0;
   border-bottom: 1px solid rgba(148,163,184,0.12);
 }
 
 .recs__list li:last-child { border-bottom: none; }
 
+.recs__item-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: rgba(148,163,184,0.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.recs__item-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  font-family: var(--ff-mono, 'JetBrains Mono', monospace);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
 .recs__item-name {
   font-weight: 600;
   color: var(--clr-dark, #0f172a);
   font-size: 0.95rem;
+  flex: 1;
 }
 
 .recs__item-tag {
