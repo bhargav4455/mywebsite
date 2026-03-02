@@ -1688,7 +1688,107 @@ input, textarea { font-family: inherit; font-size: inherit; }
   background: linear-gradient(90deg, rgba(99,102,241,0.5), rgba(236,72,153,0.35), rgba(20,184,166,0.45));
 }
 
-/* Marquee infinite scroll */
+/* Clients Static Grid */
+.clients-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-3xl) var(--space-4xl);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.clients-grid__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: default;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clients-grid__item:hover {
+  transform: translateY(-6px);
+}
+
+.clients-grid__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clients-grid__item:hover .clients-grid__icon {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.2);
+  transform: scale(1.12);
+}
+
+.clients-grid__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  filter: grayscale(1) brightness(1.8) contrast(0.85);
+  opacity: 0.6;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clients-grid__item:hover .clients-grid__icon img {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+}
+
+.clients-grid__initial {
+  display: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(236,72,153,0.12));
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-sans);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.7);
+}
+
+.clients-grid__name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: -0.01em;
+  transition: color 0.4s ease;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.clients-grid__item:hover .clients-grid__name {
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .clients-grid {
+    gap: var(--space-2xl) var(--space-2xl);
+  }
+  .clients-grid__icon {
+    width: 48px;
+    height: 48px;
+  }
+  .clients-grid__name {
+    font-size: 0.78rem;
+  }
+}
+
+/* Marquee (used by tools section) */
 .marquee {
   width: 100%;
   overflow: hidden;
@@ -1703,40 +1803,6 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 .marquee__track:hover {
   animation-play-state: paused;
-}
-
-/* Client marquee — compact */
-.marquee__item--client {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  min-width: 140px;
-  padding: 1rem 1.5rem;
-  cursor: default;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.marquee__item--client:hover {
-  transform: translateY(-4px);
-}
-
-.marquee--clients .marquee__logo {
-  width: 44px;
-  height: 44px;
-  object-fit: contain;
-  border-radius: 10px;
-  filter: grayscale(1) brightness(1.6) contrast(0.9);
-  opacity: 0.5;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  background: rgba(255,255,255,0.04);
-  padding: 4px;
-}
-.marquee__item--client:hover .marquee__logo {
-  filter: grayscale(0) brightness(1);
-  opacity: 1;
-  transform: scale(1.35);
-  background: rgba(255,255,255,0.1);
-  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
 }
 
 /* Tool marquee — light background */
@@ -1798,24 +1864,13 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .marquee__name {
-  font-size: 0.95rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: -0.01em;
+  color: var(--clr-text-muted);
   transition: color 0.4s ease;
   text-align: center;
 }
-.marquee__item--client:hover .marquee__name {
-  color: #fff;
-}
-
-/* Tool marquee name — dark text */
-.marquee__name--tool {
-  color: var(--clr-muted);
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-.marquee__item--tool:hover .marquee__name--tool {
+.marquee__item--tool:hover .marquee__name {
   color: var(--clr-dark);
 }
 
