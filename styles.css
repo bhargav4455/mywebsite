@@ -2246,10 +2246,36 @@ input, textarea { font-family: inherit; font-size: inherit; }
 
 .beyond__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-md);
   max-width: 1100px;
   margin: 0 auto;
+}
+
+/* Runner card spans full width on its own row */
+.beyond__card--runner {
+  grid-column: 1 / -1;
+}
+
+/* Horizontal layout for full-width Runner card */
+.beyond__card--runner .beyond__card-inner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-xl);
+  text-align: left;
+}
+
+.beyond__card--runner .beyond__card-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+}
+
+.beyond__card--runner .beyond__card-right {
+  display: flex;
+  flex-direction: column;
 }
 
 .beyond__card {
@@ -3741,7 +3767,9 @@ input, textarea { font-family: inherit; font-size: inherit; }
 
 @media (max-width: 1024px) {
   .beyond__grid { grid-template-columns: 1fr 1fr; }
-  .beyond__card--runner { grid-column: 1 / -1; }
+  .beyond__card--runner .beyond__card-inner {
+    grid-template-columns: 240px 1fr;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -3796,6 +3824,11 @@ input, textarea { font-family: inherit; font-size: inherit; }
   .volunteer__grid,
   .beyond__grid { grid-template-columns: 1fr; }
   .beyond__card--runner { grid-column: auto; }
+  .beyond__card--runner .beyond__card-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .beyond__card--runner .beyond__card-left { align-items: center; }
   .beyond__card-visual { height: 80px; }
   .beyond__card-emoji { font-size: 2.8rem; }
   .beyond__card-blob { width: 70px; height: 70px; }
