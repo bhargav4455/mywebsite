@@ -237,16 +237,15 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .section__title::after {
   content: '';
   display: block;
-  width: 36px;
-  height: 2px;
+  width: 48px;
+  height: 3px;
   background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent));
-  border-radius: 2px;
-  margin: var(--space-md) auto 0;
+  border-radius: 3px;
   transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -0.75rem;
+  bottom: 0;
 }
 
 .section__title {
@@ -255,7 +254,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 .section:hover .section__title::after {
-  width: 60px;
+  width: 72px;
 }
 
 .section__subtitle {
