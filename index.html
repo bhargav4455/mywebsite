@@ -1383,6 +1383,133 @@
       </div>
     </section>
 
+    <!-- ══════════════ RACE GALLERY ══════════════ -->
+    <section id="gallery" class="section gallery">
+      <div class="container">
+        <h2 class="section__title animate-on-scroll">Race Gallery</h2>
+        <p class="section__subtitle animate-on-scroll">Snapshots from the road — one race at a time</p>
+        <div class="gallery__grid animate-on-scroll">
+          <div class="gallery__item" data-index="0">
+            <img src="assets/images/races/kirkland-half.png" alt="Kirkland Half Marathon" loading="lazy"/>
+            <div class="gallery__overlay"><span>Kirkland Half Marathon</span></div>
+          </div>
+          <div class="gallery__item" data-index="1">
+            <img src="assets/images/races/big-backyard.jpg" alt="Big Backyard 10K" loading="lazy"/>
+            <div class="gallery__overlay"><span>Big Backyard 10K</span></div>
+          </div>
+          <div class="gallery__item" data-index="2">
+            <img src="assets/images/races/pumpkin-spice-run.png" alt="Pumpkin Spice Run 5K" loading="lazy"/>
+            <div class="gallery__overlay"><span>Pumpkin Spice Run 5K</span></div>
+          </div>
+          <div class="gallery__item" data-index="3">
+            <img src="assets/images/races/tacky-turkey.png" alt="Tacky Turkey Sweater 5K" loading="lazy"/>
+            <div class="gallery__overlay"><span>Tacky Turkey Sweater 5K</span></div>
+          </div>
+          <div class="gallery__item" data-index="4">
+            <img src="assets/images/races/lake-sammamish.jpg" alt="Lake Sammamish Half Marathon" loading="lazy"/>
+            <div class="gallery__overlay"><span>Lake Sammamish Half Marathon</span></div>
+          </div>
+          <div class="gallery__item" data-index="5">
+            <img src="assets/images/races/lake-sammamish-banner.png" alt="Lake Sammamish Race" loading="lazy"/>
+            <div class="gallery__overlay"><span>Lake Sammamish Race</span></div>
+          </div>
+          <div class="gallery__item" data-index="6">
+            <img src="assets/images/races/orca-running.png" alt="Orca Running" loading="lazy"/>
+            <div class="gallery__overlay"><span>Orca Running</span></div>
+          </div>
+          <div class="gallery__item" data-index="7">
+            <img src="assets/images/races/rpod-medal-2025.jpg" alt="R-Pod Medal 2025" loading="lazy"/>
+            <div class="gallery__overlay"><span>R-Pod Medal 2025</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Overlay -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
+      <button class="lightbox__prev" id="lightboxPrev" aria-label="Previous image">&#10094;</button>
+      <button class="lightbox__next" id="lightboxNext" aria-label="Next image">&#10095;</button>
+      <div class="lightbox__content">
+        <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+        <p class="lightbox__caption" id="lightboxCaption"></p>
+      </div>
+    </div>
+
+    <!-- ══════════════ 50-STATE QUEST ══════════════ -->
+    <section id="states-map" class="section states-map">
+      <div class="container">
+        <h2 class="section__title animate-on-scroll">50-State Quest</h2>
+        <p class="section__subtitle animate-on-scroll">Tracking progress toward visiting every US state</p>
+        <div class="states-map__wrapper animate-on-scroll">
+          <div class="states-map__counter">
+            <span class="states-map__count">3</span><span class="states-map__total"> / 50</span>
+            <p>States Visited</p>
+          </div>
+          <div class="states-map__grid" id="statesGrid"></div>
+          <div class="states-map__legend">
+            <span class="states-map__legend-item states-map__legend-item--visited"><span></span> Visited</span>
+            <span class="states-map__legend-item states-map__legend-item--not"><span></span> Not Yet</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ RECOMMENDATIONS ══════════════ -->
+    <section id="recommendations" class="section recommendations">
+      <div class="container">
+        <h2 class="section__title animate-on-scroll">What I'm Into</h2>
+        <p class="section__subtitle animate-on-scroll">Reads, watches &amp; listens that shape my thinking</p>
+        <div class="recs__grid animate-on-scroll">
+          <!-- Daily Reads -->
+          <div class="recs__card glass-card">
+            <div class="recs__card-icon">📰</div>
+            <h3 class="recs__card-title">Daily Reads</h3>
+            <ul class="recs__list">
+              <li>
+                <span class="recs__item-name">The Washington Post</span>
+                <span class="recs__item-tag">News</span>
+              </li>
+              <li>
+                <span class="recs__item-name">The Wall Street Journal</span>
+                <span class="recs__item-tag">Business &amp; Finance</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Movies & Shows -->
+          <div class="recs__card glass-card">
+            <div class="recs__card-icon">🎬</div>
+            <h3 class="recs__card-title">Movies &amp; Shows</h3>
+            <ul class="recs__list">
+              <li>
+                <span class="recs__item-name">Ted Lasso</span>
+                <span class="recs__item-tag">Comedy / Drama</span>
+              </li>
+              <li>
+                <span class="recs__item-name">Manam</span>
+                <span class="recs__item-tag">Telugu</span>
+              </li>
+              <li>
+                <span class="recs__item-name">Oy!</span>
+                <span class="recs__item-tag">Telugu</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Podcasts -->
+          <div class="recs__card glass-card">
+            <div class="recs__card-icon">🎧</div>
+            <h3 class="recs__card-title">Podcasts</h3>
+            <ul class="recs__list">
+              <li>
+                <span class="recs__item-name">America is Beautiful</span>
+                <span class="recs__item-tag">Culture &amp; Travel</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ══════════════ PHILOSOPHY ══════════════ -->
     <section id="philosophy" class="section philosophy">
       <div class="container">
@@ -1588,9 +1715,14 @@
   <div id="chatbot" class="chatbot">
     <!-- Floating Bubble -->
     <button class="chatbot__bubble" id="chatBubble" aria-label="Chat with KAI">
-      <svg class="chatbot__bubble-icon chatbot__bubble-icon--chat" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        <path d="M8 10h.01M12 10h.01M16 10h.01" stroke-width="3"/>
+      <svg class="chatbot__bubble-icon chatbot__bubble-icon--chat" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="2" x2="12" y2="6"/>
+        <circle cx="12" cy="2" r="1.5" fill="currentColor" stroke="none"/>
+        <rect x="4" y="6" width="16" height="12" rx="2.5"/>
+        <circle cx="9" cy="12" r="1.5"/>
+        <circle cx="15" cy="12" r="1.5"/>
+        <path d="M9 16h6" stroke-width="2"/>
+        <path d="M2 10h2M20 10h2" stroke-width="2"/>
       </svg>
       <svg class="chatbot__bubble-icon chatbot__bubble-icon--close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
         <line x1="18" y1="6" x2="6" y2="18"/>
@@ -1604,7 +1736,15 @@
       <div class="chatbot__header">
         <div class="chatbot__header-info">
           <div class="chatbot__avatar">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="2" x2="12" y2="6"/>
+              <circle cx="12" cy="2" r="1.5" fill="currentColor" stroke="none"/>
+              <rect x="4" y="6" width="16" height="12" rx="2.5"/>
+              <circle cx="9" cy="12" r="1.5"/>
+              <circle cx="15" cy="12" r="1.5"/>
+              <path d="M9 16h6" stroke-width="2"/>
+              <path d="M2 10h2M20 10h2" stroke-width="2"/>
+            </svg>
           </div>
           <div>
             <h3 class="chatbot__header-title">KAI</h3>

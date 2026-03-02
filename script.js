@@ -413,10 +413,105 @@
     });
   }
 
+  /* ─── Race Gallery Lightbox ─────────────────────────────── */
+  function initGallery() {
+    const items = document.querySelectorAll('.gallery__item');
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbCaption = document.getElementById('lightboxCaption');
+    const lbClose = document.getElementById('lightboxClose');
+    const lbPrev = document.getElementById('lightboxPrev');
+    const lbNext = document.getElementById('lightboxNext');
+
+    if (!items.length || !lightbox) return;
+
+    const images = Array.from(items).map(item => ({
+      src: item.querySelector('img').src,
+      alt: item.querySelector('img').alt
+    }));
+
+    let current = 0;
+
+    function openLightbox(index) {
+      current = index;
+      updateLightbox();
+      lightbox.classList.add('lightbox--open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('lightbox--open');
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      lbImg.src = images[current].src;
+      lbImg.alt = images[current].alt;
+      lbCaption.textContent = images[current].alt;
+    }
+
+    function nextImage() {
+      current = (current + 1) % images.length;
+      updateLightbox();
+    }
+
+    function prevImage() {
+      current = (current - 1 + images.length) % images.length;
+      updateLightbox();
+    }
+
+    items.forEach((item, i) => item.addEventListener('click', () => openLightbox(i)));
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', prevImage);
+    lbNext.addEventListener('click', nextImage);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('lightbox--open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+    });
+  }
+
+  /* ─── US States Map ────────────────────────────────────── */
+  function initStatesMap() {
+    const grid = document.getElementById('statesGrid');
+    if (!grid) return;
+
+    const visited = new Set(['WA', 'CA', 'OR']);
+
+    // [abbreviation, row, col] — geographic grid layout
+    const states = [
+      ['AK',0,0],                                                                     ['ME',0,10],
+      ['WA',1,1], ['MT',1,2],          ['ND',1,4], ['MN',1,5], ['WI',1,6],            ['MI',1,8], ['VT',1,9], ['NH',1,10],
+      ['OR',2,1], ['ID',2,2], ['WY',2,3], ['SD',2,4], ['IA',2,5], ['IL',2,6], ['IN',2,7], ['OH',2,8], ['NY',2,9], ['MA',2,10], ['CT',2,11], ['RI',2,12],
+      ['CA',3,1], ['NV',3,2], ['UT',3,3], ['CO',3,4], ['NE',3,5], ['MO',3,6], ['KY',3,7], ['WV',3,8], ['VA',3,9], ['PA',3,10], ['NJ',3,11],
+      ['HI',4,0],             ['AZ',4,2], ['NM',4,3], ['KS',4,4], ['AR',4,5], ['TN',4,6], ['NC',4,7], ['SC',4,8], ['MD',4,9], ['DE',4,10], ['DC',4,11],
+                              ['TX',5,3], ['OK',5,4], ['LA',5,5], ['MS',5,6], ['AL',5,7], ['GA',5,8],
+                                                                                                       ['FL',6,9],
+    ];
+
+    states.forEach(([abbr, row, col]) => {
+      const tile = document.createElement('div');
+      tile.className = 'state-tile' + (visited.has(abbr) ? ' state-tile--visited' : '');
+      tile.textContent = abbr;
+      tile.style.gridRow = row + 1;
+      tile.style.gridColumn = col + 1;
+      tile.title = visited.has(abbr) ? abbr + ' — Visited ✓' : abbr;
+      grid.appendChild(tile);
+    });
+  }
+
   /* ─── Boot ─────────────────────────────────────────────── */
   function boot() {
     initThemeToggle();
     initExpAccordion();
+    initGallery();
+    initStatesMap();
     initParticles();
     initTyping();
     initScrollReveal();

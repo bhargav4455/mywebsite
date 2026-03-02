@@ -344,6 +344,13 @@
     setTimeout(() => {
       typing.remove();
       appendMessage(text, 'bot');
+      // Re-show chips after each answer
+      if (chipsEl) {
+        setTimeout(() => {
+          chipsEl.classList.remove('chatbot__chips--hidden');
+          requestAnimationFrame(() => { msgArea.scrollTop = msgArea.scrollHeight; });
+        }, 350);
+      }
     }, delay);
   }
 
@@ -353,6 +360,8 @@
     const text = input.value.trim();
     if (!text) return;
 
+    // Temporarily hide chips while processing
+    if (chipsEl) chipsEl.classList.add('chatbot__chips--hidden');
     appendMessage(text, 'user');
     input.value = '';
 
@@ -375,7 +384,7 @@
       const query = chip.getAttribute('data-query');
       if (!query) return;
 
-      // Hide chips after first use
+      // Temporarily hide chips while processing
       chipsEl.classList.add('chatbot__chips--hidden');
 
       appendMessage(query, 'user');
