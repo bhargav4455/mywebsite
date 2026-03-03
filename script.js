@@ -619,8 +619,6 @@
         const today = new Date().toISOString().slice(0, 10);
         const entry = data.find(d => d.date === today) || data[data.length - 1];
         const steps = entry.steps;
-        const goal = 10000;
-        const pct = Math.min(Math.round((steps / goal) * 100), 100);
 
         // average
         const total = data.reduce((s, d) => s + d.steps, 0);
@@ -637,27 +635,30 @@
         const dateObj = new Date(entry.date + 'T00:00:00');
         const dateStr = dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
 
+        // bar fill based on max across all days
+        const maxSteps = Math.max(...data.map(d => d.steps));
+        const barPct = Math.round((steps / maxSteps) * 100);
+
         // motivational message
         let msg;
-        if (pct >= 100) msg = '🎉 Goal crushed! You\'re on fire today!';
-        else if (pct >= 90) msg = '🔥 Almost there — just a few more steps!';
-        else if (pct >= 70) msg = '💪 Great progress — keep moving!';
-        else if (pct >= 50) msg = '👟 Halfway there — you got this!';
-        else msg = '🚶 Every step counts — let\'s go!';
+        if (steps >= 10000) msg = '🎉 Crushing it! 10K+ steps today!';
+        else if (steps >= 9800) msg = '🔥 Almost 10K — keep pushing!';
+        else if (steps >= 9500) msg = '💪 Solid day — great consistency!';
+        else msg = '👟 Every step counts — stay moving!';
 
         // populate
         const el = id => document.getElementById(id);
         el('steps-date').textContent = dateStr;
         el('steps-count').textContent = steps.toLocaleString();
-        el('steps-pct').textContent = pct + '%';
         el('steps-avg').textContent = avg.toLocaleString();
         el('steps-streak').textContent = streak + 'd';
+        el('steps-total').textContent = data.length;
         el('steps-msg').textContent = msg;
 
         // animate bar
         requestAnimationFrame(() => {
           setTimeout(() => {
-            el('steps-bar-fill').style.width = pct + '%';
+            el('steps-bar-fill').style.width = barPct + '%';
           }, 300);
         });
       })

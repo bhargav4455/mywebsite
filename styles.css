@@ -3095,18 +3095,6 @@ input, textarea { font-family: inherit; font-size: inherit; }
   0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
-.steps-tracker__bar-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 4px;
-  font-size: 0.6rem;
-  color: var(--clr-text-muted);
-  font-family: var(--ff-mono);
-}
-.steps-tracker__goal {
-  font-weight: 600;
-  color: #a855f7;
-}
 .steps-tracker__stats {
   display: flex;
   justify-content: space-around;
