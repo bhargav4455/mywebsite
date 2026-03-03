@@ -329,6 +329,10 @@
     html = html.replace(/^• (.+)$/gm, '<span class="kai-bullet">•</span> $1');
     // Emoji-led items like ✅, 🔜, 🏅, 📧, 🔗, 💻, 📍, 🌍, 🎯
     html = html.replace(/^([\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{1F900}-\u{1F9FF}]+)\s(.+)$/gmu, '<span class="kai-bullet">$1</span> $2');
+    // Auto-link URLs (https://…)
+    html = html.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener" class="kai-link">$1</a>');
+    // Auto-link email addresses
+    html = html.replace(/([a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})/g, '<a href="mailto:$1" class="kai-link">$1</a>');
     // Double newlines → paragraph break, single newlines → line break
     html = html.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>');
     return '<p>' + html + '</p>';

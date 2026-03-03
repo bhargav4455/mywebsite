@@ -4238,6 +4238,15 @@ input, textarea { font-family: inherit; font-size: inherit; }
   font-weight: 600;
   color: var(--clr-primary);
 }
+.kai-link {
+  color: var(--clr-primary);
+  text-decoration: underline;
+  word-break: break-all;
+  transition: opacity 0.2s;
+}
+.kai-link:hover {
+  opacity: 0.75;
+}
 .chatbot__msg--user .chatbot__msg-content {
   background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
   color: #fff;
