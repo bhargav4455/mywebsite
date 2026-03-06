@@ -1277,6 +1277,7 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .cert-card__tag--data    { background: rgba(6, 182, 212, 0.08); color: #0891b2; }
 .cert-card__tag--network { background: rgba(236, 72, 153, 0.08); color: #db2777; }
 .cert-card__tag--security{ background: rgba(239, 68, 68, 0.08); color: #dc2626; }
+.cert-card__tag--audit   { background: rgba(16, 185, 129, 0.08); color: #047857; }
 
 /* ═══════════════════════════════════════════════════════════
    COMPANY BADGES
