@@ -27,10 +27,10 @@
 
     experience: [
       { role: 'Senior System Specialist', company: 'LTM', period: 'Feb 2026 – Present', location: 'Bellevue, Washington', details: 'Leading next-generation AI-driven system management operations. Driving automation and intelligent monitoring for enterprise clients. Collaborating on AI and cloud-first transformation initiatives.' },
-      { role: 'Senior System Specialist', company: 'LTM', period: 'Nov 2022 – Feb 2026 (3 yrs 4 mos)', location: 'Bellevue, Washington', details: 'Led enterprise system management supporting Microsoft\'s global infrastructure. Designed AI-powered automation frameworks reducing manual intervention by 70%. Built executive monitoring dashboards with Power BI. Championed Power Platform adoption for low-code workflow automation. Mentored team members and drove knowledge-sharing initiatives.' },
-      { role: 'Senior System Specialist', company: 'LTM', period: 'Jun 2021 – Nov 2022 (1 yr 6 mos)', location: 'Hyderabad, India', details: 'Managed large-scale Azure SQL environments and DevOps pipelines. Drove cloud adoption and process modernization. Implemented proactive monitoring with SCOM and Azure Monitor.' },
-      { role: 'Team Lead', company: 'LTM', period: 'Jan 2019 – Jun 2021 (2 yrs 6 mos)', location: 'Hyderabad, India', details: 'Led a team of engineers managing enterprise server environments. Developed PowerShell automation scripts for system administration at scale. Ensured SLA compliance and drove continuous improvement.' },
-      { role: 'Senior Engineer', company: 'LTM', period: 'Jan 2017 – Jan 2019 (2 yrs 1 mo)', location: 'Hyderabad, India', details: 'Managed Azure SQL databases and cloud infrastructure. Implemented monitoring and performance optimization solutions.' },
+      { role: 'Senior System Specialist', company: 'LTIMindtree', period: 'Nov 2022 – Feb 2026 (3 yrs 4 mos)', location: 'Bellevue, Washington', details: 'Led enterprise system management supporting Microsoft\'s global infrastructure. Designed AI-powered automation frameworks reducing manual intervention by 70%. Built executive monitoring dashboards with Power BI. Championed Power Platform adoption for low-code workflow automation. Mentored team members and drove knowledge-sharing initiatives.' },
+      { role: 'Senior System Specialist', company: 'Mindtree', period: 'Jun 2021 – Nov 2022 (1 yr 6 mos)', location: 'Hyderabad, India', details: 'Managed large-scale Azure SQL environments and DevOps pipelines. Drove cloud adoption and process modernization. Implemented proactive monitoring with SCOM and Azure Monitor.' },
+      { role: 'Team Lead', company: 'Mindtree', period: 'Jan 2019 – Jun 2021 (2 yrs 6 mos)', location: 'Hyderabad, India', details: 'Led a team of engineers managing enterprise server environments. Developed PowerShell automation scripts for system administration at scale. Ensured SLA compliance and drove continuous improvement.' },
+      { role: 'Senior Engineer', company: 'Mindtree', period: 'Jan 2017 – Jan 2019 (2 yrs 1 mo)', location: 'Hyderabad, India', details: 'Managed Azure SQL databases and cloud infrastructure. Implemented monitoring and performance optimization solutions.' },
       { role: 'Analyst', company: 'HCL Technologies', period: 'Apr 2014 – Jan 2017 (2 yrs 10 mos)', location: 'Hyderabad, India', details: 'Managed data center operations and Active Directory infrastructure. Handled incident management and infrastructure troubleshooting.' },
       { role: 'Analyst', company: 'ZEN3 (now Tech Mahindra)', period: 'May 2013 – Apr 2014 (1 yr)', location: 'Hyderabad, India', details: 'Started professional career in enterprise system analysis. Provided system support and technical troubleshooting.' },
     ],
@@ -251,11 +251,11 @@
     },
     {
       patterns: [/how many (years|yrs)|experience.*years/i],
-      respond: () => `Bhargava has 12+ years of enterprise technology experience, spanning 3 companies (ZEN3, HCL Technologies, LTM) across India and the USA.`
+      respond: () => `Bhargava has 12+ years of enterprise technology experience, spanning 3 companies (ZEN3, HCL Technologies, LTM/LTIMindtree/Mindtree) across India and the USA.`
     },
     {
       patterns: [/team|leader|manage|mentor|lead/i],
-      respond: () => `Bhargava has strong leadership experience:\n\n• Team Lead at LTM (2019–2021) — led a team of engineers managing enterprise server environments\n• Senior System Specialist — mentored team members and drove knowledge-sharing\n• Cross-functional team leadership & mentorship\n• Championed Power Platform adoption across teams`
+      respond: () => `Bhargava has strong leadership experience:\n\n• Team Lead at Mindtree (2019–2021) — led a team of engineers managing enterprise server environments\n• Senior System Specialist — mentored team members and drove knowledge-sharing\n• Cross-functional team leadership & mentorship\n• Championed Power Platform adoption across teams`
     },
     {
       patterns: [/what can (you|kai) (do|help|answer)|capabilities|help me/i],
