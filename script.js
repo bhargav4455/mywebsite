@@ -611,69 +611,13 @@
     });
   }
 
-  /* ─── Daily Steps Tracker ──────────────────────────────── */
-  function initStepsTracker() {
-    fetch('data/steps.json')
-      .then(r => r.json())
-      .then(data => {
-        const today = new Date().toISOString().slice(0, 10);
-        const entry = data.find(d => d.date === today) || data[data.length - 1];
-        const steps = entry.steps;
-
-        // average
-        const total = data.reduce((s, d) => s + d.steps, 0);
-        const avg = Math.round(total / data.length);
-
-        // streak (consecutive days with 9000+)
-        let streak = 0;
-        for (let i = data.length - 1; i >= 0; i--) {
-          if (data[i].steps >= 9000) streak++;
-          else break;
-        }
-
-        // date display
-        const dateObj = new Date(entry.date + 'T00:00:00');
-        const dateStr = dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-
-        // bar fill based on max across all days
-        const maxSteps = Math.max(...data.map(d => d.steps));
-        const barPct = Math.round((steps / maxSteps) * 100);
-
-        // motivational message
-        let msg;
-        if (steps >= 10000) msg = '🎉 Crushing it! 10K+ steps today!';
-        else if (steps >= 9800) msg = '🔥 Almost 10K — keep pushing!';
-        else if (steps >= 9500) msg = '💪 Solid day — great consistency!';
-        else msg = '👟 Every step counts — stay moving!';
-
-        // populate
-        const el = id => document.getElementById(id);
-        el('steps-date').textContent = dateStr;
-        el('steps-count').textContent = steps.toLocaleString();
-        el('steps-avg').textContent = avg.toLocaleString();
-        el('steps-streak').textContent = streak + 'd';
-        el('steps-total').textContent = data.length;
-        el('steps-msg').textContent = msg;
-
-        // animate bar
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            el('steps-bar-fill').style.width = barPct + '%';
-          }, 300);
-        });
-      })
-      .catch(() => {
-        const msg = document.getElementById('steps-msg');
-        if (msg) msg.textContent = 'Steps data unavailable';
-      });
-  }
+  /* ─── Daily Steps Tracker (removed) ────────────────────── */
 
   /* ─── Boot ─────────────────────────────────────────────── */
   function boot() {
     initThemeToggle();
     initExpAccordion();
     initStatesMap();
-    initStepsTracker();
     initParticles();
     initTyping();
     initScrollReveal();
