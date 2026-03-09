@@ -1279,6 +1279,26 @@ input, textarea { font-family: inherit; font-size: inherit; }
 .cert-card__tag--security{ background: rgba(239, 68, 68, 0.08); color: #dc2626; }
 .cert-card__tag--audit   { background: rgba(16, 185, 129, 0.08); color: #047857; }
 
+/* ── External Audits subsection ── */
+.certs__audit-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #047857;
+}
+.certs__grid--audits {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+.cert-card--audit {
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  box-shadow: 0 2px 12px rgba(16, 185, 129, 0.08);
+}
+
 /* ═══════════════════════════════════════════════════════════
    COMPANY BADGES
    ═══════════════════════════════════════════════════════════ */
