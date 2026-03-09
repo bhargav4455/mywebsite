@@ -316,15 +316,20 @@
         return;
       }
 
-      // Simulate send
+      // Send via mailto (opens user's email client with pre-filled data)
       const btn = form.querySelector('button[type="submit"]');
+      const subject = (form.querySelector('[name="subject"]')?.value.trim()) || 'Contact from Website';
       const originalText = btn.textContent;
-      btn.textContent = 'Sending...';
+      btn.textContent = 'Opening email...';
       btn.disabled = true;
+
+      const mailtoBody = `Hi Bhargava,\n\n${message}\n\n—\n${name}\n${email}`;
+      const mailtoLink = `mailto:bhargav.katta9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(mailtoBody)}`;
+      window.location.href = mailtoLink;
 
       setTimeout(() => {
         if (status) {
-          status.textContent = 'Message sent! I\'ll get back to you soon.';
+          status.textContent = 'Email client opened! If it didn\'t open, email me at bhargav.katta9@gmail.com';
           status.className = 'contact__form-status contact__form-status--success';
         }
         form.reset();
@@ -333,8 +338,8 @@
 
         setTimeout(() => {
           if (status) status.textContent = '';
-        }, 5000);
-      }, 1200);
+        }, 8000);
+      }, 1000);
     });
   }
 
