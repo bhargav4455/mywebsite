@@ -990,6 +990,273 @@ input, textarea { font-family: inherit; font-size: inherit; }
 }
 
 /* ═══════════════════════════════════════════════════════════
+   BAI — Quick Search Assistant (Hero inline)
+   ═══════════════════════════════════════════════════════════ */
+.bai {
+  margin-top: var(--space-2xl);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.bai__container {
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.bai__label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bai__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: var(--ff-mono);
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #fff;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  padding: 5px 14px;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px rgba(99, 102, 241, 0.35), 0 0 20px rgba(168, 85, 247, 0.15);
+  animation: baiLogoPulse 3s ease-in-out infinite;
+}
+
+.bai__logo-icon {
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 3px rgba(255,255,255,0.4));
+  animation: baiSparkle 2s ease-in-out infinite;
+}
+
+@keyframes baiLogoPulse {
+  0%, 100% { box-shadow: 0 2px 12px rgba(99, 102, 241, 0.35), 0 0 20px rgba(168, 85, 247, 0.15); }
+  50% { box-shadow: 0 2px 18px rgba(99, 102, 241, 0.5), 0 0 30px rgba(168, 85, 247, 0.25); }
+}
+
+@keyframes baiSparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.15) rotate(8deg); opacity: 0.85; }
+}
+
+.bai__tagline {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.02em;
+}
+
+.bai__search-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bai__input-group {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 5px 6px 5px 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.bai__input-group:focus-within {
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12), 0 4px 20px rgba(99, 102, 241, 0.1);
+}
+
+.bai__search-icon {
+  flex-shrink: 0;
+  margin-right: 10px;
+  animation: baiSearchGlow 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.3));
+}
+
+@keyframes baiSearchGlow {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.3)); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.5)); transform: scale(1.05); }
+}
+
+.bai__input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: var(--ff-sans);
+  font-size: 0.875rem;
+  padding: 10px 0;
+}
+
+.bai__input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  transition: opacity 0.3s ease;
+}
+
+.bai__submit {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+}
+
+.bai__submit:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.45);
+}
+
+.bai__submit:active {
+  transform: scale(0.95);
+}
+
+.bai__suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.bai__chip {
+  font-family: var(--ff-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 5px 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.bai__chip:hover {
+  color: #fff;
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-1px);
+}
+
+.bai__answer-area {
+  width: 100%;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 20px 24px;
+  animation: baiSlideIn 0.35s var(--ease-out) both;
+}
+
+.bai__answer-area[hidden] {
+  display: none;
+}
+
+.bai__close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.3rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 6px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.bai__close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.bai__answer-content {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.82rem;
+  line-height: 1.7;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.bai__answer-content p {
+  margin: 0 0 8px;
+}
+
+.bai__answer-content p:last-child {
+  margin-bottom: 0;
+}
+
+.bai__answer-content strong {
+  color: #fff;
+}
+
+.bai__answer-content .kai-bullet,
+.bai__answer-content .kai-num {
+  color: var(--clr-primary);
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.bai__answer-content a {
+  color: var(--clr-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.bai__answer-content a:hover {
+  color: #818cf8;
+}
+
+/* Scrollbar for answer area */
+.bai__answer-content::-webkit-scrollbar {
+  width: 4px;
+}
+.bai__answer-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.bai__answer-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+@keyframes baiSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* BAI responsive */
+@media (max-width: 640px) {
+  .bai__container { max-width: 100%; }
+  .bai__suggestions { gap: 6px; }
+  .bai__chip { font-size: 0.65rem; padding: 4px 10px; }
+  .bai__answer-content { max-height: 220px; font-size: 0.78rem; }
+}
+
+/* ═══════════════════════════════════════════════════════════
    ABOUT — Light section
    ═══════════════════════════════════════════════════════════ */
 .about__grid {

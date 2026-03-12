@@ -618,6 +618,106 @@
 
   /* ─── Daily Steps Tracker (removed) ────────────────────── */
 
+  /* ─── BAI Inline Search ────────────────────────────────── */
+  function initBAI() {
+    const baiInput   = document.getElementById('baiInput');
+    const baiSubmit  = document.getElementById('baiSubmit');
+    const baiAnswer  = document.getElementById('baiAnswer');
+    const baiContent = document.getElementById('baiAnswerContent');
+    const baiClose   = document.getElementById('baiClose');
+    const baiSugg    = document.getElementById('baiSuggestions');
+
+    if (!baiInput || !baiSubmit || !baiAnswer || !baiContent) return;
+
+    /* Rotating placeholder examples */
+    const baiPlaceholders = [
+      'What certifications does he have?',
+      'Tell me about his Azure experience',
+      'What AI agents does he build?',
+      'How many years of experience?',
+      'What companies has he worked at?',
+      'What races has he run?',
+      'What is his tech stack?',
+      'Where is he based?',
+      'Tell me about his projects',
+      'What clients has he worked with?',
+      'What is his current role?',
+      'How can I contact him?',
+    ];
+    let baiPhIdx = Math.floor(Math.random() * baiPlaceholders.length);
+    let baiPhCharIdx = 0;
+    let baiPhDeleting = false;
+    let baiPhTimer = null;
+
+    function baiTypePlaceholder() {
+      if (document.activeElement === baiInput && baiInput.value) return;
+      const phrase = baiPlaceholders[baiPhIdx];
+      if (baiPhDeleting) {
+        baiPhCharIdx--;
+        baiInput.setAttribute('placeholder', phrase.substring(0, baiPhCharIdx));
+        if (baiPhCharIdx <= 0) {
+          baiPhDeleting = false;
+          baiPhIdx = (baiPhIdx + 1) % baiPlaceholders.length;
+          baiPhTimer = setTimeout(baiTypePlaceholder, 400);
+          return;
+        }
+        baiPhTimer = setTimeout(baiTypePlaceholder, 25);
+      } else {
+        baiPhCharIdx++;
+        baiInput.setAttribute('placeholder', phrase.substring(0, baiPhCharIdx));
+        if (baiPhCharIdx >= phrase.length) {
+          baiPhDeleting = true;
+          baiPhTimer = setTimeout(baiTypePlaceholder, 2500);
+          return;
+        }
+        baiPhTimer = setTimeout(baiTypePlaceholder, 55);
+      }
+    }
+    baiPhTimer = setTimeout(baiTypePlaceholder, 1000);
+
+    function askBAI(query) {
+      if (!query.trim()) return;
+      const findResponse = window.__kaiFindResponse;
+      const formatBotText = window.__kaiFormatBotText;
+      if (!findResponse) return;
+
+      const answer = findResponse(query);
+      baiContent.innerHTML = formatBotText(answer);
+      baiAnswer.hidden = false;
+      baiAnswer.style.animation = 'none';
+      void baiAnswer.offsetHeight; // reflow
+      baiAnswer.style.animation = '';
+      baiAnswer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    baiSubmit.addEventListener('click', function () {
+      askBAI(baiInput.value);
+      baiInput.value = '';
+    });
+
+    baiInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        askBAI(baiInput.value);
+        baiInput.value = '';
+      }
+    });
+
+    baiClose.addEventListener('click', function () {
+      baiAnswer.hidden = true;
+    });
+
+    baiSugg.addEventListener('click', function (e) {
+      var chip = e.target.closest('.bai__chip');
+      if (!chip) return;
+      var query = chip.getAttribute('data-query');
+      if (query) {
+        baiInput.value = query;
+        askBAI(query);
+      }
+    });
+  }
+
   /* ─── Boot ─────────────────────────────────────────────── */
   function boot() {
     initThemeToggle();
@@ -632,6 +732,7 @@
     initBackToTop();
     initContactForm();
     initActiveNav();
+    initBAI();
   }
 
   if (document.readyState === 'loading') {

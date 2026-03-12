@@ -264,6 +264,9 @@
   ];
 
   /* ─── Find Best Response ───────────────────────────────── */
+  window.__kaiFindResponse = findResponse;
+  window.__kaiFormatBotText = formatBotText;
+
   function findResponse(input) {
     const text = input.toLowerCase().trim();
 
