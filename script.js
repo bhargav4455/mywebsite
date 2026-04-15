@@ -270,6 +270,22 @@
     });
   }
 
+  /* ─── Scroll Progress Bar ────────────────────────────────── */
+  function initScrollProgress() {
+    const bar = document.getElementById('scrollProgress');
+    if (!bar) return;
+
+    function update() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = progress + '%';
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
   /* ─── Back to Top ──────────────────────────────────────── */
   function initBackToTop() {
     const btn = document.getElementById('backToTop');
@@ -402,14 +418,12 @@
     const toggle = document.getElementById('themeToggle');
     if (!toggle) return;
 
-    // Apply saved theme on load
+    // Apply saved theme on load — default is light (white)
     const saved = localStorage.getItem('theme');
     if (saved === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
-    } else if (saved === 'light') {
+    } else {
       document.documentElement.removeAttribute('data-theme');
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-theme', 'dark');
     }
 
     toggle.addEventListener('click', () => {
@@ -730,6 +744,7 @@
     initMobileNav();
     initSmoothScroll();
     initBackToTop();
+    initScrollProgress();
     initContactForm();
     initActiveNav();
     initBAI();
