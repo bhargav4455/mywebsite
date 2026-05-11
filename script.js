@@ -214,6 +214,13 @@
     const header = document.querySelector('.header');
     if (!header) return;
 
+    // On pages without a hero, always show the scrolled (solid) header
+    const hasHero = !!document.getElementById('hero');
+    if (!hasHero) {
+      header.classList.add('header--scrolled');
+      return;
+    }
+
     let last = 0;
     function check() {
       const y = window.scrollY;
