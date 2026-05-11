@@ -1,5 +1,8 @@
 # Backup files
 *.bak
+.backup/
+.build/
+BUILD-YOUR-PORTFOLIO-PROMPT.md
 
 # OS files
 Thumbs.db
