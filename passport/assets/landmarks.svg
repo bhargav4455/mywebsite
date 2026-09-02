@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="charminar" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#f6d680"/>
+    <circle cx="126" cy="30" r="15" fill="#fff4c7"/>
+    <path d="M35 126V58h15V39l8-12 8 12v19h28V39l8-12 8 12v19h15v68M28 126h104M55 126V91c0-15 10-25 25-25s25 10 25 25v35M70 126V91c0-7 4-11 10-11s10 4 10 11v35" fill="#fff8e8" stroke="#8b3f1f" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M35 58h90M48 77h64" stroke="#102a43" stroke-width="5"/>
+  </symbol>
+  <symbol id="golconda-fort" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#deaa67"/>
+    <path d="M18 128h124L126 83l-19-10-14-27-18 19-21 4-12 25-17 8z" fill="#ad683c"/>
+    <path d="M29 128V94h17V78h21V62h27v20h20v18h18v28M69 128V98h25v30" fill="#e4bd82" stroke="#713a26" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M38 107h8m31-32h10m31 36h8" stroke="#102a43" stroke-width="5"/>
+  </symbol>
+  <symbol id="ramappa-temple" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#d9e8f4"/>
+    <path d="M22 130h116M31 119h98L115 94H45zm18-25h62L99 72H61zm15-22h32L84 42h-8z" fill="#c56e43" stroke="#7b3824" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M71 119V99h18v20M80 41V25" stroke="#102a43" stroke-width="5"/>
+    <circle cx="80" cy="22" r="5" fill="#f4b942"/>
+  </symbol>
+  <symbol id="yadadri" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#f7c66c"/>
+    <path d="M23 131h114M37 131V91h86v40M48 91l8-38h48l8 38M62 53l8-29h20l8 29" fill="#fff3c4" stroke="#9f4f2f" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M70 131v-24c0-7 4-12 10-12s10 5 10 12v24M61 69h38M80 24V14" stroke="#102a43" stroke-width="5"/>
+  </symbol>
+  <symbol id="warangal-fort" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#aed7cc"/>
+    <path d="M25 132h110M45 132V68m70 64V68M36 68h88M46 68c0-18 15-33 34-33s34 15 34 33M61 132V91h38v41" fill="none" stroke="#704632" stroke-width="8" stroke-linecap="round"/>
+    <path d="M35 57l10 11 10-11m50 0l10 11 10-11M56 91h48" fill="none" stroke="#c56e43" stroke-width="6"/>
+  </symbol>
+  <symbol id="thousand-pillars" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#ead7b7"/>
+    <path d="M24 132h112M32 54h96L115 35H45zM39 54v67m20-67v67m21-67v67m21-67v67m20-67v67M31 121h98" fill="#fff7e6" stroke="#714a37" stroke-width="5" stroke-linejoin="round"/>
+    <circle cx="80" cy="90" r="12" fill="#9f4f2f"/>
+  </symbol>
+  <symbol id="bhadrachalam" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#b7dcea"/>
+    <path d="M0 126c30-15 53 13 80-2s48-6 80 3v33H0z" fill="#438da7"/>
+    <path d="M37 122V79h86v43M52 79l9-35h38l9 35M68 44l7-24h10l7 24" fill="#f7c66c" stroke="#9f4f2f" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M70 122v-25h20v25M80 20V11" stroke="#102a43" stroke-width="5"/>
+  </symbol>
+  <symbol id="nagarjuna-sagar" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#a9d9e8"/>
+    <path d="M0 116c28-13 53 12 80 0s52-3 80 7v37H0z" fill="#2383a2"/>
+    <path d="M20 117l15-55h90l15 55M42 62v55m19-55v55m19-55v55m19-55v55m19-55v55" fill="#d9c7a1" stroke="#654a3c" stroke-width="5"/>
+    <path d="M42 81h76" stroke="#fff8e8" stroke-width="5"/>
+  </symbol>
+  <symbol id="kuntala-waterfall" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#b8ddc5"/>
+    <path d="M18 127l18-81 25 17 20-36 22 34 24-14 15 80z" fill="#47795d"/>
+    <path d="M63 61c1 21-11 31-8 50 3 18 20 27 25 27s22-9 25-27c3-19-9-29-8-50z" fill="#e8f8fa"/>
+    <path d="M46 139c19-10 49-10 68 0" fill="none" stroke="#278aa4" stroke-width="7" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="bogatha-waterfall" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#c9e8d2"/>
+    <path d="M10 116l20-68 26 15 23-30 24 28 26-15 21 70z" fill="#397052"/>
+    <path d="M37 66h86l-8 58H45z" fill="#effcfb"/>
+    <path d="M54 69v52m24-52v56m25-56v52" stroke="#74c7dd" stroke-width="10"/>
+    <path d="M32 137c28-13 67 13 96-1" fill="none" stroke="#287f9b" stroke-width="7"/>
+  </symbol>
+  <symbol id="pocharam" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#cce5b4"/>
+    <circle cx="121" cy="33" r="16" fill="#f7c66c"/>
+    <path d="M0 117c29-13 50 9 80 0s50-4 80 8v35H0z" fill="#5598a8"/>
+    <path d="M55 121V69m-21 24c0-20 10-36 21-36s21 16 21 36c-8-8-14-10-21-2-7-8-13-6-21 2z" fill="#397052"/>
+    <path d="M96 103c9-15 24-15 35 0-11-5-24-5-35 0zm11-14c6-10 16-10 23 0-8-3-16-3-23 0z" fill="#102a43"/>
+  </symbol>
+  <symbol id="ananthagiri" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#b9d8b0"/>
+    <path d="M0 114l38-43 24 20 35-54 63 77v46H0z" fill="#2f674c"/>
+    <path d="M52 160c15-47 27-68 41-89 0 32 13 51 28 89z" fill="#d9b376"/>
+    <path d="M80 140l13-14m-25 1l17-15m-6-13l14-12" stroke="#fff4c7" stroke-width="5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ranganayaka-sagar" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#bde0ea"/>
+    <path d="M0 89l38-35 27 24 25-38 44 49z" fill="#649071"/>
+    <path d="M0 91h160v69H0z" fill="#3d91aa"/>
+    <path d="M31 113c21-10 35 10 53 0s33-8 50 1M19 136c18-8 31 8 47 0s30-7 47 0" fill="none" stroke="#c9eff2" stroke-width="5"/>
+    <path d="M68 101l12-17 12 17z" fill="#f4b942"/>
+  </symbol>
+  <symbol id="medak-cathedral" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#c9dcea"/>
+    <path d="M28 132h104M40 132V68l21-17 19 17 20-17 20 17v64M61 51V29m39 22V29M52 132V83h56v49" fill="#f4e4c7" stroke="#6d4938" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M80 83v49M61 29h-8m8 0h8m31 0h-8m8 0h8M71 101h18" stroke="#9f4f2f" stroke-width="5"/>
+    <path d="M71 83c0-7 4-12 9-12s9 5 9 12" fill="#4d89a5"/>
+  </symbol>
+  <symbol id="qutb-shahi-tombs" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#e5c89c"/>
+    <path d="M24 132h112M38 132V79h84v53M48 79h64c-2-26-16-40-32-40S50 53 48 79zM80 39V24" fill="#f2e5cd" stroke="#714a37" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M68 132v-30c0-8 5-13 12-13s12 5 12 13v30M31 79h98" fill="none" stroke="#9f4f2f" stroke-width="5"/>
+    <circle cx="80" cy="21" r="5" fill="#102a43"/>
+  </symbol>
+  <symbol id="hussain-sagar" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#abdbe9"/>
+    <circle cx="127" cy="29" r="15" fill="#f6d680"/>
+    <path d="M0 112c24-13 48 11 74 0s51-5 86 8v40H0z" fill="#3988a3"/>
+    <path d="M71 108h19l-3-41-7-10-7 10zM62 108h37v13H62z" fill="#e9d8b7" stroke="#624a3e" stroke-width="4"/>
+    <path d="M54 139c17-8 35 8 53 0" fill="none" stroke="#d8f4f5" stroke-width="5"/>
+  </symbol>
+  <symbol id="salar-jung" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#d8e6e9"/>
+    <path d="M25 132h110M34 132V70h92v62M27 70h106L80 34z" fill="#fff4d9" stroke="#65493b" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M48 132V91h64v41M80 34V18M57 70v62m46-62v62" fill="none" stroke="#9f4f2f" stroke-width="5"/>
+    <circle cx="80" cy="103" r="13" fill="#f4b942" stroke="#102a43" stroke-width="4"/>
+    <path d="M80 103l7-6m-7 6v-9" stroke="#102a43" stroke-width="3"/>
+  </symbol>
+  <symbol id="birla-mandir" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#b9ddeb"/>
+    <path d="M10 132l27-36 22 9 21-44 20 34 23-8 27 45z" fill="#50796d"/>
+    <path d="M43 118V86h74v32M54 86l8-25h36l8 25M70 61l5-24h10l5 24" fill="#fffdf3" stroke="#94735e" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M68 118v-20h24v20M80 37V25" stroke="#9f4f2f" stroke-width="4"/>
+  </symbol>
+  <symbol id="chilkur" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#f1cf83"/>
+    <path d="M27 131h106M38 131V85h84v46M49 85l10-35h42l10 35M68 50l6-25h12l6 25" fill="#f8e4a9" stroke="#984627" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M68 131V99h24v32M80 25V14M55 68h50" stroke="#102a43" stroke-width="5"/>
+    <circle cx="80" cy="14" r="4" fill="#1f7a5a"/>
+  </symbol>
+  <symbol id="basar" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#f4d58f"/>
+    <path d="M27 132h106M39 132V84h82v48M51 84l8-34h42l8 34M68 50l7-27h10l7 27" fill="#fff0bd" stroke="#9f4f2f" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M68 132v-28h24v28M80 23V13" stroke="#102a43" stroke-width="5"/>
+    <path d="M56 70h48M73 111c5-8 9-8 14 0-5 7-9 7-14 0z" fill="#1f7a5a"/>
+  </symbol>
+  <symbol id="laknavaram" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#b9e0d2"/>
+    <path d="M0 95l35-39 24 24 32-45 44 60z" fill="#3e7154"/>
+    <path d="M0 96h160v64H0z" fill="#4194a7"/>
+    <path d="M19 117c28-13 60 12 87 0s38 2 54 6" fill="none" stroke="#d5f3ed" stroke-width="5"/>
+    <path d="M22 96c23 9 90 10 116 0M33 96v22m94-22v22" fill="none" stroke="#704632" stroke-width="5"/>
+    <path d="M33 108c27 12 67 12 94 0" fill="none" stroke="#f4b942" stroke-width="4"/>
+  </symbol>
+  <symbol id="komaram-bheem" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#c5dfbd"/>
+    <path d="M0 118l41-49 24 23 31-52 64 78v42H0z" fill="#3a6a4e"/>
+    <circle cx="80" cy="51" r="15" fill="#9f4f2f"/>
+    <path d="M80 67v51m-25 18l25-18 25 18M58 83l22 18 24-20" fill="none" stroke="#6c3928" stroke-width="8" stroke-linecap="round"/>
+    <path d="M66 42c8-13 20-13 28 0" fill="none" stroke="#f4b942" stroke-width="6"/>
+  </symbol>
+  <symbol id="nizamabad-fort" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#e2bd87"/>
+    <path d="M16 132h128M27 132V78h20V61h23v17h20V54h24v24h19v54M64 132v-27c0-9 7-16 16-16s16 7 16 16v27" fill="#bd7a48" stroke="#693b2a" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M27 94h106M37 68v-15m66 1V39" stroke="#102a43" stroke-width="5"/>
+  </symbol>
+  <symbol id="pillalamarri" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#c7e0ae"/>
+    <path d="M74 137c-3-37 7-54-4-73h21c-10 19 1 36-3 73z" fill="#865139"/>
+    <path d="M78 82L47 48m38 29l27-34M65 66L38 74m48-12l33 14" fill="none" stroke="#865139" stroke-width="8" stroke-linecap="round"/>
+    <path d="M21 69c0-19 16-34 35-34 7-16 39-19 50 0 21-1 36 16 33 35 17 10 9 35-9 39-12 14-33 9-42 1-18 13-42 7-46-8-22 3-32-23-21-33z" fill="#3c7b4f"/>
+    <path d="M74 137c-3-37 7-54-4-73h21c-10 19 1 36-3 73z" fill="#865139"/>
+  </symbol>
+  <symbol id="alampur" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#f1c978"/>
+    <path d="M22 132h116M34 132V88h92v44M46 88l12-42h44l12 42M66 46l8-27h12l8 27" fill="#f6dda2" stroke="#934324" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M67 132v-29h26v29M80 19V10M53 68h54" stroke="#102a43" stroke-width="5"/>
+    <path d="M42 101h14m48 0h14" stroke="#1f7a5a" stroke-width="5"/>
+  </symbol>
+  <symbol id="hyderabad-biryani" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#f2c66e"/>
+    <path d="M29 77h102l-8 54H37z" fill="#b95f35" stroke="#6f3624" stroke-width="5"/>
+    <path d="M25 77c4-24 25-38 55-38s51 14 55 38z" fill="#fff0b8" stroke="#6f3624" stroke-width="5"/>
+    <path d="M49 67l12-10m7 13l14-16m6 16l17-13m5 10l9-6" stroke="#1f7a5a" stroke-width="5" stroke-linecap="round"/>
+    <path d="M52 32c-8-11 6-14 1-25m28 25c-8-11 6-14 1-25m27 25c-8-11 6-14 1-25" fill="none" stroke="#fff6dc" stroke-width="5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="bathukamma" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#f7d18b"/>
+    <path d="M34 132h92M45 132l8-23h54l8 23M53 109l8-22h38l8 22M61 87l7-21h24l7 21M68 66l12-28 12 28" fill="#ef8a4c" stroke="#8b3f1f" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="80" cy="37" r="11" fill="#f4b942"/>
+    <circle cx="63" cy="77" r="7" fill="#e94f64"/>
+    <circle cx="97" cy="77" r="7" fill="#e94f64"/>
+    <circle cx="54" cy="99" r="7" fill="#f4b942"/>
+    <circle cx="106" cy="99" r="7" fill="#f4b942"/>
+    <path d="M80 26v22m-11-11h22" stroke="#fff6dc" stroke-width="4"/>
+  </symbol>
+  <symbol id="pochampally" viewBox="0 0 160 160">
+    <rect width="160" height="160" rx="32" fill="#e9d4bd"/>
+    <path d="M25 25h110v110H25z" fill="#fff3d0" stroke="#102a43" stroke-width="5"/>
+    <path d="M25 25l55 55 55-55M25 135l55-55 55 55" fill="#d9574f"/>
+    <path d="M25 25l27 27-27 27m110-54l-27 27 27 27M25 135l27-27-27-27m110 54l-27-27 27-27" fill="#1f7a5a"/>
+    <path d="M80 51l29 29-29 29-29-29z" fill="#f4b942" stroke="#102a43" stroke-width="5"/>
+    <circle cx="80" cy="80" r="10" fill="#fff8e8"/>
+  </symbol>
+</svg>

@@ -1,0 +1,17 @@
+{
+  "name": "Telangana Stamp Passport",
+  "short_name": "TS Passport",
+  "description": "Collect digital location stamps across famous places in Telangana.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f6efe3",
+  "theme_color": "#102a43",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
