@@ -1,5 +1,6 @@
 const UNLOCK_RADIUS_METERS = 500;
 const STORAGE_KEY = "telangana-stamp-passport:collected";
+const SAVED_STORAGE_KEY = "india-stamp-passport:saved";
 
 const locations = [
   {
@@ -346,10 +347,13 @@ const indiaRegions = [
 
 const storedStamps = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 const collected = new Set(Array.isArray(storedStamps) ? storedStamps : []);
+const storedSavedPlaces = JSON.parse(localStorage.getItem(SAVED_STORAGE_KEY) || "[]");
+const savedPlaces = new Set(Array.isArray(storedSavedPlaces) ? storedSavedPlaces : []);
 const initialParams = new URLSearchParams(window.location.search);
 let currentRegion = findRegion(initialParams.get("state")) || findRegion("telangana");
 let currentSearch = initialParams.get("q") || "";
 let currentCategory = initialParams.get("category") || "all";
+let showSavedOnly = initialParams.get("saved") === "1";
 let userPosition = null;
 let locationWatchId = null;
 let nearbyLocation = null;
@@ -362,6 +366,7 @@ const elements = {
   arrivalDistance: document.querySelector("#arrivalDistance"),
   arrivalPlace: document.querySelector("#arrivalPlace"),
   arrivalPrompt: document.querySelector("#arrivalPrompt"),
+  categoryRail: document.querySelector("#categoryRail"),
   categoryFilter: document.querySelector("#categoryFilter"),
   grid: document.querySelector("#locationGrid"),
   installButton: document.querySelector("#installButton"),
@@ -372,8 +377,10 @@ const elements = {
   progressRing: document.querySelector("#progressRing"),
   progressText: document.querySelector("#progressText"),
   regionRail: document.querySelector("#regionRail"),
+  savedCount: document.querySelector("#savedCount"),
+  savedToggle: document.querySelector("#savedToggle"),
   searchInput: document.querySelector("#searchInput"),
-  stampSection: document.querySelector("#stampSection"),
+  stampSection: document.querySelector("#destinations"),
   stateBreadcrumb: document.querySelector("#stateBreadcrumb"),
   stateOverview: document.querySelector("#stateOverview"),
   stateSelect: document.querySelector("#stateSelect"),
@@ -450,6 +457,7 @@ function updateUrlState() {
   params.set("state", currentRegion.slug);
   if (currentSearch) params.set("q", currentSearch);
   if (currentCategory !== "all") params.set("category", currentCategory);
+  if (showSavedOnly) params.set("saved", "1");
   window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}`);
 }
 
@@ -531,13 +539,26 @@ function selectRegion(slug) {
   if (!region) return;
   currentRegion = region;
   updateUrlState();
-  updateUrlState();
   renderStateOverview();
   const selectedChip = elements.regionRail.querySelector(`[data-region="${region.slug}"]`);
   selectedChip?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
 }
 
 function renderCategoryOptions() {
+  const categoryIcons = {
+    all: "✦",
+    City: "⌂",
+    Craft: "⌁",
+    Culture: "◎",
+    Food: "◉",
+    Fort: "▰",
+    Heritage: "◇",
+    Museum: "▣",
+    Nature: "♧",
+    Spiritual: "△",
+    UNESCO: "✧",
+    Wildlife: "♢"
+  };
   const categories = [...new Set(locations.map((location) => location.category))].sort();
   for (const category of categories) {
     const option = document.createElement("option");
@@ -545,6 +566,47 @@ function renderCategoryOptions() {
     option.textContent = category;
     elements.categoryFilter.append(option);
   }
+
+  for (const category of ["all", ...categories]) {
+    const button = document.createElement("button");
+    button.className = "category-chip";
+    button.type = "button";
+    button.dataset.category = category;
+    button.setAttribute("aria-pressed", "false");
+    const icon = document.createElement("span");
+    icon.className = "category-chip__icon";
+    icon.setAttribute("aria-hidden", "true");
+    icon.textContent = categoryIcons[category] || "○";
+    const label = document.createElement("span");
+    label.textContent = category === "all" ? "All Places" : category;
+    button.append(icon, label);
+    button.addEventListener("click", () => setCategory(category));
+    elements.categoryRail.append(button);
+  }
+}
+
+function syncCategoryControls() {
+  elements.categoryFilter.value = currentCategory;
+  for (const button of elements.categoryRail.querySelectorAll(".category-chip")) {
+    button.setAttribute("aria-pressed", String(button.dataset.category === currentCategory));
+  }
+}
+
+function setCategory(category) {
+  currentCategory = category;
+  syncCategoryControls();
+  updateUrlState();
+  renderLocations();
+}
+
+function saveSavedPlaces() {
+  localStorage.setItem(SAVED_STORAGE_KEY, JSON.stringify([...savedPlaces]));
+}
+
+function updateSavedControls() {
+  elements.savedCount.textContent = String(savedPlaces.size);
+  elements.savedToggle.setAttribute("aria-pressed", String(showSavedOnly));
+  elements.savedToggle.firstElementChild.textContent = showSavedOnly ? "♥" : "♡";
 }
 
 function filteredLocations() {
@@ -553,13 +615,14 @@ function filteredLocations() {
     .map((location) => ({ ...location, state: getLocationState(location) }))
     .filter((location) => {
       const matchesCategory = currentCategory === "all" || location.category === currentCategory;
+      const matchesSaved = !showSavedOnly || savedPlaces.has(location.id);
       const matchesSearch =
         !normalizedSearch ||
         [location.name, location.region, location.category, location.summary]
           .join(" ")
           .toLowerCase()
           .includes(normalizedSearch);
-      return matchesCategory && matchesSearch;
+      return matchesCategory && matchesSaved && matchesSearch;
     })
     .sort((a, b) => {
       if (a.state.isCollected !== b.state.isCollected) return Number(b.state.isCollected) - Number(a.state.isCollected);
@@ -577,21 +640,25 @@ function renderLocations() {
   if (!visibleLocations.length) {
     const empty = document.createElement("p");
     empty.className = "empty-state";
-    empty.textContent = "No Telangana stamps match that search yet.";
+    empty.textContent = showSavedOnly
+      ? "You have not saved any places matching these filters yet."
+      : "No Telangana places match that search yet.";
     elements.grid.append(empty);
     updateProgress();
+    updateSavedControls();
     return;
   }
 
   for (const location of visibleLocations) {
     const card = elements.template.content.firstElementChild.cloneNode(true);
-    const category = card.querySelector(".location-card__topline strong");
-    const stateLabel = card.querySelector(".location-card__topline span");
+    const category = card.querySelector(".location-card__badges strong");
+    const stateLabel = card.querySelector(".location-card__badges span");
     const title = card.querySelector("h3");
     const summary = card.querySelector("p");
     const region = card.querySelector('[data-field="region"]');
     const distance = card.querySelector('[data-field="distance"]');
-    const button = card.querySelector("button");
+    const button = card.querySelector(".button--stamp");
+    const favoriteButton = card.querySelector(".favorite-button");
     const illustration = card.querySelector(".landmark-illustration");
 
     category.textContent = location.category;
@@ -623,6 +690,12 @@ function renderLocations() {
           : "Check Location to Unlock";
     button.disabled = location.state.isCollected || !location.state.isNearby;
     button.setAttribute("aria-label", `Collect ${location.name} stamp`);
+    favoriteButton.textContent = savedPlaces.has(location.id) ? "♥" : "♡";
+    favoriteButton.setAttribute("aria-pressed", String(savedPlaces.has(location.id)));
+    favoriteButton.setAttribute(
+      "aria-label",
+      `${savedPlaces.has(location.id) ? "Remove" : "Save"} ${location.name}`
+    );
 
     card.dataset.category = location.category.toLowerCase();
     if (location.state.isCollected) card.classList.add("is-collected");
@@ -631,11 +704,21 @@ function renderLocations() {
     button.addEventListener("click", () => {
       collectStamp(location);
     });
+    favoriteButton.addEventListener("click", () => {
+      if (savedPlaces.has(location.id)) {
+        savedPlaces.delete(location.id);
+      } else {
+        savedPlaces.add(location.id);
+      }
+      saveSavedPlaces();
+      renderLocations();
+    });
 
     elements.grid.append(card);
   }
 
   updateProgress();
+  updateSavedControls();
 }
 
 function setStatus(message) {
@@ -804,7 +887,10 @@ elements.searchInput.addEventListener("input", (event) => {
   renderLocations();
 });
 elements.categoryFilter.addEventListener("change", (event) => {
-  currentCategory = event.target.value;
+  setCategory(event.target.value);
+});
+elements.savedToggle.addEventListener("click", () => {
+  showSavedOnly = !showSavedOnly;
   updateUrlState();
   renderLocations();
 });
@@ -826,10 +912,12 @@ renderRegionNavigator();
 renderCategoryOptions();
 elements.searchInput.value = currentSearch;
 if ([...elements.categoryFilter.options].some((option) => option.value === currentCategory)) {
-  elements.categoryFilter.value = currentCategory;
+  syncCategoryControls();
 } else {
   currentCategory = "all";
+  syncCategoryControls();
 }
+updateSavedControls();
 renderStateOverview();
 renderLocations();
 updateNetworkStatus();
