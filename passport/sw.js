@@ -1,4 +1,4 @@
-const CACHE_NAME = "india-stamp-passport-v11";
+const CACHE_NAME = "bharat-stampbook-v12";
 const ASSETS = [
   ".",
   "index.html",

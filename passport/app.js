@@ -1072,7 +1072,7 @@ window.addEventListener("appinstalled", () => {
   deferredInstallPrompt = null;
   elements.installButton.hidden = true;
   elements.mobileInstallButton.hidden = true;
-  setStatus("India Stamp Passport is installed and ready for your next trip.");
+  setStatus("Bharat Stampbook is installed and ready for your next trip.");
 });
 
 renderRegionNavigator();

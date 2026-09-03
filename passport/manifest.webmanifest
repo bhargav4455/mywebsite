@@ -1,7 +1,7 @@
 {
   "id": "./",
-  "name": "India Stamp Passport",
-  "short_name": "India Passport",
+  "name": "Bharat Stampbook",
+  "short_name": "Stampbook",
   "description": "Explore India state by state and collect verified digital stamps at landmark destinations.",
   "lang": "en-IN",
   "dir": "ltr",
@@ -10,8 +10,8 @@
   "display": "standalone",
   "display_override": ["window-controls-overlay", "standalone"],
   "orientation": "portrait-primary",
-  "background_color": "#f6efe3",
-  "theme_color": "#102a43",
+  "background_color": "#fffaf0",
+  "theme_color": "#0a2a5e",
   "categories": ["travel", "lifestyle"],
   "icons": [
     {

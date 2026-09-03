@@ -1,7 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="India Stamp Passport icon">
-  <rect width="512" height="512" rx="112" fill="#102a43"/>
-  <circle cx="256" cy="256" r="154" fill="#f4b942"/>
-  <circle cx="256" cy="256" r="122" fill="none" stroke="#8b3f1f" stroke-width="18" stroke-dasharray="18 16"/>
-  <path d="M171 303h170M190 283V205c0-36 29-65 65-65h2c36 0 65 29 65 65v78M217 283v-76c0-21 17-38 38-38h2c21 0 38 17 38 38v76" fill="none" stroke="#102a43" stroke-width="22" stroke-linecap="round"/>
-  <text x="256" y="378" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#102a43">IN</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Bharat Stampbook logo">
+  <title>Bharat Stampbook</title>
+  <rect width="512" height="512" rx="112" fill="#0a2a5e"/>
+  <circle cx="256" cy="246" r="172" fill="#fffaf0" stroke="#d53a45" stroke-width="18" stroke-dasharray="12 10"/>
+  <circle cx="256" cy="246" r="143" fill="none" stroke="#ff9933" stroke-width="9"/>
+  <path d="M229 105l28 19 26 2 8 24 28 10-6 28 18 20-12 27 11 23-25 13-7 32-20 12-9 48-17 40-13-42-18-25 4-35-23-20 10-30-21-19 13-25-10-29 28-12 7-31z" fill="#ff9933" stroke="#0a2a5e" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M208 241l21-30 33 5 29 24-12 31-17 44-20 12-28-28z" fill="#fff"/>
+  <path d="M214 299l28 28 20-12 17-44 20-13 6 13-7 32-20 12-9 48-17 40-13-42-18-25z" fill="#138808"/>
+  <circle cx="255" cy="258" r="17" fill="none" stroke="#000080" stroke-width="5"/>
+  <path d="M255 241v34M238 258h34M243 246l24 24M267 246l-24 24" stroke="#000080" stroke-width="3"/>
+  <path d="M151 404h210" stroke="#d53a45" stroke-width="12" stroke-linecap="round"/>
+  <text x="256" y="446" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="4" fill="#0a2a5e">BHARAT</text>
 </svg>

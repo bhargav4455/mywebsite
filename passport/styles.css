@@ -1,14 +1,14 @@
 :root {
   color-scheme: light;
-  --accent: #e5525b;
-  --accent-dark: #c83f49;
-  --ink: #17202a;
+  --accent: #d53a45;
+  --accent-dark: #b62431;
+  --ink: #102a43;
   --muted: #68717d;
   --line: #e6e8eb;
   --surface: #ffffff;
   --soft: #f7f7f8;
-  --navy: #102a43;
-  --green: #1f7a5a;
+  --navy: #0a2a5e;
+  --green: #138808;
   --saffron: #ff9933;
   --shadow: 0 14px 40px rgba(23, 32, 42, 0.11);
   font-family:
@@ -29,7 +29,10 @@ body {
   overflow-x: hidden;
   color: var(--ink);
   background: var(--surface);
-  -webkit-tap-highlight-color: rgba(229, 82, 91, 0.18);
+  background:
+    linear-gradient(90deg, rgba(255, 153, 51, 0.045), transparent 35%, rgba(19, 136, 8, 0.035)),
+    var(--surface);
+  -webkit-tap-highlight-color: rgba(213, 58, 69, 0.18);
 }
 
 button,
@@ -93,8 +96,19 @@ h3 {
   padding: max(12px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right))
     12px max(24px, env(safe-area-inset-left));
   background: rgba(255, 255, 255, 0.94);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 0;
   backdrop-filter: blur(18px);
+}
+
+.topbar::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--saffron) 0 33.333%, #fff 33.333% 66.666%, var(--green) 66.666%);
+  box-shadow: 0 1px 0 rgba(10, 42, 94, 0.12);
 }
 
 .brand {
@@ -102,21 +116,21 @@ h3 {
   align-items: center;
   gap: 10px;
   width: fit-content;
-  color: var(--accent);
+  color: var(--navy);
   font-size: 1.08rem;
   letter-spacing: -0.035em;
 }
 
 .brand__mark {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  color: #fff;
-  background: var(--accent);
-  border-radius: 12px 12px 12px 4px;
-  font-weight: 900;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  box-shadow: 0 5px 14px rgba(10, 42, 94, 0.2);
   transform: rotate(-4deg);
+}
+
+.brand strong span {
+  color: var(--accent);
 }
 
 .topbar__nav {
@@ -163,7 +177,7 @@ h3 {
   background:
     radial-gradient(circle at 78% 34%, rgba(255, 153, 51, 0.42), transparent 18rem),
     radial-gradient(circle at 88% 72%, rgba(31, 122, 90, 0.52), transparent 20rem),
-    linear-gradient(125deg, rgba(10, 35, 58, 0.98), rgba(22, 66, 89, 0.9)),
+    linear-gradient(125deg, rgba(10, 42, 94, 0.99), rgba(18, 62, 91, 0.92)),
     var(--navy);
   border-radius: 30px;
   position: relative;
@@ -795,7 +809,7 @@ h1 {
 .demo-panel.is-active {
   background: linear-gradient(120deg, #fff0d5, #ffe3e6);
   border-color: var(--accent);
-  box-shadow: 0 12px 35px rgba(229, 82, 91, 0.12);
+  box-shadow: 0 12px 35px rgba(213, 58, 69, 0.12);
 }
 
 .demo-panel > div,
@@ -861,7 +875,7 @@ h1 {
   padding: 20px;
   color: var(--ink);
   background:
-    linear-gradient(90deg, transparent 0 28px, rgba(229, 82, 91, 0.08) 28px 29px, transparent 29px),
+    linear-gradient(90deg, transparent 0 28px, rgba(213, 58, 69, 0.08) 28px 29px, transparent 29px),
     #fffaf0;
   border-radius: 26px;
   box-shadow: 0 22px 52px rgba(0, 0, 0, 0.28);
@@ -914,42 +928,13 @@ h1 {
 .india-flag {
   position: relative;
   z-index: 1;
-  display: grid;
   width: 124px;
   height: 82px;
   overflow: hidden;
-  background: #fff;
   border: 3px solid rgba(16, 42, 67, 0.18);
   border-radius: 9px;
   box-shadow: 0 10px 22px rgba(7, 26, 45, 0.2);
   transform: rotate(-4deg);
-}
-
-.india-flag > span {
-  display: grid;
-  place-items: center;
-}
-
-.india-flag__saffron {
-  background: #ff9933;
-}
-
-.india-flag__white {
-  background: #fff;
-}
-
-.india-flag__green {
-  background: #138808;
-}
-
-.india-flag__chakra {
-  width: 23px;
-  height: 23px;
-  background:
-    radial-gradient(circle, #fff 0 18%, transparent 19%),
-    repeating-conic-gradient(#000080 0 2deg, transparent 2deg 15deg);
-  border: 2px solid #000080;
-  border-radius: 50%;
 }
 
 .passport-dashboard__copy {
@@ -1007,7 +992,7 @@ h1 {
 
 .achievement.is-unlocked {
   color: #fff;
-  background: rgba(229, 82, 91, 0.18);
+  background: rgba(213, 58, 69, 0.18);
   border-color: rgba(255, 179, 184, 0.45);
 }
 
@@ -1286,7 +1271,7 @@ h1 {
 .stamp-map__pin:focus-visible,
 .arrival-prompt__close:focus-visible,
 .skip-link:focus-visible {
-  outline: 3px solid rgba(229, 82, 91, 0.48);
+  outline: 3px solid rgba(213, 58, 69, 0.48);
   outline-offset: 3px;
 }
 
