@@ -284,23 +284,106 @@ const locations = [
   }
 ];
 
-const collected = new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"));
+const indiaRegions = [
+  { slug: "andhra-pradesh", name: "Andhra Pradesh", type: "State", capital: "Amaravati" },
+  { slug: "arunachal-pradesh", name: "Arunachal Pradesh", type: "State", capital: "Itanagar" },
+  { slug: "assam", name: "Assam", type: "State", capital: "Dispur" },
+  { slug: "bihar", name: "Bihar", type: "State", capital: "Patna" },
+  { slug: "chhattisgarh", name: "Chhattisgarh", type: "State", capital: "Raipur" },
+  { slug: "goa", name: "Goa", type: "State", capital: "Panaji" },
+  { slug: "gujarat", name: "Gujarat", type: "State", capital: "Gandhinagar" },
+  { slug: "haryana", name: "Haryana", type: "State", capital: "Chandigarh" },
+  { slug: "himachal-pradesh", name: "Himachal Pradesh", type: "State", capital: "Shimla" },
+  { slug: "jharkhand", name: "Jharkhand", type: "State", capital: "Ranchi" },
+  { slug: "karnataka", name: "Karnataka", type: "State", capital: "Bengaluru" },
+  { slug: "kerala", name: "Kerala", type: "State", capital: "Thiruvananthapuram" },
+  { slug: "madhya-pradesh", name: "Madhya Pradesh", type: "State", capital: "Bhopal" },
+  { slug: "maharashtra", name: "Maharashtra", type: "State", capital: "Mumbai" },
+  { slug: "manipur", name: "Manipur", type: "State", capital: "Imphal" },
+  { slug: "meghalaya", name: "Meghalaya", type: "State", capital: "Shillong" },
+  { slug: "mizoram", name: "Mizoram", type: "State", capital: "Aizawl" },
+  { slug: "nagaland", name: "Nagaland", type: "State", capital: "Kohima" },
+  { slug: "odisha", name: "Odisha", type: "State", capital: "Bhubaneswar" },
+  { slug: "punjab", name: "Punjab", type: "State", capital: "Chandigarh" },
+  { slug: "rajasthan", name: "Rajasthan", type: "State", capital: "Jaipur" },
+  { slug: "sikkim", name: "Sikkim", type: "State", capital: "Gangtok" },
+  { slug: "tamil-nadu", name: "Tamil Nadu", type: "State", capital: "Chennai" },
+  {
+    slug: "telangana",
+    name: "Telangana",
+    type: "State",
+    capital: "Hyderabad",
+    status: "live"
+  },
+  { slug: "tripura", name: "Tripura", type: "State", capital: "Agartala" },
+  { slug: "uttar-pradesh", name: "Uttar Pradesh", type: "State", capital: "Lucknow" },
+  { slug: "uttarakhand", name: "Uttarakhand", type: "State", capital: "Dehradun" },
+  { slug: "west-bengal", name: "West Bengal", type: "State", capital: "Kolkata" },
+  {
+    slug: "andaman-nicobar",
+    name: "Andaman & Nicobar Islands",
+    type: "Union Territory",
+    capital: "Sri Vijaya Puram"
+  },
+  { slug: "chandigarh", name: "Chandigarh", type: "Union Territory", capital: "Chandigarh" },
+  {
+    slug: "dadra-nagar-haveli-daman-diu",
+    name: "Dadra & Nagar Haveli and Daman & Diu",
+    type: "Union Territory",
+    capital: "Daman"
+  },
+  { slug: "delhi", name: "Delhi", type: "Union Territory", capital: "New Delhi" },
+  {
+    slug: "jammu-kashmir",
+    name: "Jammu & Kashmir",
+    type: "Union Territory",
+    capital: "Srinagar / Jammu"
+  },
+  { slug: "ladakh", name: "Ladakh", type: "Union Territory", capital: "Leh" },
+  { slug: "lakshadweep", name: "Lakshadweep", type: "Union Territory", capital: "Kavaratti" },
+  { slug: "puducherry", name: "Puducherry", type: "Union Territory", capital: "Puducherry" }
+];
+
+const storedStamps = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+const collected = new Set(Array.isArray(storedStamps) ? storedStamps : []);
+const initialParams = new URLSearchParams(window.location.search);
+let currentRegion = findRegion(initialParams.get("state")) || findRegion("telangana");
+let currentSearch = initialParams.get("q") || "";
+let currentCategory = initialParams.get("category") || "all";
 let userPosition = null;
-let currentSearch = "";
-let currentCategory = "all";
+let locationWatchId = null;
+let nearbyLocation = null;
+let dismissedArrivalId = null;
+let deferredInstallPrompt = null;
 
 const elements = {
+  arrivalCloseButton: document.querySelector("#arrivalCloseButton"),
+  arrivalCollectButton: document.querySelector("#arrivalCollectButton"),
+  arrivalDistance: document.querySelector("#arrivalDistance"),
+  arrivalPlace: document.querySelector("#arrivalPlace"),
+  arrivalPrompt: document.querySelector("#arrivalPrompt"),
   categoryFilter: document.querySelector("#categoryFilter"),
-  demoButton: document.querySelector("#demoButton"),
   grid: document.querySelector("#locationGrid"),
+  installButton: document.querySelector("#installButton"),
   locateButton: document.querySelector("#locateButton"),
+  mobileInstallButton: document.querySelector("#mobileInstallButton"),
   nearestText: document.querySelector("#nearestText"),
+  networkStatus: document.querySelector("#networkStatus"),
   progressRing: document.querySelector("#progressRing"),
   progressText: document.querySelector("#progressText"),
+  regionRail: document.querySelector("#regionRail"),
   searchInput: document.querySelector("#searchInput"),
+  stampSection: document.querySelector("#stampSection"),
+  stateBreadcrumb: document.querySelector("#stateBreadcrumb"),
+  stateOverview: document.querySelector("#stateOverview"),
+  stateSelect: document.querySelector("#stateSelect"),
   statusMessage: document.querySelector("#statusMessage"),
   template: document.querySelector("#locationCardTemplate")
 };
+
+function findRegion(slug) {
+  return indiaRegions.find((region) => region.slug === slug);
+}
 
 function toRadians(value) {
   return (value * Math.PI) / 180;
@@ -320,8 +403,13 @@ function distanceMeters(from, to) {
 
 function formatDistance(meters) {
   if (meters === null) return "Enable GPS";
-  if (meters < 1000) return `${Math.round(meters)} m`;
-  return `${(meters / 1000).toFixed(1)} km`;
+  const meterFormatter = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 });
+  const kilometerFormatter = new Intl.NumberFormat("en-IN", {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1
+  });
+  if (meters < 1000) return `${meterFormatter.format(meters)} m`;
+  return `${kilometerFormatter.format(meters / 1000)} km`;
 }
 
 function getLocationState(location) {
@@ -337,7 +425,7 @@ function saveCollected() {
 
 function updateProgress() {
   const total = locations.length;
-  const count = collected.size;
+  const count = locations.filter((location) => collected.has(location.id)).length;
   const percentage = total ? Math.round((count / total) * 100) : 0;
   elements.progressText.textContent = `${count} of ${total} stamps collected`;
   elements.progressRing.style.setProperty("--progress", `${percentage}%`);
@@ -352,8 +440,101 @@ function updateProgress() {
     .sort((a, b) => a.distance - b.distance)[0];
 
   elements.nearestText.textContent = nearest
-    ? `Nearest: ${nearest.location.name} - ${formatDistance(nearest.distance)} away.`
+    ? `Nearest: ${nearest.location.name} · ${formatDistance(nearest.distance)} away.`
     : "No locations available.";
+}
+
+function updateUrlState() {
+  const params = new URLSearchParams();
+  params.set("country", "india");
+  params.set("state", currentRegion.slug);
+  if (currentSearch) params.set("q", currentSearch);
+  if (currentCategory !== "all") params.set("category", currentCategory);
+  window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}`);
+}
+
+function renderRegionNavigator() {
+  for (const type of ["State", "Union Territory"]) {
+    const optionGroup = document.createElement("optgroup");
+    optionGroup.label = type === "State" ? "States" : "Union Territories";
+    for (const region of indiaRegions.filter((item) => item.type === type)) {
+      const option = document.createElement("option");
+      option.value = region.slug;
+      option.textContent = `${region.name}${region.status === "live" ? " — Available" : " — In Progress"}`;
+      optionGroup.append(option);
+    }
+    elements.stateSelect.append(optionGroup);
+  }
+
+  for (const region of indiaRegions) {
+    const button = document.createElement("button");
+    button.className = "region-chip";
+    button.type = "button";
+    button.dataset.region = region.slug;
+    button.dataset.status = region.status || "progress";
+    button.textContent = region.name;
+    button.addEventListener("click", () => selectRegion(region.slug));
+    elements.regionRail.append(button);
+  }
+}
+
+function renderStateOverview() {
+  const isLive = currentRegion.status === "live";
+  elements.stateBreadcrumb.textContent = currentRegion.name;
+  elements.stateSelect.value = currentRegion.slug;
+  elements.stampSection.hidden = !isLive;
+
+  for (const chip of elements.regionRail.querySelectorAll(".region-chip")) {
+    chip.setAttribute("aria-pressed", String(chip.dataset.region === currentRegion.slug));
+  }
+
+  const top = document.createElement("div");
+  top.className = "state-overview__top";
+  const copy = document.createElement("div");
+  const title = document.createElement("h3");
+  title.textContent = currentRegion.name;
+  const description = document.createElement("p");
+  description.textContent = isLive
+    ? "Your first active state passport has illustrated landmarks, GPS arrival checks, and 28 collectible stamps."
+    : `${currentRegion.name} is reserved in your India passport. Landmark research, artwork, and verified stamp points are in progress.`;
+  copy.append(title, description);
+
+  const status = document.createElement("span");
+  status.className = `state-overview__status${isLive ? " is-live" : ""}`;
+  status.textContent = isLive ? "Available Now" : "In Progress";
+  top.append(copy, status);
+
+  const facts = document.createElement("div");
+  facts.className = "state-overview__facts";
+  const capitalFact = document.createElement("div");
+  const capitalLabel = document.createElement("span");
+  capitalLabel.textContent = "Capital / Headquarters";
+  const capital = document.createElement("strong");
+  capital.textContent = currentRegion.capital;
+  capitalFact.append(capitalLabel, capital);
+
+  const collectionFact = document.createElement("div");
+  const collectionLabel = document.createElement("span");
+  collectionLabel.textContent = "Passport Collection";
+  const collection = document.createElement("strong");
+  collection.textContent = isLive
+    ? `${locations.length} landmark stamps`
+    : "Coming in a future release";
+  collectionFact.append(collectionLabel, collection);
+  facts.append(capitalFact, collectionFact);
+
+  elements.stateOverview.replaceChildren(top, facts);
+}
+
+function selectRegion(slug) {
+  const region = findRegion(slug);
+  if (!region) return;
+  currentRegion = region;
+  updateUrlState();
+  updateUrlState();
+  renderStateOverview();
+  const selectedChip = elements.regionRail.querySelector(`[data-region="${region.slug}"]`);
+  selectedChip?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
 }
 
 function renderCategoryOptions() {
@@ -406,7 +587,7 @@ function renderLocations() {
     const card = elements.template.content.firstElementChild.cloneNode(true);
     const category = card.querySelector(".location-card__topline strong");
     const stateLabel = card.querySelector(".location-card__topline span");
-    const title = card.querySelector("h2");
+    const title = card.querySelector("h3");
     const summary = card.querySelector("p");
     const region = card.querySelector('[data-field="region"]');
     const distance = card.querySelector('[data-field="distance"]');
@@ -433,20 +614,22 @@ function renderLocations() {
         ? "Stamped"
         : location.category;
     }
-    button.textContent = location.state.isCollected ? "Stamp collected" : "Unlock stamp";
-    button.disabled = location.state.isCollected || (!location.state.isNearby && Boolean(userPosition));
-    button.setAttribute("aria-label", `Unlock ${location.name} stamp`);
+    button.textContent = location.state.isCollected
+      ? "Stamp Collected"
+      : location.state.isNearby
+        ? "Collect Stamp"
+        : userPosition
+          ? "Visit to Unlock"
+          : "Check Location to Unlock";
+    button.disabled = location.state.isCollected || !location.state.isNearby;
+    button.setAttribute("aria-label", `Collect ${location.name} stamp`);
 
     card.dataset.category = location.category.toLowerCase();
     if (location.state.isCollected) card.classList.add("is-collected");
     if (location.state.isNearby && !location.state.isCollected) card.classList.add("is-nearby");
 
     button.addEventListener("click", () => {
-      if (!location.state.isNearby && userPosition) return;
-      collected.add(location.id);
-      saveCollected();
-      elements.statusMessage.textContent = `${location.name} stamp added to your Telangana passport.`;
-      renderLocations();
+      collectStamp(location);
     });
 
     elements.grid.append(card);
@@ -459,72 +642,201 @@ function setStatus(message) {
   elements.statusMessage.textContent = message;
 }
 
-function locateUser() {
+function collectStamp(location) {
+  const state = getLocationState(location);
+  if (!state.isNearby || state.isCollected) return;
+  collected.add(location.id);
+  saveCollected();
+  nearbyLocation = null;
+  elements.arrivalPrompt.hidden = true;
+  setStatus(`${location.name} stamp added to your Telangana passport.`);
+  renderLocations();
+}
+
+function updateArrivalPrompt() {
+  const nearest = locations
+    .filter((location) => !collected.has(location.id))
+    .map((location) => ({ location, distance: distanceMeters(userPosition, location) }))
+    .sort((a, b) => a.distance - b.distance)[0];
+
+  nearbyLocation =
+    nearest && nearest.distance <= UNLOCK_RADIUS_METERS ? nearest.location : null;
+
+  if (!nearbyLocation || dismissedArrivalId === nearbyLocation.id) {
+    elements.arrivalPrompt.hidden = true;
+    return;
+  }
+
+  elements.arrivalPlace.textContent = `${nearbyLocation.name} Stamp Is Ready`;
+  elements.arrivalDistance.textContent = `${formatDistance(nearest.distance)} from the stamp point`;
+  elements.arrivalCollectButton.textContent = `Collect ${nearbyLocation.stamp} Stamp`;
+  elements.arrivalPrompt.hidden = false;
+  if ("vibrate" in navigator && document.visibilityState === "visible") {
+    navigator.vibrate(80);
+  }
+}
+
+function handlePosition(position) {
+  userPosition = {
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  };
+  dismissedArrivalId = null;
+  elements.locateButton.disabled = false;
+  elements.locateButton.textContent = "Location Active";
+  setStatus(
+    `Location active with about ${formatDistance(position.coords.accuracy)} accuracy. A stamp becomes ready within ${formatDistance(UNLOCK_RADIUS_METERS)}.`
+  );
+  updateArrivalPrompt();
+  renderLocations();
+}
+
+function handleLocationError(error) {
+  if (locationWatchId !== null) {
+    navigator.geolocation.clearWatch(locationWatchId);
+    locationWatchId = null;
+  }
+  elements.locateButton.disabled = false;
+  elements.locateButton.textContent = "Find Stamps Near Me";
+  if (error.code === error.PERMISSION_DENIED) {
+    setStatus("Location is blocked. Enable it in browser settings, then tap Find Stamps Near Me.");
+    return;
+  }
+  if (error.code === error.TIMEOUT) {
+    setStatus("Location timed out. Move near a window or outdoors, then try again.");
+    return;
+  }
+  setStatus("Your location is unavailable right now. Check GPS and network access, then try again.");
+}
+
+function startLocationWatch(requestPermission = true) {
   if (!navigator.geolocation) {
     setStatus("This browser does not support location. You can still browse the passport.");
     return;
   }
 
+  if (locationWatchId !== null) return;
   elements.locateButton.disabled = true;
-  elements.locateButton.textContent = "Finding you...";
-  setStatus("Requesting your current location. Your coordinates are not sent to a server.");
+  elements.locateButton.textContent = "Finding Your Location…";
+  if (requestPermission) {
+    setStatus("Checking your location on this device. Coordinates are never sent to a server.");
+  }
 
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      userPosition = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      elements.locateButton.disabled = false;
-      elements.locateButton.textContent = "Refresh location";
-      setStatus("Location ready. Nearby stamps can now be unlocked when you are within 500 m.");
-      renderLocations();
-    },
-    (error) => {
-      elements.locateButton.disabled = false;
-      elements.locateButton.textContent = "Use my location";
-      setStatus(
-        error.code === error.PERMISSION_DENIED
-          ? "Location permission was denied. Browsing still works; enable permission later to unlock by GPS."
-          : "Could not read location right now. Check signal and try again."
-      );
-    },
-    { enableHighAccuracy: true, maximumAge: 60000, timeout: 12000 }
+  locationWatchId = navigator.geolocation.watchPosition(
+    handlePosition,
+    handleLocationError,
+    { enableHighAccuracy: true, maximumAge: 30000, timeout: 15000 }
   );
 }
 
-function demoUnlockNearest() {
-  const nextLocation = locations.find((location) => !collected.has(location.id));
-  if (!nextLocation) {
-    setStatus("Every Telangana stamp in this MVP has already been collected.");
+function resumeLocationIfGranted() {
+  if (!navigator.permissions?.query || !navigator.geolocation) return;
+  navigator.permissions.query({ name: "geolocation" }).then(
+    (permission) => {
+      if (permission.state === "granted") startLocationWatch(false);
+      permission.addEventListener("change", () => {
+        if (permission.state === "granted") startLocationWatch(false);
+      });
+    },
+    (error) => {
+      console.warn("Could not inspect saved location permission.", error);
+    }
+  );
+}
+
+function updateNetworkStatus() {
+  const online = navigator.onLine;
+  elements.networkStatus.textContent = online ? "Online" : "Offline · Saved Pages Ready";
+  elements.networkStatus.classList.toggle("is-offline", !online);
+}
+
+function showInstallControls() {
+  elements.installButton.hidden = false;
+  elements.mobileInstallButton.hidden = false;
+}
+
+async function installApp() {
+  if (deferredInstallPrompt) {
+    deferredInstallPrompt.prompt();
+    const choice = await deferredInstallPrompt.userChoice;
+    setStatus(
+      choice.outcome === "accepted"
+        ? "Passport installation started."
+        : "Installation dismissed. You can install it later from your browser menu."
+    );
+    deferredInstallPrompt = null;
+    elements.installButton.hidden = true;
+    elements.mobileInstallButton.hidden = true;
     return;
   }
 
-  collected.add(nextLocation.id);
-  saveCollected();
-  setStatus(`Demo added ${nextLocation.name}. Real launch can remove this testing control.`);
-  renderLocations();
+  const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  setStatus(
+    isIos
+      ? "On iPhone or iPad, tap Share, then choose Add to Home Screen."
+      : "Open your browser menu and choose Install app or Add to Home screen."
+  );
 }
 
 function registerServiceWorker() {
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js").catch(() => {
+    navigator.serviceWorker.register("sw.js").catch((error) => {
+      console.error("Service worker registration failed.", error);
       setStatus("Offline install could not be prepared, but the app still works online.");
     });
   }
 }
 
-elements.locateButton.addEventListener("click", locateUser);
-elements.demoButton.addEventListener("click", demoUnlockNearest);
+elements.locateButton.addEventListener("click", () => startLocationWatch(true));
+elements.arrivalCollectButton.addEventListener("click", () => {
+  if (nearbyLocation) collectStamp(nearbyLocation);
+});
+elements.arrivalCloseButton.addEventListener("click", () => {
+  dismissedArrivalId = nearbyLocation?.id || null;
+  elements.arrivalPrompt.hidden = true;
+});
+elements.installButton.addEventListener("click", installApp);
+elements.mobileInstallButton.addEventListener("click", installApp);
+elements.stateSelect.addEventListener("change", (event) => selectRegion(event.target.value));
 elements.searchInput.addEventListener("input", (event) => {
   currentSearch = event.target.value;
+  updateUrlState();
   renderLocations();
 });
 elements.categoryFilter.addEventListener("change", (event) => {
   currentCategory = event.target.value;
+  updateUrlState();
   renderLocations();
 });
+window.addEventListener("online", updateNetworkStatus);
+window.addEventListener("offline", updateNetworkStatus);
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+  showInstallControls();
+});
+window.addEventListener("appinstalled", () => {
+  deferredInstallPrompt = null;
+  elements.installButton.hidden = true;
+  elements.mobileInstallButton.hidden = true;
+  setStatus("India Stamp Passport is installed and ready for your next trip.");
+});
 
+renderRegionNavigator();
 renderCategoryOptions();
+elements.searchInput.value = currentSearch;
+if ([...elements.categoryFilter.options].some((option) => option.value === currentCategory)) {
+  elements.categoryFilter.value = currentCategory;
+} else {
+  currentCategory = "all";
+}
+renderStateOverview();
 renderLocations();
+updateNetworkStatus();
 registerServiceWorker();
+resumeLocationIfGranted();
+
+const isStandalone =
+  window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+const isMobileSafari = /iphone|ipad|ipod/i.test(navigator.userAgent);
+if (!isStandalone && isMobileSafari) showInstallControls();

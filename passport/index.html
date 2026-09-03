@@ -6,69 +6,168 @@
     <meta name="theme-color" content="#102a43" />
     <meta
       name="description"
-      content="Collect digital location stamps across famous places in Telangana."
+      content="Explore India state by state and collect verified digital stamps when you reach landmark destinations."
     />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="India Passport" />
     <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.svg" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Telangana Stamp Passport</title>
+    <title>India Stamp Passport</title>
   </head>
   <body>
-    <!--
-      THESIS: A state travel passport where the collectible stamp is the interface, not a generic map directory.
-      OWN-WORLD: lake-blue field, turmeric/copper seals, ticket panels, monument-line silhouettes, and tactile passport language.
-      STORY: visitors understand Telangana's famous places, allow location only when useful, and collect proof-of-visit stamps.
-      FIRST VIEWPORT: progress ring and oversized Charminar-inspired stamp sit above nearby actions and the live passport grid.
-      FORM: mobile-first operate surface, committed to a physical passport and tourism counter ritual for the first MVP.
-    -->
-    <main class="app-shell">
+    <a class="skip-link" href="#main-content">Skip to Passport</a>
+
+    <main class="app-shell" id="main-content">
       <section class="hero" aria-labelledby="app-title">
         <div class="hero__copy">
-          <p class="app-mark">Telangana Stamp Passport</p>
-          <h1 id="app-title">Collect a digital stamp at every famous place you visit.</h1>
+          <div class="hero__eyebrow">
+            <span class="app-mark">India Stamp Passport</span>
+            <span class="live-pill"><span aria-hidden="true"></span> Telangana Live</span>
+          </div>
+          <p class="hero__kicker">Country 01 · India</p>
+          <h1 id="app-title">Turn Every Journey Into a Page of Stamps.</h1>
           <p class="hero__text">
-            Start with Telangana. Browse landmarks, use your phone's location to find nearby
-            places, and unlock a stamp when you arrive.
+            Explore India state by state. When you reach a landmark, your phone gets the stamp
+            ready for you to collect.
           </p>
+          <div class="hero__actions">
+            <button class="button button--primary" id="locateButton" type="button">
+              Find Stamps Near Me
+            </button>
+            <button class="button button--ghost" id="installButton" type="button" hidden>
+              Install Mobile App
+            </button>
+          </div>
         </div>
 
-        <div class="passport-card" aria-label="Collection progress">
+        <div class="passport-card" aria-label="Telangana collection progress">
+          <div class="passport-card__country">
+            <span>Republic of India</span>
+            <strong>IN</strong>
+          </div>
           <div class="stamp-orbit">
             <div class="stamp-orbit__ring" id="progressRing"></div>
             <div class="stamp-seal stamp-seal--hero" aria-hidden="true">
               <span>TS</span>
-              <small>Passport</small>
+              <small>Telangana</small>
             </div>
           </div>
           <strong id="progressText">0 of 0 stamps collected</strong>
-          <span id="nearestText">Enable location to find your nearest stamp.</span>
+          <span id="nearestText">Allow location to prepare your nearest stamp.</span>
         </div>
       </section>
 
-      <section class="control-panel" aria-label="Stamp controls">
-        <button class="button button--primary" id="locateButton" type="button">
-          Use my location
-        </button>
-        <button class="button button--secondary" id="demoButton" type="button">
-          Demo unlock nearest
-        </button>
-        <label class="search-field">
-          <span>Search Telangana places</span>
-          <input id="searchInput" type="search" placeholder="Try Charminar, Ramappa, Warangal..." />
+      <section class="atlas-panel" aria-labelledby="atlas-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Your Travel Atlas</p>
+            <h2 id="atlas-title">India, One State at a Time</h2>
+          </div>
+          <span class="network-status" id="networkStatus" role="status">Online</span>
+        </div>
+
+        <nav class="passport-path" aria-label="Passport location">
+          <span>World</span>
+          <span aria-hidden="true">›</span>
+          <strong>India</strong>
+          <span aria-hidden="true">›</span>
+          <strong id="stateBreadcrumb">Telangana</strong>
+        </nav>
+
+        <div class="country-card">
+          <div class="country-card__flag" role="img" aria-label="Flag colors of India">
+            <span></span><span></span><span></span>
+          </div>
+          <div>
+            <span class="country-card__label">Selected Country</span>
+            <h3>India</h3>
+            <p>28 states · 8 union territories · 1 growing travel passport</p>
+          </div>
+          <span class="country-card__code" translate="no">IND</span>
+        </div>
+
+        <label class="state-picker" for="stateSelect">
+          <span>Choose a State or Union Territory</span>
+          <select id="stateSelect" name="state" autocomplete="off"></select>
         </label>
-        <label class="filter-field">
-          <span>Category</span>
-          <select id="categoryFilter">
-            <option value="all">All famous places</option>
-          </select>
-        </label>
+
+        <div class="region-rail" id="regionRail" aria-label="India regions"></div>
+        <article class="state-overview" id="stateOverview" aria-live="polite"></article>
       </section>
 
-      <p class="status-message" id="statusMessage" role="status">
-        Your stamps are saved on this device. Location is used only when you tap the button.
-      </p>
+      <section class="stamp-section" id="stampSection" aria-labelledby="stamp-section-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Active Passport Page</p>
+            <h2 id="stamp-section-title">Telangana Stamp Collection</h2>
+          </div>
+          <span class="page-number">Page TS-01</span>
+        </div>
 
-      <section class="passport-grid" id="locationGrid" aria-label="Telangana location stamps"></section>
+        <div class="control-panel" aria-label="Telangana stamp filters">
+          <label class="search-field" for="searchInput">
+            <span>Search Telangana Places</span>
+            <input
+              id="searchInput"
+              name="place-search"
+              type="search"
+              autocomplete="off"
+              placeholder="Try Charminar or Warangal…"
+            />
+          </label>
+          <label class="filter-field" for="categoryFilter">
+            <span>Category</span>
+            <select id="categoryFilter" name="category" autocomplete="off">
+              <option value="all">All Famous Places</option>
+            </select>
+          </label>
+        </div>
+
+        <p class="status-message" id="statusMessage" role="status" aria-live="polite">
+          Your stamps stay on this device. Location is checked only on your phone.
+        </p>
+
+        <section
+          class="passport-grid"
+          id="locationGrid"
+          aria-label="Telangana location stamps"
+        ></section>
+      </section>
+
+      <section class="mobile-ready" id="mobileReady" aria-labelledby="mobile-ready-title">
+        <div class="mobile-ready__icon" aria-hidden="true">⌁</div>
+        <div>
+          <p class="section-kicker">Built for the Road</p>
+          <h2 id="mobile-ready-title">Keep Your Passport in Your Pocket</h2>
+          <p>
+            Install it from your browser, use it offline, and reopen it at a destination. If
+            location permission is already approved, the nearest stamp is prepared automatically
+            while the app is open.
+          </p>
+        </div>
+        <button class="button button--primary" id="mobileInstallButton" type="button" hidden>
+          Install Passport
+        </button>
+      </section>
     </main>
+
+    <aside class="arrival-prompt" id="arrivalPrompt" aria-live="polite" hidden>
+      <div class="arrival-prompt__seal" aria-hidden="true">✓</div>
+      <div class="arrival-prompt__copy">
+        <span>You Have Arrived</span>
+        <strong id="arrivalPlace">A stamp is ready</strong>
+        <small id="arrivalDistance"></small>
+      </div>
+      <button class="button button--arrival" id="arrivalCollectButton" type="button">
+        Collect Stamp
+      </button>
+      <button class="arrival-prompt__close" id="arrivalCloseButton" type="button" aria-label="Dismiss arrival prompt">
+        ×
+      </button>
+    </aside>
 
     <template id="locationCardTemplate">
       <article class="location-card">
@@ -83,11 +182,11 @@
             <strong></strong>
             <span></span>
           </div>
-          <h2></h2>
+          <h3></h3>
           <p></p>
           <dl>
             <div>
-              <dt>Region</dt>
+              <dt>District</dt>
               <dd data-field="region"></dd>
             </div>
             <div>

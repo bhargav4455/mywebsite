@@ -1,11 +1,18 @@
 {
-  "name": "Telangana Stamp Passport",
-  "short_name": "TS Passport",
-  "description": "Collect digital location stamps across famous places in Telangana.",
-  "start_url": ".",
+  "id": "./",
+  "name": "India Stamp Passport",
+  "short_name": "India Passport",
+  "description": "Explore India state by state and collect verified digital stamps at landmark destinations.",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "start_url": "./?country=india&state=telangana",
+  "scope": "./",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "portrait-primary",
   "background_color": "#f6efe3",
   "theme_color": "#102a43",
+  "categories": ["travel", "lifestyle"],
   "icons": [
     {
       "src": "icon.svg",
