@@ -1,8 +1,13 @@
-const UNLOCK_RADIUS_METERS = 500;
-const STORAGE_KEY = "telangana-stamp-passport:collected";
-const SAVED_STORAGE_KEY = "india-stamp-passport:saved";
+import { APP_CONFIG } from "./config.js";
+import { indiaRegions as catalogRegions, locations as catalogLocations } from "./data/catalog.js";
+import { ACHIEVEMENTS, getAchievementProgress } from "./modules/achievements.js";
 
-const locations = [
+const UNLOCK_RADIUS_METERS = APP_CONFIG.unlockRadiusMeters;
+const STORAGE_KEY = APP_CONFIG.storage.collected;
+const DEMO_STORAGE_KEY = APP_CONFIG.storage.demoCollected;
+const SAVED_STORAGE_KEY = APP_CONFIG.storage.saved;
+
+const fallbackLocations = [
   {
     id: "charminar",
     name: "Charminar",
@@ -285,7 +290,7 @@ const locations = [
   }
 ];
 
-const indiaRegions = [
+const fallbackIndiaRegions = [
   { slug: "andhra-pradesh", name: "Andhra Pradesh", type: "State", capital: "Amaravati" },
   { slug: "arunachal-pradesh", name: "Arunachal Pradesh", type: "State", capital: "Itanagar" },
   { slug: "assam", name: "Assam", type: "State", capital: "Dispur" },
@@ -345,20 +350,28 @@ const indiaRegions = [
   { slug: "puducherry", name: "Puducherry", type: "Union Territory", capital: "Puducherry" }
 ];
 
+const locations = catalogLocations.length ? catalogLocations : fallbackLocations;
+const indiaRegions = catalogRegions.length ? catalogRegions : fallbackIndiaRegions;
 const storedStamps = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-const collected = new Set(Array.isArray(storedStamps) ? storedStamps : []);
+const verifiedCollected = new Set(Array.isArray(storedStamps) ? storedStamps : []);
+const storedDemoStamps = JSON.parse(localStorage.getItem(DEMO_STORAGE_KEY) || "[]");
+const demoCollected = new Set(Array.isArray(storedDemoStamps) ? storedDemoStamps : []);
+let collected = verifiedCollected;
 const storedSavedPlaces = JSON.parse(localStorage.getItem(SAVED_STORAGE_KEY) || "[]");
 const savedPlaces = new Set(Array.isArray(storedSavedPlaces) ? storedSavedPlaces : []);
 const initialParams = new URLSearchParams(window.location.search);
-let currentRegion = findRegion(initialParams.get("state")) || findRegion("telangana");
+let currentRegion = findRegion(initialParams.get("state")) || findRegion(APP_CONFIG.defaultRegion);
 let currentSearch = initialParams.get("q") || "";
 let currentCategory = initialParams.get("category") || "all";
 let showSavedOnly = initialParams.get("saved") === "1";
+let isDemoMode = APP_CONFIG.features.demoMode && initialParams.get("demo") === "1";
+if (isDemoMode) collected = demoCollected;
 let userPosition = null;
 let locationWatchId = null;
 let nearbyLocation = null;
 let dismissedArrivalId = null;
 let deferredInstallPrompt = null;
+let mapZoom = 1;
 
 const elements = {
   arrivalCloseButton: document.querySelector("#arrivalCloseButton"),
@@ -368,6 +381,9 @@ const elements = {
   arrivalPrompt: document.querySelector("#arrivalPrompt"),
   categoryRail: document.querySelector("#categoryRail"),
   categoryFilter: document.querySelector("#categoryFilter"),
+  demoLocationSelect: document.querySelector("#demoLocationSelect"),
+  demoPanel: document.querySelector("#demoPanel"),
+  demoToggle: document.querySelector("#demoToggle"),
   grid: document.querySelector("#locationGrid"),
   installButton: document.querySelector("#installButton"),
   locateButton: document.querySelector("#locateButton"),
@@ -376,6 +392,8 @@ const elements = {
   networkStatus: document.querySelector("#networkStatus"),
   progressRing: document.querySelector("#progressRing"),
   progressText: document.querySelector("#progressText"),
+  achievementCount: document.querySelector("#achievementCount"),
+  achievementGrid: document.querySelector("#achievementGrid"),
   regionRail: document.querySelector("#regionRail"),
   savedCount: document.querySelector("#savedCount"),
   savedToggle: document.querySelector("#savedToggle"),
@@ -385,7 +403,12 @@ const elements = {
   stateOverview: document.querySelector("#stateOverview"),
   stateSelect: document.querySelector("#stateSelect"),
   statusMessage: document.querySelector("#statusMessage"),
-  template: document.querySelector("#locationCardTemplate")
+  stampMapCanvas: document.querySelector("#stampMapCanvas"),
+  stampMapDescription: document.querySelector("#stampMapDescription"),
+  template: document.querySelector("#locationCardTemplate"),
+  zoomInButton: document.querySelector("#zoomInButton"),
+  zoomLevel: document.querySelector("#zoomLevel"),
+  zoomOutButton: document.querySelector("#zoomOutButton")
 };
 
 function findRegion(slug) {
@@ -427,15 +450,98 @@ function getLocationState(location) {
 }
 
 function saveCollected() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify([...collected]));
+  const storageKey = isDemoMode ? DEMO_STORAGE_KEY : STORAGE_KEY;
+  localStorage.setItem(storageKey, JSON.stringify([...collected]));
+}
+
+function renderAchievements() {
+  if (!APP_CONFIG.features.achievements) return;
+  elements.achievementGrid.replaceChildren();
+  let unlockedCount = 0;
+
+  for (const achievement of ACHIEVEMENTS) {
+    const progress = getAchievementProgress(achievement, locations, collected);
+    if (progress.unlocked) unlockedCount += 1;
+    const item = document.createElement("article");
+    item.className = `achievement${progress.unlocked ? " is-unlocked" : ""}`;
+    const icon = document.createElement("span");
+    icon.className = "achievement__icon";
+    icon.setAttribute("aria-hidden", "true");
+    icon.textContent = progress.unlocked ? "✓" : achievement.icon;
+    const copy = document.createElement("div");
+    const title = document.createElement("strong");
+    title.textContent = achievement.title;
+    const description = document.createElement("small");
+    description.textContent = `${achievement.description} ${progress.count}/${progress.target}`;
+    copy.append(title, description);
+    item.append(icon, copy);
+    elements.achievementGrid.append(item);
+  }
+
+  elements.achievementCount.textContent = `${unlockedCount} of ${ACHIEVEMENTS.length}${isDemoMode ? " demo" : ""} unlocked`;
+}
+
+function renderCollectedMap() {
+  const collectedLocations = locations.filter((location) => collected.has(location.id));
+  elements.stampMapCanvas.replaceChildren();
+  elements.stampMapCanvas.dataset.zoom = String(mapZoom);
+  elements.zoomLevel.textContent = `${mapZoom}×`;
+  elements.zoomOutButton.disabled = mapZoom === 1;
+  elements.zoomInButton.disabled = mapZoom === 3;
+  elements.stampMapDescription.textContent = isDemoMode
+    ? "Demo stamps appear here temporarily and remain separate from your verified travel story."
+    : "Every verified stamp appears here. Zoom in to reveal its artwork and place name.";
+
+  if (!collectedLocations.length) {
+    const empty = document.createElement("p");
+    empty.className = "stamp-map__empty";
+    empty.textContent = isDemoMode
+      ? "Collect a demo stamp to preview your travel map."
+      : "Your first verified stamp will begin this map.";
+    elements.stampMapCanvas.append(empty);
+    return;
+  }
+
+  const latitudes = locations.map((location) => location.lat);
+  const longitudes = locations.map((location) => location.lng);
+  const minLat = Math.min(...latitudes);
+  const maxLat = Math.max(...latitudes);
+  const minLng = Math.min(...longitudes);
+  const maxLng = Math.max(...longitudes);
+
+  for (const location of collectedLocations) {
+    const pin = document.createElement("button");
+    pin.className = "stamp-map__pin";
+    pin.type = "button";
+    pin.style.left = `${10 + ((location.lng - minLng) / (maxLng - minLng)) * 80}%`;
+    pin.style.top = `${12 + ((maxLat - location.lat) / (maxLat - minLat)) * 76}%`;
+    pin.setAttribute("aria-label", `Show ${location.name} stamp`);
+    const illustration = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    illustration.setAttribute("aria-hidden", "true");
+    const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+    use.setAttribute("href", `assets/landmarks.svg#${location.id}`);
+    illustration.append(use);
+    const label = document.createElement("span");
+    label.textContent = location.name;
+    pin.append(illustration, label);
+    pin.addEventListener("click", () => pin.classList.toggle("is-selected"));
+    elements.stampMapCanvas.append(pin);
+  }
+}
+
+function setMapZoom(nextZoom) {
+  mapZoom = Math.max(1, Math.min(3, nextZoom));
+  renderCollectedMap();
 }
 
 function updateProgress() {
   const total = locations.length;
   const count = locations.filter((location) => collected.has(location.id)).length;
   const percentage = total ? Math.round((count / total) * 100) : 0;
-  elements.progressText.textContent = `${count} of ${total} stamps collected`;
+  elements.progressText.textContent = `${count} of ${total}${isDemoMode ? " demo" : ""} stamps collected`;
   elements.progressRing.style.setProperty("--progress", `${percentage}%`);
+  renderAchievements();
+  renderCollectedMap();
 
   if (!userPosition) {
     elements.nearestText.textContent = "Enable location to find your nearest stamp.";
@@ -458,6 +564,7 @@ function updateUrlState() {
   if (currentSearch) params.set("q", currentSearch);
   if (currentCategory !== "all") params.set("category", currentCategory);
   if (showSavedOnly) params.set("saved", "1");
+  if (isDemoMode) params.set("demo", "1");
   window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}`);
 }
 
@@ -609,6 +716,56 @@ function updateSavedControls() {
   elements.savedToggle.firstElementChild.textContent = showSavedOnly ? "♥" : "♡";
 }
 
+function renderDemoOptions() {
+  if (!APP_CONFIG.features.demoMode) {
+    elements.demoPanel.hidden = true;
+    return;
+  }
+
+  for (const location of locations) {
+    const option = document.createElement("option");
+    option.value = location.id;
+    option.textContent = `${location.name} · ${location.region}`;
+    elements.demoLocationSelect.append(option);
+  }
+}
+
+function previewDemoLocation() {
+  const location = locations.find((item) => item.id === elements.demoLocationSelect.value);
+  if (!location || !isDemoMode) return;
+  userPosition = { lat: location.lat, lng: location.lng };
+  dismissedArrivalId = null;
+  elements.locateButton.disabled = false;
+  elements.locateButton.textContent = "Demo Location";
+  setStatus(`Demo preview: ${location.name}. This test stamp will not count as a verified visit.`);
+  updateArrivalPrompt();
+  renderLocations();
+}
+
+function setDemoMode(enabled) {
+  isDemoMode = enabled;
+  collected = enabled ? demoCollected : verifiedCollected;
+  elements.demoPanel.classList.toggle("is-active", enabled);
+  elements.demoToggle.setAttribute("aria-pressed", String(enabled));
+  elements.demoToggle.textContent = enabled ? "Exit Demo Mode" : "Start Demo Mode";
+
+  if (enabled) {
+    if (locationWatchId !== null) {
+      navigator.geolocation?.clearWatch(locationWatchId);
+      locationWatchId = null;
+    }
+    previewDemoLocation();
+  } else {
+    userPosition = null;
+    nearbyLocation = null;
+    elements.arrivalPrompt.hidden = true;
+    elements.locateButton.textContent = "Find Stamps Near Me";
+    setStatus("Demo ended. Verified stamps are unchanged; enable location when you visit a destination.");
+    renderLocations();
+  }
+  updateUrlState();
+}
+
 function filteredLocations() {
   const normalizedSearch = currentSearch.trim().toLowerCase();
   return locations
@@ -732,7 +889,11 @@ function collectStamp(location) {
   saveCollected();
   nearbyLocation = null;
   elements.arrivalPrompt.hidden = true;
-  setStatus(`${location.name} stamp added to your Telangana passport.`);
+  setStatus(
+    isDemoMode
+      ? `${location.name} added to your demo passport. Your verified collection is unchanged.`
+      : `${location.name} stamp added to your Telangana passport.`
+  );
   renderLocations();
 }
 
@@ -754,7 +915,7 @@ function updateArrivalPrompt() {
   elements.arrivalDistance.textContent = `${formatDistance(nearest.distance)} from the stamp point`;
   elements.arrivalCollectButton.textContent = `Collect ${nearbyLocation.stamp} Stamp`;
   elements.arrivalPrompt.hidden = false;
-  if ("vibrate" in navigator && document.visibilityState === "visible") {
+  if (!isDemoMode && "vibrate" in navigator && document.visibilityState === "visible") {
     navigator.vibrate(80);
   }
 }
@@ -793,6 +954,7 @@ function handleLocationError(error) {
 }
 
 function startLocationWatch(requestPermission = true) {
+  if (isDemoMode) setDemoMode(false);
   if (!navigator.geolocation) {
     setStatus("This browser does not support location. You can still browse the passport.");
     return;
@@ -813,6 +975,7 @@ function startLocationWatch(requestPermission = true) {
 }
 
 function resumeLocationIfGranted() {
+  if (isDemoMode) return;
   if (!navigator.permissions?.query || !navigator.geolocation) return;
   navigator.permissions.query({ name: "geolocation" }).then(
     (permission) => {
@@ -871,6 +1034,10 @@ function registerServiceWorker() {
 }
 
 elements.locateButton.addEventListener("click", () => startLocationWatch(true));
+elements.demoToggle.addEventListener("click", () => setDemoMode(!isDemoMode));
+elements.demoLocationSelect.addEventListener("change", previewDemoLocation);
+elements.zoomInButton.addEventListener("click", () => setMapZoom(mapZoom + 1));
+elements.zoomOutButton.addEventListener("click", () => setMapZoom(mapZoom - 1));
 elements.arrivalCollectButton.addEventListener("click", () => {
   if (nearbyLocation) collectStamp(nearbyLocation);
 });
@@ -910,6 +1077,7 @@ window.addEventListener("appinstalled", () => {
 
 renderRegionNavigator();
 renderCategoryOptions();
+renderDemoOptions();
 elements.searchInput.value = currentSearch;
 if ([...elements.categoryFilter.options].some((option) => option.value === currentCategory)) {
   syncCategoryControls();
@@ -919,6 +1087,7 @@ if ([...elements.categoryFilter.options].some((option) => option.value === curre
 }
 updateSavedControls();
 renderStateOverview();
+if (isDemoMode) setDemoMode(true);
 renderLocations();
 updateNetworkStatus();
 registerServiceWorker();

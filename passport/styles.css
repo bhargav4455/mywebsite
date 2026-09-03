@@ -780,6 +780,67 @@ h1 {
   display: none;
 }
 
+.demo-panel {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(200px, 0.7fr) auto;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding: 18px;
+  background: linear-gradient(120deg, #fff7e8, #fff1f2);
+  border: 1px solid #f3d8c9;
+  border-radius: 20px;
+}
+
+.demo-panel.is-active {
+  background: linear-gradient(120deg, #fff0d5, #ffe3e6);
+  border-color: var(--accent);
+  box-shadow: 0 12px 35px rgba(229, 82, 91, 0.12);
+}
+
+.demo-panel > div,
+.demo-panel label {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.demo-panel__eyebrow,
+.demo-panel label span {
+  color: var(--accent);
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.demo-panel small {
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.demo-panel select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.button--demo {
+  min-height: 44px;
+  color: #fff;
+  background: var(--ink);
+}
+
+.demo-panel.is-active .button--demo {
+  background: var(--accent);
+}
+
 .passport-dashboard {
   display: grid;
   grid-template-columns: minmax(280px, 0.65fr) minmax(0, 1fr);
@@ -904,6 +965,231 @@ h1 {
   line-height: 1.6;
 }
 
+.achievements {
+  margin: 24px 0;
+}
+
+.achievements__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.achievements__heading h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.achievements__heading span {
+  color: #ffb3b8;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.achievement {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  padding: 12px;
+  color: #b8cad7;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+}
+
+.achievement.is-unlocked {
+  color: #fff;
+  background: rgba(229, 82, 91, 0.18);
+  border-color: rgba(255, 179, 184, 0.45);
+}
+
+.achievement__icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+}
+
+.achievement.is-unlocked .achievement__icon {
+  background: var(--accent);
+}
+
+.achievement strong,
+.achievement small {
+  display: block;
+}
+
+.achievement small {
+  margin-top: 2px;
+  color: inherit;
+  line-height: 1.35;
+}
+
+.stamp-map {
+  grid-column: 1 / -1;
+  min-width: 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.stamp-map__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.stamp-map__heading h3 {
+  margin: 2px 0 0;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+.stamp-map__heading p:last-child {
+  margin: 6px 0 0;
+}
+
+.stamp-map__controls {
+  display: grid;
+  grid-template-columns: 42px 52px 42px;
+  align-items: center;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 999px;
+}
+
+.stamp-map__controls button,
+.stamp-map__controls output {
+  display: grid;
+  place-items: center;
+  min-height: 42px;
+  color: var(--ink);
+  background: #fff;
+  border: 0;
+  font-weight: 850;
+}
+
+.stamp-map__controls button:hover:not(:disabled) {
+  color: #fff;
+  background: var(--accent);
+}
+
+.stamp-map__controls button:disabled {
+  color: #a9b3bb;
+}
+
+.stamp-map__viewport {
+  width: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: #dcece4;
+  border: 8px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+}
+
+.stamp-map__canvas {
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  min-height: 360px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 22% 28%, rgba(255, 255, 255, 0.7) 0 3px, transparent 4px),
+    radial-gradient(circle at 70% 65%, rgba(255, 255, 255, 0.7) 0 3px, transparent 4px),
+    linear-gradient(32deg, transparent 0 47%, rgba(53, 117, 88, 0.16) 48% 50%, transparent 51%),
+    linear-gradient(145deg, transparent 0 44%, rgba(53, 117, 88, 0.12) 45% 47%, transparent 48%),
+    #dcece4;
+  transition: width 180ms ease, min-height 180ms ease;
+}
+
+.stamp-map__canvas::before {
+  content: "TELANGANA";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: rgba(16, 42, 67, 0.08);
+  font-size: clamp(2rem, 8vw, 6rem);
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  transform: translate(-50%, -50%) rotate(-8deg);
+}
+
+.stamp-map__canvas[data-zoom="2"] {
+  width: 145%;
+  min-height: 470px;
+}
+
+.stamp-map__canvas[data-zoom="3"] {
+  width: 190%;
+  min-height: 580px;
+}
+
+.stamp-map__pin {
+  position: absolute;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 5px;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(16, 42, 67, 0.2);
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+}
+
+.stamp-map__pin svg {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.stamp-map__pin span {
+  display: none;
+  max-width: 150px;
+  padding-right: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.stamp-map__canvas[data-zoom="2"] .stamp-map__pin span,
+.stamp-map__canvas[data-zoom="3"] .stamp-map__pin span,
+.stamp-map__pin.is-selected span {
+  display: block;
+}
+
+.stamp-map__canvas[data-zoom="3"] .stamp-map__pin svg {
+  width: 48px;
+  height: 48px;
+}
+
+.stamp-map__empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(320px, 80%);
+  color: var(--ink);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
 .arrival-prompt {
   position: fixed;
   right: max(14px, env(safe-area-inset-right));
@@ -995,6 +1281,9 @@ h1 {
 .category-chip:focus-visible,
 .region-chip:focus-visible,
 .state-picker select:focus-visible,
+.demo-panel select:focus-visible,
+.stamp-map__controls button:focus-visible,
+.stamp-map__pin:focus-visible,
 .arrival-prompt__close:focus-visible,
 .skip-link:focus-visible {
   outline: 3px solid rgba(229, 82, 91, 0.48);
@@ -1049,6 +1338,18 @@ h1 {
   .state-overview,
   .passport-dashboard {
     grid-template-columns: 1fr;
+  }
+
+  .demo-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .demo-panel > div {
+    grid-column: 1 / -1;
+  }
+
+  .stamp-map__heading {
+    align-items: start;
   }
 
   .mobile-nav {
@@ -1143,6 +1444,19 @@ h1 {
 
   .passport-card {
     margin: 0 auto;
+  }
+
+  .demo-panel,
+  .achievement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-panel > div {
+    grid-column: auto;
+  }
+
+  .stamp-map__heading {
+    display: grid;
   }
 
   .arrival-prompt {

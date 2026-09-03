@@ -1,9 +1,12 @@
-const CACHE_NAME = "india-stamp-passport-v7";
+const CACHE_NAME = "india-stamp-passport-v11";
 const ASSETS = [
   ".",
   "index.html",
   "styles.css",
   "app.js",
+  "config.js",
+  "data/catalog.js",
+  "modules/achievements.js",
   "manifest.webmanifest",
   "icon.svg",
   "assets/landmarks.svg"

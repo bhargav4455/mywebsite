@@ -106,6 +106,21 @@
           Your stamps and saved places stay on this device. Location is checked only on your phone.
         </p>
 
+        <section class="demo-panel" id="demoPanel" aria-labelledby="demo-title">
+          <div>
+            <span class="demo-panel__eyebrow">Private Preview Tool</span>
+            <strong id="demo-title">Try Every Stamp from Home</strong>
+            <small>Demo stamps are stored separately and never count as verified visits.</small>
+          </div>
+          <label for="demoLocationSelect">
+            <span>Preview Destination</span>
+            <select id="demoLocationSelect" name="demo-location" autocomplete="off"></select>
+          </label>
+          <button class="button button--demo" id="demoToggle" type="button" aria-pressed="false">
+            Start Demo Mode
+          </button>
+        </section>
+
         <section
           class="passport-grid"
           id="locationGrid"
@@ -167,10 +182,37 @@
             Your collection is stored privately on this device and remains available offline.
             Install the app before your trip, then open it when you reach a destination.
           </p>
+          <section class="achievements" aria-labelledby="achievements-title">
+            <div class="achievements__heading">
+              <h3 id="achievements-title">Passport Achievements</h3>
+              <span id="achievementCount">0 unlocked</span>
+            </div>
+            <div class="achievement-grid" id="achievementGrid"></div>
+          </section>
           <button class="button button--primary" id="mobileInstallButton" type="button" hidden>
             Install Stamp India
           </button>
         </div>
+
+        <section class="stamp-map" aria-labelledby="stamp-map-title">
+          <div class="stamp-map__heading">
+            <div>
+              <p class="section-kicker">Collected Stamp Map</p>
+              <h3 id="stamp-map-title">Your Telangana Travel Story</h3>
+              <p id="stampMapDescription">
+                Every verified stamp appears here. Zoom in to reveal its artwork and place name.
+              </p>
+            </div>
+            <div class="stamp-map__controls" aria-label="Map zoom controls">
+              <button id="zoomOutButton" type="button" aria-label="Zoom stamp map out">−</button>
+              <output id="zoomLevel" aria-live="polite">1×</output>
+              <button id="zoomInButton" type="button" aria-label="Zoom stamp map in">+</button>
+            </div>
+          </div>
+          <div class="stamp-map__viewport">
+            <div class="stamp-map__canvas" id="stampMapCanvas" data-zoom="1"></div>
+          </div>
+        </section>
       </section>
     </main>
 
