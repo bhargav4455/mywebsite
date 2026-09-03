@@ -1,4 +1,4 @@
-const CACHE_NAME = "bharat-stampbook-v13";
+const CACHE_NAME = "bharat-stampbook-v14";
 const ASSETS = [
   ".",
   "index.html",
@@ -10,8 +10,11 @@ const ASSETS = [
   "modules/circuits.js",
   "modules/media-store.js",
   "modules/personal-experience.js",
+  "modules/trips.js",
   "manifest.webmanifest",
   "icon.svg",
+  "icon-192.png",
+  "icon-512.png",
   "assets/landmarks.svg"
 ];
 

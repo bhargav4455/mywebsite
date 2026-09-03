@@ -44,7 +44,10 @@ export function createPersonalExperience({
     profilePhotoPreview: document.querySelector("#profilePhotoPreview"),
     profilePlaceholder: document.querySelector("#profilePlaceholder"),
     saveMemoryButton: document.querySelector("#saveMemoryButton"),
-    shareJourneyButton: document.querySelector("#shareJourneyButton")
+    shareJourneyButton: document.querySelector("#shareJourneyButton"),
+    exportButton: document.querySelector("#exportJourneyButton"),
+    importButton: document.querySelector("#importJourneyButton"),
+    importInput: document.querySelector("#importJourneyInput")
   };
 
   let profile = loadJson(config.storage.profile, { name: "", home: "", hasPhoto: false });
@@ -306,10 +309,99 @@ export function createPersonalExperience({
     }
   }
 
+  function blobToDataUrl(blob) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.addEventListener("load", () => resolve(reader.result));
+      reader.addEventListener("error", () => reject(reader.error));
+      reader.readAsDataURL(blob);
+    });
+  }
+
+  async function collectImages() {
+    const images = {};
+    if (profile.hasPhoto) {
+      const photo = await getPrivateImage(PROFILE_IMAGE_KEY);
+      if (photo) images[PROFILE_IMAGE_KEY] = await blobToDataUrl(photo);
+    }
+    for (const memory of memories) {
+      if (!memory.hasPhoto) continue;
+      const photo = await getPrivateImage(`memory:${memory.id}`);
+      if (photo) images[`memory:${memory.id}`] = await blobToDataUrl(photo);
+    }
+    return images;
+  }
+
+  async function exportJourney() {
+    try {
+      setStatus("Preparing your backup…");
+      const backup = {
+        app: "bharat-stampbook",
+        type: "journey-backup",
+        version: 1,
+        exportedAt: new Date().toISOString(),
+        data: {
+          profile,
+          memories,
+          trips: JSON.parse(localStorage.getItem(config.storage.trips) || "[]"),
+          collected: JSON.parse(localStorage.getItem(config.storage.collected) || "[]"),
+          saved: JSON.parse(localStorage.getItem(config.storage.saved) || "[]")
+        },
+        images: await collectImages()
+      };
+      const blob = new Blob([JSON.stringify(backup)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = `bharat-stampbook-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      document.body.append(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(url);
+      setStatus("Backup downloaded. Keep it safe to restore on another device.");
+    } catch (error) {
+      console.error("Could not export journey.", error);
+      setStatus("Your backup could not be created in this browser.");
+    }
+  }
+
+  async function importJourney(file) {
+    try {
+      setStatus("Restoring your journey…");
+      const backup = JSON.parse(await file.text());
+      if (backup?.app !== "bharat-stampbook" || backup?.type !== "journey-backup") {
+        throw new Error("This file is not a Bharat Stampbook backup.");
+      }
+      const { data = {}, images = {} } = backup;
+      if (data.profile) localStorage.setItem(config.storage.profile, JSON.stringify(data.profile));
+      if (data.memories) localStorage.setItem(config.storage.memories, JSON.stringify(data.memories));
+      if (data.trips) localStorage.setItem(config.storage.trips, JSON.stringify(data.trips));
+      if (data.collected) localStorage.setItem(config.storage.collected, JSON.stringify(data.collected));
+      if (data.saved) localStorage.setItem(config.storage.saved, JSON.stringify(data.saved));
+
+      for (const [key, dataUrl] of Object.entries(images)) {
+        const imageBlob = await (await fetch(dataUrl)).blob();
+        await savePrivateImage(key, imageBlob);
+      }
+      setStatus("Journey restored. Reloading…");
+      setTimeout(() => window.location.reload(), 600);
+    } catch (error) {
+      console.error("Could not restore journey.", error);
+      setStatus(error.message || "This backup could not be restored.");
+    }
+  }
+
   async function initialize() {
     elements.profileForm.addEventListener("submit", saveProfile);
     elements.memoryForm.addEventListener("submit", saveMemory);
     elements.shareJourneyButton.addEventListener("click", shareJourney);
+    elements.exportButton.addEventListener("click", exportJourney);
+    elements.importButton.addEventListener("click", () => elements.importInput.click());
+    elements.importInput.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (file) importJourney(file);
+      event.target.value = "";
+    });
     window.addEventListener("pagehide", () => {
       if (profileObjectUrl) URL.revokeObjectURL(profileObjectUrl);
       revokeObjectUrls();

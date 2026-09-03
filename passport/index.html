@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,9 +11,25 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Bharat Stampbook" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bharat Stampbook" />
+    <meta property="og:title" content="Bharat Stampbook · Discover & Collect" />
+    <meta
+      property="og:description"
+      content="Explore India state by state and collect verified digital stamps when you arrive at landmark destinations."
+    />
+    <meta property="og:image" content="icon-512.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Bharat Stampbook · Discover & Collect" />
+    <meta
+      name="twitter:description"
+      content="Explore India state by state and collect verified digital stamps when you arrive at landmark destinations."
+    />
+    <meta name="twitter:image" content="icon-512.png" />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="icon.svg" />
+    <link rel="icon" href="icon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
     <link rel="stylesheet" href="styles.css" />
     <title>Bharat Stampbook · Discover & Collect</title>
   </head>
@@ -30,6 +46,7 @@
         <a href="#destinations">Places</a>
         <a href="#states">States</a>
         <a href="#passport">Passport</a>
+        <a href="#personal">Personal</a>
       </nav>
       <button class="topbar__install" id="installButton" type="button" hidden>
         Install App
@@ -240,9 +257,18 @@
               Telangana circuits. Your photos never leave this browser.
             </p>
           </div>
-          <button class="button button--share" id="shareJourneyButton" type="button">
-            Share Journey
-          </button>
+          <div class="personal-toolbar">
+            <button class="button button--share" id="shareJourneyButton" type="button">
+              Share Journey
+            </button>
+            <button class="button button--ghost" id="exportJourneyButton" type="button">
+              Export Backup
+            </button>
+            <button class="button button--ghost" id="importJourneyButton" type="button">
+              Restore
+            </button>
+            <input id="importJourneyInput" type="file" accept="application/json" hidden />
+          </div>
         </div>
 
         <div class="personal-grid">
@@ -315,6 +341,48 @@
             </div>
           </div>
           <div class="circuit-grid" id="circuitGrid"></div>
+        </section>
+
+        <section class="trips-section" aria-labelledby="trips-title">
+          <div class="personal-subheading">
+            <div>
+              <span>Plan &amp; Travel Together</span>
+              <h3 id="trips-title">Your Trips</h3>
+            </div>
+            <button class="button button--primary" id="newTripButton" type="button">New Trip</button>
+          </div>
+
+          <form class="trip-form" id="tripForm" hidden>
+            <label>
+              <span>Trip Name</span>
+              <input id="tripTitle" name="trip-title" type="text" maxlength="50" placeholder="Charminar family day…" required />
+            </label>
+            <label>
+              <span>Who's It With?</span>
+              <select id="tripCategory" name="trip-category">
+                <option value="family">Family</option>
+                <option value="friends">Friends</option>
+                <option value="couple">Couple</option>
+                <option value="solo">Solo</option>
+                <option value="work">Work</option>
+              </select>
+            </label>
+            <label class="personal-form__wide">
+              <span>Companions (comma separated)</span>
+              <input id="tripCompanions" name="trip-companions" type="text" maxlength="120" placeholder="Amma, Nanna, Vamshi…" />
+            </label>
+            <fieldset class="trip-places personal-form__wide">
+              <legend>Places on This Trip</legend>
+              <div class="trip-choices" id="tripPlaceChoices"></div>
+            </fieldset>
+            <div class="trip-form__actions personal-form__wide">
+              <button class="button button--primary" type="submit">Create Trip</button>
+              <button class="button button--ghost" id="tripCancel" type="button">Cancel</button>
+            </div>
+          </form>
+
+          <div class="trip-filter" id="tripFilter" role="group" aria-label="Filter trips by group"></div>
+          <div class="trip-grid" id="tripGrid"></div>
         </section>
 
         <section class="timeline-section" aria-labelledby="timeline-title">

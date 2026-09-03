@@ -9,13 +9,15 @@ export const APP_CONFIG = Object.freeze({
     memories: true,
     profile: true,
     sharing: true,
-    travelCircuits: true
+    travelCircuits: true,
+    trips: true
   }),
   storage: Object.freeze({
     collected: "telangana-stamp-passport:collected",
     demoCollected: "india-stamp-passport:demo-collected",
     memories: "bharat-stampbook:memories",
     profile: "bharat-stampbook:profile",
-    saved: "india-stamp-passport:saved"
+    saved: "india-stamp-passport:saved",
+    trips: "bharat-stampbook:trips"
   })
 });

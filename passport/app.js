@@ -2,6 +2,7 @@ import { APP_CONFIG } from "./config.js";
 import { indiaRegions as catalogRegions, locations as catalogLocations } from "./data/catalog.js";
 import { ACHIEVEMENTS, getAchievementProgress } from "./modules/achievements.js";
 import { createPersonalExperience } from "./modules/personal-experience.js";
+import { createTrips } from "./modules/trips.js";
 
 const UNLOCK_RADIUS_METERS = APP_CONFIG.unlockRadiusMeters;
 const STORAGE_KEY = APP_CONFIG.storage.collected;
@@ -374,6 +375,7 @@ let dismissedArrivalId = null;
 let deferredInstallPrompt = null;
 let mapZoom = 1;
 let personalExperience = null;
+let trips = null;
 
 const elements = {
   arrivalCloseButton: document.querySelector("#arrivalCloseButton"),
@@ -897,7 +899,10 @@ function collectStamp(location) {
       : `${location.name} stamp added to your Telangana passport.`
   );
   renderLocations();
-  if (!isDemoMode) personalExperience?.refresh();
+  if (!isDemoMode) {
+    personalExperience?.refresh();
+    trips?.refresh();
+  }
 }
 
 function updateArrivalPrompt() {
@@ -1111,6 +1116,21 @@ try {
   console.error("Could not read personal journey data.", error);
   document.querySelector("#personalStatus").textContent =
     "Saved journey data is unavailable in this browser.";
+}
+
+if (APP_CONFIG.features.trips) {
+  try {
+    trips = createTrips({
+      config: APP_CONFIG,
+      getVerifiedLocationIds: () => new Set(verifiedCollected),
+      locations
+    });
+    trips.initialize();
+  } catch (error) {
+    console.error("Could not initialize trips.", error);
+    document.querySelector("#personalStatus").textContent =
+      "Saved trip data is unavailable in this browser.";
+  }
 }
 
 const isStandalone =
