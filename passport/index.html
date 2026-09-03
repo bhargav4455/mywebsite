@@ -229,6 +229,105 @@
           </div>
         </section>
       </section>
+
+      <section class="personal-hub" id="personal" aria-labelledby="personal-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Private to This Device</p>
+            <h2 id="personal-title">Make It Your Stampbook</h2>
+            <p class="section-description">
+              Add your traveler profile, preserve memories from verified visits, and follow curated
+              Telangana circuits. Your photos never leave this browser.
+            </p>
+          </div>
+          <button class="button button--share" id="shareJourneyButton" type="button">
+            Share Journey
+          </button>
+        </div>
+
+        <div class="personal-grid">
+          <section class="profile-editor" aria-labelledby="profile-title">
+            <div class="personal-card__heading">
+              <div>
+                <span>Traveler Profile</span>
+                <h3 id="profile-title">Your Passport Identity</h3>
+              </div>
+              <img id="profilePhotoPreview" width="72" height="72" alt="" hidden />
+              <div class="profile-placeholder" id="profilePlaceholder" aria-hidden="true">B</div>
+            </div>
+            <form id="profileForm">
+              <label>
+                <span>Display Name</span>
+                <input id="profileName" name="display-name" type="text" maxlength="40" autocomplete="name" placeholder="Your name…" />
+              </label>
+              <label>
+                <span>Home Base</span>
+                <input id="profileHome" name="home-base" type="text" maxlength="60" autocomplete="address-level2" placeholder="Hyderabad, Telangana…" />
+              </label>
+              <label>
+                <span>Profile Photo</span>
+                <input id="profilePhoto" name="profile-photo" type="file" accept="image/*" />
+              </label>
+              <button class="button button--primary" type="submit">Save Profile</button>
+            </form>
+          </section>
+
+          <section class="memory-editor" aria-labelledby="memory-editor-title">
+            <div class="personal-card__heading">
+              <div>
+                <span>Visit Memory</span>
+                <h3 id="memory-editor-title">Add a Moment</h3>
+              </div>
+            </div>
+            <form id="memoryForm">
+              <label>
+                <span>Collected Place</span>
+                <select id="memoryLocation" name="memory-location" autocomplete="off" required></select>
+              </label>
+              <label>
+                <span>Visit Date</span>
+                <input id="memoryDate" name="visit-date" type="date" required />
+              </label>
+              <label class="personal-form__wide">
+                <span>Your Memory</span>
+                <textarea id="memoryNote" name="memory-note" maxlength="280" rows="3" placeholder="What made this visit special?…"></textarea>
+              </label>
+              <label>
+                <span>Visit Photo</span>
+                <input id="memoryPhoto" name="memory-photo" type="file" accept="image/*" />
+              </label>
+              <button class="button button--primary" id="saveMemoryButton" type="submit">
+                Save Memory
+              </button>
+            </form>
+          </section>
+        </div>
+
+        <p class="personal-status" id="personalStatus" role="status" aria-live="polite">
+          Profile details, notes, and photos stay in private browser storage.
+        </p>
+
+        <section class="circuit-section" aria-labelledby="circuit-title">
+          <div class="personal-subheading">
+            <div>
+              <span>Curated Adventures</span>
+              <h3 id="circuit-title">Telangana Travel Circuits</h3>
+            </div>
+          </div>
+          <div class="circuit-grid" id="circuitGrid"></div>
+        </section>
+
+        <section class="timeline-section" aria-labelledby="timeline-title">
+          <div class="personal-subheading">
+            <div>
+              <span>Your Story</span>
+              <h3 id="timeline-title">Visit Memory Timeline</h3>
+            </div>
+            <strong id="memoryCount">0 memories</strong>
+          </div>
+          <div class="memory-timeline" id="memoryTimeline"></div>
+        </section>
+      </section>
     </main>
 
     <nav class="mobile-nav" aria-label="Mobile navigation">
@@ -236,6 +335,7 @@
       <a href="#destinations"><span aria-hidden="true">◇</span>Places</a>
       <a href="#states"><span aria-hidden="true">◎</span>States</a>
       <a href="#passport"><span aria-hidden="true">▣</span>Passport</a>
+      <a href="#personal"><span aria-hidden="true">♥</span>Personal</a>
     </nav>
 
     <aside class="arrival-prompt" id="arrivalPrompt" aria-live="polite" hidden>

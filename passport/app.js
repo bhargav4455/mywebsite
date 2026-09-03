@@ -1,6 +1,7 @@
 import { APP_CONFIG } from "./config.js";
 import { indiaRegions as catalogRegions, locations as catalogLocations } from "./data/catalog.js";
 import { ACHIEVEMENTS, getAchievementProgress } from "./modules/achievements.js";
+import { createPersonalExperience } from "./modules/personal-experience.js";
 
 const UNLOCK_RADIUS_METERS = APP_CONFIG.unlockRadiusMeters;
 const STORAGE_KEY = APP_CONFIG.storage.collected;
@@ -372,6 +373,7 @@ let nearbyLocation = null;
 let dismissedArrivalId = null;
 let deferredInstallPrompt = null;
 let mapZoom = 1;
+let personalExperience = null;
 
 const elements = {
   arrivalCloseButton: document.querySelector("#arrivalCloseButton"),
@@ -895,6 +897,7 @@ function collectStamp(location) {
       : `${location.name} stamp added to your Telangana passport.`
   );
   renderLocations();
+  if (!isDemoMode) personalExperience?.refresh();
 }
 
 function updateArrivalPrompt() {
@@ -1092,6 +1095,23 @@ renderLocations();
 updateNetworkStatus();
 registerServiceWorker();
 resumeLocationIfGranted();
+
+try {
+  personalExperience = createPersonalExperience({
+    config: APP_CONFIG,
+    getVerifiedLocationIds: () => new Set(verifiedCollected),
+    locations
+  });
+  personalExperience.initialize().catch((error) => {
+    console.error("Could not initialize personal journey.", error);
+    document.querySelector("#personalStatus").textContent =
+      "Your private journey could not be loaded. Check browser storage access.";
+  });
+} catch (error) {
+  console.error("Could not read personal journey data.", error);
+  document.querySelector("#personalStatus").textContent =
+    "Saved journey data is unavailable in this browser.";
+}
 
 const isStandalone =
   window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
