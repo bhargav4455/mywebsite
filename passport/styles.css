@@ -301,6 +301,47 @@ select:focus-visible,
   border-radius: 50%;
 }
 
+.india-flag {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 132px;
+  height: 88px;
+  overflow: hidden;
+  background: #fff;
+  border: 3px solid rgba(16, 42, 67, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(7, 26, 45, 0.22);
+  transform: rotate(-5deg);
+}
+
+.india-flag > span {
+  display: grid;
+  place-items: center;
+}
+
+.india-flag__saffron {
+  background: #ff9933;
+}
+
+.india-flag__white {
+  background: #fff;
+}
+
+.india-flag__green {
+  background: #138808;
+}
+
+.india-flag__chakra {
+  width: 25px;
+  height: 25px;
+  background:
+    radial-gradient(circle, #fff 0 18%, transparent 19%),
+    repeating-conic-gradient(#000080 0 2deg, transparent 2deg 15deg);
+  border: 2px solid #000080;
+  border-radius: 50%;
+}
+
 .stamp-seal {
   display: grid;
   place-items: center;
